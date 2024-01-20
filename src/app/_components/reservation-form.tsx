@@ -3,18 +3,20 @@ import Select from '@/app/_components/select'
 
 export default function ReservationForm() {
   return (
-    <form className="grid grid-cols-4 gap-4">
-      <h2 className="col-span-4 text-center text-3xl">Reserve a Session</h2>
+    <form className="grid grid-cols-3 gap-4 md:grid-cols-4">
+      <h2 className="col-span-3 text-center text-3xl md:col-span-4">
+        Reserve a Session
+      </h2>
 
       <Input name="firstname" label="First name" />
 
       <Input name="lastname" label="Last name" />
 
-      <Input name="email" label="Email" className="col-span-2" />
+      <Input name="email" label="Email" className="md:col-span-2" />
 
-      <Input name="phone" label="Phone" />
+      <Input name="phone" label="Phone" className="mobile-only:col-span-2" />
 
-      <Input name="age" label="Age" type="number" />
+      <Input name="age" label="Age" type="number" className="!col-span-1" />
 
       <Input name="zip" label="Zip code" />
 
@@ -28,10 +30,13 @@ export default function ReservationForm() {
         label="Coaching plan"
         name="plan"
         options={['Quick Fix', 'Deeper Convo', 'Real Talk']}
-        className="col-span-2"
+        className="md:col-span-2"
       />
 
-      <label htmlFor="notes" className="col-span-2 row-span-2 flex flex-col">
+      <label
+        htmlFor="notes"
+        className="col-span-full row-span-2 flex flex-col md:col-span-2"
+      >
         <span className="mb-1 block text-sm">Notes</span>
         <textarea
           name="notes"
@@ -44,7 +49,7 @@ export default function ReservationForm() {
         label="What type of advice are you looking for?"
         name="advice"
         options={['I', 'dont', 'know', 'what', 'goes', 'here']}
-        className="col-span-2"
+        className="md:col-span-2"
       />
     </form>
   )

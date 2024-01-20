@@ -5,6 +5,9 @@ export default {
   content: ['./src/**/*.tsx'],
   theme: {
     extend: {
+      screens: {
+        'mobile-only': { max: '768px' },
+      },
       fontFamily: {
         display: ['var(--font-styrene-a)'],
         sans: ['var(--font-styrene-b)', ...fontFamily.sans],

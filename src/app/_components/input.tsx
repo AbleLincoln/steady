@@ -10,9 +10,14 @@ export default function Input({
   type = 'text',
   label,
   className,
+  style,
 }: InputProps) {
   return (
-    <label htmlFor={name} className={className}>
+    <label
+      htmlFor={name}
+      className={`col-span-full md:col-span-1 ${className}`}
+      style={style}
+    >
       <span className="mb-1 block text-sm">{label}</span>
       <input
         type={type}

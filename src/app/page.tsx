@@ -9,7 +9,6 @@ import PlanPicker from '@/app/_components/plan-picker'
 
 import steadyLogo from 'public/steady-logo-white.png'
 import manWithPhone from 'public/images/man_with_phone.jpg'
-import womanWithPhone from 'public/images/woman_with_phone.jpg'
 import sun from 'public/images/sun-thing.png'
 import happyCouple from 'public/images/happy_couple.jpg'
 import ReservationForm from './_components/reservation-form'
@@ -43,7 +42,7 @@ export default async function Home() {
             </ul>
           </header>
 
-          <div className="flex grow flex-col justify-center rounded-tr-xl border-8 border-white pl-20">
+          <div className="flex grow flex-col justify-center rounded-tr-xl border-8 border-white px-8 md:pl-20">
             <h2 className="mb-4 text-4xl font-bold tracking-wide drop-shadow-sm">
               You may be single
               <br />
@@ -87,7 +86,7 @@ export default async function Home() {
             Start the Conversation
           </h2>
           <p className="text-center">Find the plan that&apos;s best for you</p>
-          <div className="grid grid-cols-2 pt-16">
+          <div className="grid pt-16 md:grid-cols-2">
             <PlanPicker />
             <div className="relative">
               <Image
