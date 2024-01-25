@@ -41,7 +41,7 @@ export default function ReservationForm() {
         <textarea
           name="notes"
           id="notes"
-          className="text-dark w-full flex-grow rounded-md p-2 text-lg"
+          className="w-full flex-grow rounded-md p-2 text-lg text-dark"
         />
       </label>
 
@@ -51,6 +51,15 @@ export default function ReservationForm() {
         options={['I', 'dont', 'know', 'what', 'goes', 'here']}
         className="md:col-span-2"
       />
+
+      <div className="col-span-full mt-8 text-center">
+        <button
+          type="submit"
+          className="rounded-full bg-beige px-10 py-2 uppercase text-purple-steady transition-shadow hover:shadow-lg"
+        >
+          Submit
+        </button>
+      </div>
     </form>
   )
 }

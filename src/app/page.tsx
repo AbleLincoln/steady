@@ -1,5 +1,5 @@
 // import { unstable_noStore as noStore } from "next/cache";
-// import Link from "next/link";
+import Link from 'next/link'
 import Image from 'next/image'
 
 // import { CreatePost } from "@/app/_components/create-post";
@@ -8,7 +8,7 @@ import Image from 'next/image'
 import PlanPicker from '@/app/_components/plan-picker'
 
 import steadyLogo from 'public/steady-logo-white.png'
-import manWithPhone from 'public/images/man_with_phone.jpg'
+import heroImg from 'public/images/hero.jpg'
 import sun from 'public/images/sun-thing.png'
 import happyCouple from 'public/images/happy_couple.jpg'
 import ReservationForm from './_components/reservation-form'
@@ -20,15 +20,14 @@ export default async function Home() {
 
   return (
     <main>
-      <section className="relative h-screen text-white">
+      <section className="relative h-screen overflow-hidden text-white">
         <Image
-          src={manWithPhone}
+          src={heroImg}
           alt=""
           fill
-          style={{ objectFit: 'cover' }}
-          className="-z-10 md:-scale-x-100"
+          className="-z-10 hidden -scale-x-100 object-cover object-left-top sm:block"
         />
-        <div className="absolute inset-0 -z-10 bg-gradient-to-br from-purple-steady to-transparent opacity-60"></div>
+        <div className="absolute inset-0 -z-10 bg-gradient-to-br from-purple-steady to-pink-steady sm:opacity-75"></div>
         <div className="m-auto flex h-full max-w-screen-xl flex-col px-6 py-10">
           <header className="mb-4 flex justify-between">
             <Image
@@ -36,21 +35,29 @@ export default async function Home() {
               alt="Steady"
               style={{ height: '3rem', width: 'auto' }}
             />
-            <ul className="flex items-center text-lg sm:mr-[100px]">
-              <li className="mx-2">Our Mission</li>
-              <li className="mx-2">Get Help</li>
+            <ul className="hidden items-end items-center text-lg sm:mr-[100px] sm:flex">
+              <li className="mx-2">
+                <Link href="#mission" scroll>
+                  Our Mission
+                </Link>
+              </li>
+              <li className="mx-2">
+                <Link href="#plans">Get Help</Link>
+              </li>
             </ul>
           </header>
 
           <div className="flex grow flex-col justify-center rounded-tr-xl border-8 border-white px-8 md:pl-20">
             <h2 className="mb-4 text-4xl font-bold tracking-wide drop-shadow-sm">
-              You may be single
-              <br />
-              but you&apos;re not alone.
+              We help you navigate&nbsp;
+              <br className="hidden md:block" />
+              the world of online dating.
             </h2>
-            <p className="max-w-96 text-xl drop-shadow-sm">
-              Steady offers practical, on-demand dating advice from expert
-              coaches when you need it most.
+            <p className="max-w-screen-sm text-xl drop-shadow-sm">
+              So many people. So many options. So many things that can go
+              weirdly wrong. That&apos;s why there&apos;s Steady. Practical
+              dating advice from real human coaches to help you navigate the
+              unpredictable world of falling in love.
             </p>
           </div>
         </div>
@@ -58,7 +65,7 @@ export default async function Home() {
 
       <hr className="border-t-[1.25rem] border-pink-steady bg-pink-steady" />
 
-      <section className="bg-beige">
+      <section className="bg-beige" id="mission">
         <div className="relative m-auto flex h-full max-w-screen-xl flex-col items-center px-6 pb-20 pt-32 text-center">
           <Image
             src={sun}
@@ -69,18 +76,21 @@ export default async function Home() {
             The time has come for dating wellness
           </h2>
 
-          <p className="text-dark mb-14 max-w-screen-sm">
+          <p className="mb-14 max-w-screen-sm text-dark">
             Our mission is to empower happy, healthy, worthwhile dating
             experiences for people of all ages and orientations.
           </p>
 
-          <button className="rounded-full bg-green-steady px-10 py-2 uppercase text-white transition-shadow hover:shadow-lg">
+          <Link
+            className="rounded-full bg-green-steady px-10 py-2 uppercase text-white transition-shadow hover:shadow-lg"
+            href="#plans"
+          >
             Book a session
-          </button>
+          </Link>
         </div>
       </section>
 
-      <section>
+      <section id="plans">
         <div className="m-auto flex h-full max-w-screen-xl flex-col px-6 py-20">
           <h2 className="mb-6 text-center text-3xl text-pink-steady">
             Start the Conversation
