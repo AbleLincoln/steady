@@ -20,7 +20,14 @@ interface InviteePayload {
 // }
 
 export async function POST(request: Request) {
+  // TODO: webhook singature! https://developer.calendly.com/api-docs/4c305798a61d3-webhook-signatures
+  // https://hookdeck.com/webhooks/guides/how-to-implement-sha256-webhook-signature-verification
+
   const { email, name } = (await request.json()) as InviteePayload
+
+  console.log({ email, name })
+
+  // TODO: check type: created, canceled, reschedueld etc
 
   // 1. get invitee email
   // 2. hash email --> userId
