@@ -12,6 +12,7 @@ import heroImg from 'public/images/hero.jpg'
 import sun from 'public/images/sun-thing.png'
 import happyCouple from 'public/images/happy_couple.jpg'
 import ReservationForm from './_components/reservation-form'
+import Plan from './_components/plan'
 
 export default async function Home() {
   // noStore();
@@ -35,7 +36,7 @@ export default async function Home() {
               alt="Steady"
               style={{ height: '3rem', width: 'auto' }}
             />
-            <ul className="hidden items-end items-center text-lg sm:mr-[100px] sm:flex">
+            <ul className="hidden items-center text-lg sm:mr-[100px] sm:flex">
               <li className="mx-2">
                 <Link href="#mission" scroll>
                   Our Mission
@@ -66,7 +67,7 @@ export default async function Home() {
       <hr className="border-t-[1.25rem] border-pink-steady bg-pink-steady" />
 
       <section className="bg-beige" id="mission">
-        <div className="relative m-auto flex h-full max-w-screen-xl flex-col items-center px-6 pb-20 pt-32 text-center">
+        <div className="relative m-auto flex h-full max-w-screen-xl flex-col items-center px-6 pt-32 text-center">
           <Image
             src={sun}
             alt=""
@@ -81,17 +82,20 @@ export default async function Home() {
             experiences for people of all ages and orientations.
           </p>
 
-          <Link
+          {/* <Link
             className="rounded-full bg-green-steady px-10 py-2 uppercase text-white transition-shadow hover:shadow-lg"
             href="#plans"
           >
             Book a session
-          </Link>
+          </Link> */}
+          <div className="-mb-16">
+            <Plan />
+          </div>
         </div>
       </section>
 
       <section id="plans">
-        <div className="m-auto flex h-full max-w-screen-xl flex-col px-6 py-20">
+        <div className="m-auto flex h-full max-w-screen-xl flex-col px-6 py-32">
           <h2 className="mb-6 text-center text-3xl text-pink-steady">
             Start the Conversation
           </h2>

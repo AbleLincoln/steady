@@ -59,8 +59,8 @@ const styreneB = localFont({
 })
 
 export const metadata = {
-  title: 'Steady',
-  description: 'Date coaching',
+  title: 'Steady | Date Happy',
+  description: 'Date Happy',
   icons: [{ rel: 'icon', url: '/favicon.ico' }],
 }
 
@@ -72,7 +72,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`text-dark bg-white font-sans ${styreneB.variable} ${styreneA.variable}`}
+        className={`bg-white font-sans text-dark ${styreneB.variable} ${styreneA.variable}`}
       >
         <TRPCReactProvider>{children}</TRPCReactProvider>
       </body>

@@ -32,7 +32,8 @@ const config = {
         checksVoidReturn: { attributes: false },
       },
     ],
+    '@typescript-eslint/no-floating-promises': 'warn',
   },
 }
 
-module.exports = config;
+module.exports = config
