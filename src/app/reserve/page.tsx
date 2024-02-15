@@ -9,7 +9,7 @@ export default function Reserve() {
 
   return (
     <div className="min-h-screen bg-purple-steady text-white">
-      <div className="absolute inset-0 flex items-center justify-center">
+      <div className="absolute inset-0 -z-10 flex items-center justify-center">
         Loading...
       </div>
       <InlineWidget
