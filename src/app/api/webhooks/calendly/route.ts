@@ -29,8 +29,13 @@ export async function POST(request: Request) {
   // https://hookdeck.com/webhooks/guides/how-to-implement-sha256-webhook-signature-verification
 
   const {
+    event,
     payload: { email, name },
   } = (await request.json()) as CalendlyWebhookRequest
+
+  console.log({ event })
+
+  if (event !== 'invitee.created') return new Response()
 
   console.log({ email, name })
 
