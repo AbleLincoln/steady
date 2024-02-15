@@ -1,6 +1,11 @@
 import crypto from 'crypto'
 import streamClient from '@/server/stream'
 
+interface CalendlyWebhookRequest {
+  event: 'invitee.created' | 'invitee.canceled'
+  payload: InviteePayload
+}
+
 interface InviteePayload {
   email: string
   name: string
@@ -25,7 +30,9 @@ export async function POST(request: Request) {
 
   console.log(await request.json())
 
-  const { email, name } = (await request.json()) as InviteePayload
+  const {
+    payload: { email, name },
+  } = (await request.json()) as CalendlyWebhookRequest
 
   console.log({ email, name })
 
