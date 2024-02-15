@@ -23,7 +23,7 @@ import { useChatClient } from '@/app/_hooks/useChatClient'
 import 'stream-chat-react/dist/css/v2/index.css'
 import '@/styles/stream.css'
 
-const apiKey = '8h84kz5uqyhp'
+const apiKey = 'mspwbbwcvzjm'
 const userToken =
   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoic3RlYWR5In0.f0SOafAIFs9T8XDEYrlrHxEMLEceTFtFxEDKiH5CK2Y'
 
