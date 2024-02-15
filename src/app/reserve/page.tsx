@@ -9,6 +9,9 @@ export default function Reserve() {
 
   return (
     <div className="min-h-screen bg-purple-steady text-white">
+      <div className="absolute inset-0 flex items-center justify-center">
+        Loading...
+      </div>
       <InlineWidget
         url="https://calendly.com/d/46s-xhy-xpz/quick-chat"
         styles={{
