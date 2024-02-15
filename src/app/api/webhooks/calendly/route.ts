@@ -28,8 +28,6 @@ export async function POST(request: Request) {
   // TODO: webhook singature! https://developer.calendly.com/api-docs/4c305798a61d3-webhook-signatures
   // https://hookdeck.com/webhooks/guides/how-to-implement-sha256-webhook-signature-verification
 
-  console.log(await request.json())
-
   const {
     payload: { email, name },
   } = (await request.json()) as CalendlyWebhookRequest
