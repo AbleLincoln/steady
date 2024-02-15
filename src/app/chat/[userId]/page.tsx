@@ -17,7 +17,7 @@ import { useChatClient } from '@/app/_hooks/useChatClient'
 import 'stream-chat-react/dist/css/v2/index.css'
 import '@/styles/stream.css'
 
-const apiKey = '8h84kz5uqyhp'
+const apiKey = 'mspwbbwcvzjm'
 
 export default function DirectMessaging({
   params: { userId },
