@@ -5,12 +5,13 @@ import SignUpForm from './_signup-form'
 
 import steadyLogo from 'public/steady-logo-green.png'
 import flower from 'public/images/icons/flower.png'
-import couple from 'public/images/blanketcouple.jpg'
+// import couple from 'public/images/blanketcouple.jpg'
+import couple from 'public/images/5.jpeg'
 
 export default function ComingSoon() {
   return (
-    <main className="md:py-6">
-      <section className="grid md:mb-6 md:grid-cols-2">
+    <main className="">
+      <section className="grid md:grid-cols-2">
         <div className="px-6 py-6 md:px-12">
           <Image
             src={steadyLogo}
@@ -37,7 +38,7 @@ export default function ComingSoon() {
           src={couple}
           style={{ objectFit: 'cover', objectPosition: 'center 60%' }}
           alt="Person using phone to chat with dating coach"
-          className="md:rounded-l-steady"
+          className="h-screen"
         />
       </section>
     </main>

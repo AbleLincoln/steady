@@ -10,10 +10,17 @@ export const preregRouter = createTRPCRouter({
       }),
     )
     .mutation(async ({ ctx, input }) => {
-      return ctx.db.preReg.create({
-        data: {
+      return ctx.db.preReg.upsert({
+        where: {
           email: input.email,
         },
+        create: {
+          email: input.email,
+        },
+        update: {},
+        // create: {
+        //   email: input.email,
+        // },
       })
     }),
 })
