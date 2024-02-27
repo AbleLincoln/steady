@@ -53,7 +53,7 @@ export default function ComingSoon() {
                 Thank you!
               </h2>
               <p>
-                We promsie we won&apos;t ghost you. We will be in touch soon.
+                We promise we won&apos;t ghost you. We will be in touch soon.
               </p>
             </section>
           ) : (
