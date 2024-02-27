@@ -48,7 +48,7 @@ export default function ComingSoon() {
           <Divider icon={flower} />
 
           {signUp.isSuccess ? (
-            <section>
+            <section className="mb-12">
               <h2 className="mb-4 font-sans text-3xl font-light text-steady-green">
                 Thank you!
               </h2>
