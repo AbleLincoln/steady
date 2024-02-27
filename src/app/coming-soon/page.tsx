@@ -24,10 +24,10 @@ export default function ComingSoon() {
   })
 
   return (
-    <main className="py-6">
+    <main className="md:py-6">
       {/* <header className="pl-12 text-left"></header> */}
-      <section className="mb-6 grid md:grid-cols-2">
-        <div className="px-6 md:px-12 md:py-8">
+      <section className="grid md:mb-6 md:grid-cols-2">
+        <div className="px-6 py-6 md:px-12">
           <Image
             src={steadyLogo}
             alt="Steady"
@@ -101,7 +101,7 @@ export default function ComingSoon() {
           src={couple}
           style={{ objectFit: 'cover', objectPosition: 'center 60%' }}
           alt="Person using phone to chat with dating coach"
-          className="rounded-l-steady"
+          className="md:rounded-l-steady"
         />
       </section>
 
