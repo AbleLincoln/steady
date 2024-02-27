@@ -5,8 +5,7 @@ import SignUpForm from './_signup-form'
 
 import steadyLogo from 'public/steady-logo-green.png'
 import flower from 'public/images/icons/flower.png'
-// import couple from 'public/images/blanketcouple.jpg'
-import couple from 'public/images/5.jpeg'
+import couple from 'public/images/3.jpeg'
 
 export default function ComingSoon() {
   return (
@@ -16,7 +15,7 @@ export default function ComingSoon() {
           <Image
             src={steadyLogo}
             alt="Steady"
-            className="mb-6 inline"
+            className="mb-10 inline"
             style={{ height: '2.5rem', width: 'auto' }}
           />
           <h1 className="mb-4 font-sans text-3xl font-light text-steady-green">

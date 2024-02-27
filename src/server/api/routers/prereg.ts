@@ -18,9 +18,6 @@ export const preregRouter = createTRPCRouter({
           email: input.email,
         },
         update: {},
-        // create: {
-        //   email: input.email,
-        // },
       })
     }),
 })
