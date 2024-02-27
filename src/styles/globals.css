@@ -16,3 +16,8 @@
 html {
   scroll-behavior: smooth !important;
 }
+
+/* Custom classes */
+.wrapper {
+  @apply mx-auto max-w-screen-xl px-6;
+}

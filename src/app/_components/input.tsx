@@ -23,7 +23,7 @@ export default function Input({
         type={type}
         name={name}
         id={name}
-        className="text-dark w-full rounded-md p-2 text-lg"
+        className="w-full rounded-md border border-dark p-2 text-lg text-dark"
       />
     </label>
   )

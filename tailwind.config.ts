@@ -13,6 +13,12 @@ export default {
         sans: ['var(--font-styrene-b)', ...fontFamily.sans],
       },
       colors: {
+        steady: {
+          pink: 'rgb(203, 113, 177)',
+          green: 'rgb(38, 166, 87)',
+          purple: 'rgb(143, 148, 239)',
+        },
+        cream: '#fffcf6',
         pink: {
           steady: 'rgb(203, 113, 177)',
         },
@@ -26,7 +32,7 @@ export default {
         dark: 'rgba(30, 41, 59, 0.9)',
       },
       borderRadius: {
-        xl: '120px',
+        steady: '80px',
       },
     },
   },
