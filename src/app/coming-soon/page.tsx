@@ -1,31 +1,15 @@
-'use client'
-
 import Image from 'next/image'
 
-import { z } from 'zod'
-
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSpinner } from '@fortawesome/free-solid-svg-icons'
-
-import { api } from '@/trpc/react'
 import Divider from '@/app/_components/divider'
-import Input from '@/app/_components/input'
+import SignUpForm from './_signup-form'
 
 import steadyLogo from 'public/steady-logo-green.png'
-import manWithEffects from 'public/images/man_with_effects.jpg'
 import flower from 'public/images/icons/flower.png'
 import couple from 'public/images/blanketcouple.jpg'
 
 export default function ComingSoon() {
-  const signUp = api.prereg.signUp.useMutation({
-    onSuccess: () => {
-      console.log('success')
-    },
-  })
-
   return (
     <main className="md:py-6">
-      {/* <header className="pl-12 text-left"></header> */}
       <section className="grid md:mb-6 md:grid-cols-2">
         <div className="px-6 py-6 md:px-12">
           <Image
@@ -47,55 +31,7 @@ export default function ComingSoon() {
 
           <Divider icon={flower} />
 
-          {signUp.isSuccess ? (
-            <section className="mb-12">
-              <h2 className="mb-4 font-sans text-3xl font-light text-steady-green">
-                Thank you!
-              </h2>
-              <p>
-                We promise we won&apos;t ghost you. We will be in touch soon.
-              </p>
-            </section>
-          ) : (
-            <section>
-              <h2 className="mb-4 font-sans text-3xl font-light text-steady-green">
-                Want first dibs?
-              </h2>
-
-              <p>Sign up now for exclusive access when we go live.</p>
-
-              <form
-                className="relative max-w-screen-sm items-end py-6 md:flex"
-                onSubmit={(e) => {
-                  e.preventDefault()
-                  console.log(e.target)
-                  const formData = new FormData(e.target as HTMLFormElement)
-                  const email = formData.get('email') as string
-                  // TODO: validation
-                  signUp.mutate({ email })
-                }}
-              >
-                <Input label="Email address" name="email" className="grow" />
-                <button
-                  type="submit"
-                  className="mt-4 w-full rounded-lg border border-steady-pink bg-steady-pink px-6 py-2 text-lg text-white md:ml-4 md:w-auto"
-                >
-                  Sign Up
-                  {signUp.isLoading && (
-                    <FontAwesomeIcon
-                      icon={faSpinner}
-                      className="fa-spin-pulse ml-3"
-                    />
-                  )}
-                </button>
-                {signUp.isError && (
-                  <p className="absolute bottom-0 text-red-500">
-                    Please enter a valid email address
-                  </p>
-                )}
-              </form>
-            </section>
-          )}
+          <SignUpForm />
         </div>
         <Image
           src={couple}
@@ -104,8 +40,6 @@ export default function ComingSoon() {
           className="md:rounded-l-steady"
         />
       </section>
-
-      {/* <section className="wrapper relative h-[24rem]"></section> */}
     </main>
   )
 }

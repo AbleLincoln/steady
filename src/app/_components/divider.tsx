@@ -9,7 +9,7 @@ export default function Divider({ icon }: PropTypes) {
   return (
     <div className="wrapper flex items-center p-6">
       <hr className="mr-6 grow border-dark" />
-      <Image src={icon} alt="" className="" width={60} />
+      <Image src={icon} alt="" className="" width={50} />
     </div>
   )
 }
