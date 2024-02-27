@@ -61,7 +61,7 @@ const styreneB = localFont({
 export const metadata = {
   title: 'Steady | Date Happy',
   description: 'Date Happy',
-  icons: [{ rel: 'icon', url: '/favicon.ico' }],
+  icons: [{ rel: 'icon', url: '/favicon.png' }],
 }
 
 export default function RootLayout({
