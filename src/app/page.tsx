@@ -46,7 +46,7 @@ export default function Home() {
   const secondRef = useRef<HTMLElement>(null)
 
   return (
-    <main className="grid grid-cols-2 items-center">
+    <main className="grid grid-cols-1 items-center pt-24 md:grid-cols-2 md:pt-0">
       <Header />
 
       <section className="left-col px-8" ref={firstRef} data-section="0">
@@ -77,7 +77,7 @@ export default function Home() {
       <ImageFader targets={[firstRef, secondRef]} />
 
       <section
-        className="left-col px-8 pb-96 pt-80"
+        className="left-col overflow-hidden px-8 pb-96 pt-80"
         ref={secondRef}
         data-section="1"
       >
@@ -213,8 +213,8 @@ function Coach({
   bio: string
 }) {
   return (
-    <div className="mb-20 flex">
-      <div className="relative z-20 h-60 w-60 shrink-0">
+    <div className="mb-20 flex flex-col md:flex-row">
+      <div className="relative z-20 m-auto h-60 w-60 shrink-0 md:m-0">
         <Image
           src={pic}
           alt={name}
@@ -223,7 +223,7 @@ function Coach({
           style={{ objectFit: 'cover', objectPosition: 'top' }}
         />
       </div>
-      <div className="z-10 -ml-10 rounded-lg border border-dark bg-white p-6 pl-14 shadow-lg">
+      <div className="z-10 -mt-10 rounded-lg border border-dark bg-white p-6 pt-14 shadow-lg md:-ml-10 md:mt-0 md:pl-14 md:pt-6">
         <h3 className="mb-4 text-lg">{name}</h3>
         <p>{bio}</p>
       </div>

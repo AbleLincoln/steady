@@ -57,7 +57,7 @@ export default function ImageFader({
   }, [])
 
   return (
-    <div className="sticky bottom-0 top-0 h-screen">
+    <div className="sticky bottom-0 top-0 hidden h-screen md:block">
       <Image
         src={couple3}
         style={{

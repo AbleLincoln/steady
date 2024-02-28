@@ -38,7 +38,7 @@ function items() {
 
 export default function Header() {
   return (
-    <header className="border-bs fixed top-0 z-30 w-1/2 bg-cream py-5">
+    <header className="border-bs fixed inset-x-0 top-0 z-30 bg-cream py-5 md:w-1/2">
       <section className="flex items-center justify-between px-8 text-dark">
         <Image
           src={steadyLogo}
@@ -48,9 +48,9 @@ export default function Header() {
         {/* TODO: component */}
         {/* <button className="rounded-full border px-6 py-2">Get Started</button> */}
         {/* TODO: need to rewrite as my own bc broken */}
-        {/* <div className="sm:hidden">
+        <div className="sm:hidden">
           <Menu right>{items()}</Menu>
-        </div> */}
+        </div>
         <ul className="hidden items-center text-lg sm:flex">{items()}</ul>
       </section>
     </header>
