@@ -77,7 +77,7 @@ export default function Home() {
       <ImageFader targets={[firstRef, secondRef]} />
 
       <section
-        className="left-col px-8 pb-64 pt-52"
+        className="left-col px-8 pb-96 pt-80"
         ref={secondRef}
         data-section="1"
       >
@@ -114,7 +114,7 @@ export default function Home() {
           fill
           className="-z-10 -scale-x-100 object-cover object-left-top"
         /> */}
-      <section className="left-col textured relative row-span-2 min-h-screen self-stretch bg-steady-green px-6 py-12 text-white">
+      <section className="left-col textured relative row-span-2 min-h-screen self-stretch bg-steady-green px-6 py-12 pt-24 text-white">
         <h2 className="mt-4 font-sans font-light">How it works</h2>
         <h3 className="relative mb-6 inline-block font-sans text-2xl font-light drop-shadow">
           Choose the session duration that&apos;s right for you and connect with

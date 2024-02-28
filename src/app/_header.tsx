@@ -7,7 +7,7 @@ import { slide as Menu } from 'react-burger-menu'
 import '@/styles/burger-menu.css'
 
 // import steadyLogo from 'public/steady-logo.svg'
-import steadyLogo from 'public/steady-logo-white.png'
+import steadyLogo from 'public/steady-logo-green.png'
 
 const NAV = [
   {
@@ -19,7 +19,7 @@ const NAV = [
     label: 'How it Works',
   },
   {
-    href: '#plans',
+    href: '#coaches',
     label: 'Coaches',
   },
   {
@@ -38,8 +38,8 @@ function items() {
 
 export default function Header() {
   return (
-    <header className="border-bs mb-4 py-5">
-      <section className="wrapper flex items-center justify-between text-white">
+    <header className="border-bs fixed top-0 z-30 w-1/2 bg-cream py-5">
+      <section className="flex items-center justify-between px-8 text-dark">
         <Image
           src={steadyLogo}
           alt="Steady"
@@ -48,9 +48,9 @@ export default function Header() {
         {/* TODO: component */}
         {/* <button className="rounded-full border px-6 py-2">Get Started</button> */}
         {/* TODO: need to rewrite as my own bc broken */}
-        <div className="sm:hidden">
+        {/* <div className="sm:hidden">
           <Menu right>{items()}</Menu>
-        </div>
+        </div> */}
         <ul className="hidden items-center text-lg sm:flex">{items()}</ul>
       </section>
     </header>

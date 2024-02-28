@@ -9,52 +9,47 @@ import couple3 from 'public/images/3.jpeg'
 import couple4 from 'public/images/4.jpeg'
 import couple5 from 'public/images/5.jpeg'
 
-const handleObserver = (entries, observer, opacities, setOpacities) => {
-  console.log({ entries, observer })
-  entries.forEach((entry) => {
-    const section = ((entry.target as HTMLElement).dataset.section ??
-      0) as number
-
-    const newOpacities = opacities.curent
-    console.log(newOpacities)
-
-    if (entry.isIntersecting) {
-      newOpacities[section] = 1 * entry.intersectionRatio
-    } else {
-      newOpacities[section] = 0
-    }
-
-    console.log(newOpacities)
-
-    setOpacities(newOpacities)
-    opacities.current = newOpacities
-  })
-}
-
 export default function ImageFader({
   targets,
 }: {
   targets: RefObject<Element>[]
 }) {
-  const [opacities, setOpacities] = useState([1, 0])
-  const _opacities = useRef([1, 0])
+  const [scrollPosition, setScrollPosition] = useState(0)
 
   useEffect(() => {
-    console.log({ targets })
-    targets.forEach(
-      (target) => target.current && observer.current.observe(target.current),
-    )
-  }, [targets])
+    const updatePosition = () => {
+      setScrollPosition(window.scrollY)
+    }
+    window.addEventListener('scroll', updatePosition)
+    updatePosition()
+    return () => window.removeEventListener('scroll', updatePosition)
+  }, [])
 
-  const observer = useRef(
-    new IntersectionObserver(
-      (entries, observer) =>
-        handleObserver(entries, observer, _opacities, setOpacities),
-      {
-        threshold: Array.from({ length: 11 }, (_, i) => i / 10),
-      },
-    ),
-  )
+  const calculateOpacity = (section: number, buffer = 0, span = 1) => {
+    console.log({ scrollPosition, height: window.innerHeight, section })
+
+    if (scrollPosition < Math.max(section - 1, 0) * window.innerHeight) return 0
+    if (scrollPosition > (section + 1) * window.innerHeight) return 0
+
+    // dumbass
+    if (
+      section * window.innerHeight >= scrollPosition - buffer &&
+      section * window.innerHeight <= scrollPosition + buffer
+    )
+      return 1
+
+    if (scrollPosition < section * window.innerHeight)
+      return Math.abs(
+        1 -
+          (window.innerHeight * section - scrollPosition) / window.innerHeight,
+      )
+
+    if (scrollPosition > section * window.innerHeight)
+      return Math.abs(
+        1 -
+          (scrollPosition - window.innerHeight * section) / window.innerHeight,
+      )
+  }
 
   return (
     <div className="sticky bottom-0 top-0 h-screen">
@@ -63,19 +58,83 @@ export default function ImageFader({
         style={{
           objectFit: 'cover',
           objectPosition: 'center 60%',
-          opacity: opacities[0],
+          opacity: calculateOpacity(0, 0, 2),
+          transition: 'opacity 150ms',
+          willChange: 'opacity',
         }}
-        className="h-full"
+        className="absolute h-full"
         alt="Person using phone to chat with dating coach"
       />
       <Image
-        src={couple1}
+        src={couple5}
         style={{
           objectFit: 'cover',
           objectPosition: 'center 60%',
-          opacity: opacities[1],
+          opacity: calculateOpacity(1),
+          transition: 'opacity 150ms',
+          willChange: 'opacity',
         }}
-        className="h-full"
+        className="absolute h-full"
+        alt="Person using phone to chat with dating coach"
+      />
+      <Image
+        src={couple2}
+        style={{
+          objectFit: 'cover',
+          objectPosition: 'center 60%',
+          opacity: calculateOpacity(2, 200),
+          transition: 'opacity 150ms',
+          willChange: 'opacity',
+        }}
+        className="absolute h-full"
+        alt="Person using phone to chat with dating coach"
+      />
+      <Image
+        src={couple2}
+        style={{
+          objectFit: 'cover',
+          objectPosition: 'center 60%',
+          opacity: calculateOpacity(3, 600),
+          transition: 'opacity 150ms',
+          willChange: 'opacity',
+        }}
+        className="absolute h-full"
+        alt="Person using phone to chat with dating coach"
+      />
+      <Image
+        src={couple4}
+        style={{
+          objectFit: 'cover',
+          objectPosition: 'center 60%',
+          opacity: calculateOpacity(4, 600),
+          transition: 'opacity 150ms',
+          willChange: 'opacity',
+        }}
+        className="absolute h-full"
+        alt="Person using phone to chat with dating coach"
+      />
+      <Image
+        src={couple4}
+        style={{
+          objectFit: 'cover',
+          objectPosition: 'center 60%',
+          opacity: calculateOpacity(5, 600),
+          transition: 'opacity 150ms',
+          willChange: 'opacity',
+        }}
+        className="absolute h-full"
+        alt="Person using phone to chat with dating coach"
+      />
+      <Image
+        src={couple4}
+        style={{
+          objectFit: 'cover',
+          objectPosition: 'center 60%',
+          opacity: calculateOpacity(6, 600),
+          transition: 'opacity 150ms',
+          willChange: 'opacity',
+        }}
+        className="absolute h-full"
         alt="Person using phone to chat with dating coach"
       />
     </div>
