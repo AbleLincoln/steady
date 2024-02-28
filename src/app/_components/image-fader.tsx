@@ -9,6 +9,37 @@ import couple3 from 'public/images/3.jpeg'
 import couple4 from 'public/images/4.jpeg'
 import couple5 from 'public/images/5.jpeg'
 
+const calculateOpacity = (
+  section: number,
+  scrollPosition: number,
+  buffer = 0,
+  span = 1,
+) => {
+  if (typeof window === 'undefined') return section === 0 ? 1 : 0
+
+  console.log({ scrollPosition, height: window.innerHeight, section })
+
+  if (scrollPosition < Math.max(section - 1, 0) * window.innerHeight) return 0
+  if (scrollPosition > (section + 1) * window.innerHeight) return 0
+
+  // dumbass
+  if (
+    section * window.innerHeight >= scrollPosition - buffer &&
+    section * window.innerHeight <= scrollPosition + buffer
+  )
+    return 1
+
+  if (scrollPosition < section * window.innerHeight)
+    return Math.abs(
+      1 - (window.innerHeight * section - scrollPosition) / window.innerHeight,
+    )
+
+  if (scrollPosition > section * window.innerHeight)
+    return Math.abs(
+      1 - (scrollPosition - window.innerHeight * section) / window.innerHeight,
+    )
+}
+
 export default function ImageFader({
   targets,
 }: {
@@ -25,32 +56,6 @@ export default function ImageFader({
     return () => window.removeEventListener('scroll', updatePosition)
   }, [])
 
-  const calculateOpacity = (section: number, buffer = 0, span = 1) => {
-    console.log({ scrollPosition, height: window.innerHeight, section })
-
-    if (scrollPosition < Math.max(section - 1, 0) * window.innerHeight) return 0
-    if (scrollPosition > (section + 1) * window.innerHeight) return 0
-
-    // dumbass
-    if (
-      section * window.innerHeight >= scrollPosition - buffer &&
-      section * window.innerHeight <= scrollPosition + buffer
-    )
-      return 1
-
-    if (scrollPosition < section * window.innerHeight)
-      return Math.abs(
-        1 -
-          (window.innerHeight * section - scrollPosition) / window.innerHeight,
-      )
-
-    if (scrollPosition > section * window.innerHeight)
-      return Math.abs(
-        1 -
-          (scrollPosition - window.innerHeight * section) / window.innerHeight,
-      )
-  }
-
   return (
     <div className="sticky bottom-0 top-0 h-screen">
       <Image
@@ -58,7 +63,7 @@ export default function ImageFader({
         style={{
           objectFit: 'cover',
           objectPosition: 'center 60%',
-          opacity: calculateOpacity(0, 0, 2),
+          opacity: calculateOpacity(0, scrollPosition, 0, 2),
           transition: 'opacity 150ms',
           willChange: 'opacity',
         }}
@@ -70,7 +75,7 @@ export default function ImageFader({
         style={{
           objectFit: 'cover',
           objectPosition: 'center 60%',
-          opacity: calculateOpacity(1),
+          opacity: calculateOpacity(1, scrollPosition),
           transition: 'opacity 150ms',
           willChange: 'opacity',
         }}
@@ -82,7 +87,7 @@ export default function ImageFader({
         style={{
           objectFit: 'cover',
           objectPosition: 'center 60%',
-          opacity: calculateOpacity(2, 200),
+          opacity: calculateOpacity(2, scrollPosition, 200),
           transition: 'opacity 150ms',
           willChange: 'opacity',
         }}
@@ -94,7 +99,7 @@ export default function ImageFader({
         style={{
           objectFit: 'cover',
           objectPosition: 'center 60%',
-          opacity: calculateOpacity(3, 600),
+          opacity: calculateOpacity(3, scrollPosition, 600),
           transition: 'opacity 150ms',
           willChange: 'opacity',
         }}
@@ -106,7 +111,7 @@ export default function ImageFader({
         style={{
           objectFit: 'cover',
           objectPosition: 'center 60%',
-          opacity: calculateOpacity(4, 600),
+          opacity: calculateOpacity(4, scrollPosition, 600),
           transition: 'opacity 150ms',
           willChange: 'opacity',
         }}
@@ -118,7 +123,7 @@ export default function ImageFader({
         style={{
           objectFit: 'cover',
           objectPosition: 'center 60%',
-          opacity: calculateOpacity(5, 600),
+          opacity: calculateOpacity(5, scrollPosition, 600),
           transition: 'opacity 150ms',
           willChange: 'opacity',
         }}
@@ -130,7 +135,7 @@ export default function ImageFader({
         style={{
           objectFit: 'cover',
           objectPosition: 'center 60%',
-          opacity: calculateOpacity(6, 600),
+          opacity: calculateOpacity(6, scrollPosition, 600),
           transition: 'opacity 150ms',
           willChange: 'opacity',
         }}
