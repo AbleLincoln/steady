@@ -14,8 +14,11 @@ import crypto from 'crypto'
 
 import { useChatClient } from '@/app/_hooks/useChatClient'
 
+import { api } from '@/trpc/react'
+
 import 'stream-chat-react/dist/css/v2/index.css'
 import '@/styles/stream.css'
+import { useEffect } from 'react'
 
 const apiKey = 'mspwbbwcvzjm'
 
@@ -37,6 +40,9 @@ export default function DirectMessaging({
     user,
   })
 
+  const getEventDetails = api.calendly.getEventDetails.useQuery(userId)
+  console.log(getEventDetails.data)
+
   if (!chatClient) return <LoadingIndicator />
 
   const channel = chatClient.channel('messaging', {
@@ -44,15 +50,17 @@ export default function DirectMessaging({
   })
 
   return (
-    <Chat client={chatClient} theme="str-chat__theme-light">
-      <Channel channel={channel}>
-        <Window>
-          <ChannelHeader />
-          <MessageList />
-          <MessageInput />
-        </Window>
-        <Thread />
-      </Channel>
-    </Chat>
+    <div className="m-auto max-w-screen-sm">
+      <Chat client={chatClient} theme="str-chat__theme-light">
+        <Channel channel={channel}>
+          <Window>
+            <ChannelHeader />
+            <MessageList />
+            <MessageInput />
+          </Window>
+          <Thread />
+        </Channel>
+      </Chat>
+    </div>
   )
 }

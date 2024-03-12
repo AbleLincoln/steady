@@ -24,7 +24,7 @@ export default function Plan({ time, bestFor, examples }: PlanProps) {
             <button>Book now</button>
           ) : (
             <PopupButton
-              url="https://calendly.com/steadydatecoaching/10-minutes-instant-messaging"
+              url="https://calendly.com/d/46s-xhy-xpz/quick-chat"
               /*
                * react-calendly uses React's Portal feature (https://reactjs.org/docs/portals.html) to render the popup modal. As a result, you'll need to
                * specify the rootElement property to ensure that the modal is inserted into the correct domNode.
