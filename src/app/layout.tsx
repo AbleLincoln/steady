@@ -73,6 +73,7 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={`bg-cream font-sans text-dark ${styreneB.variable} ${styreneA.variable}`}
+        id="root"
       >
         <TRPCReactProvider>{children}</TRPCReactProvider>
       </body>

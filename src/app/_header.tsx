@@ -22,10 +22,10 @@ const NAV = [
     href: '#coaches',
     label: 'Coaches',
   },
-  {
-    href: '#faq',
-    label: 'FAQ',
-  },
+  // {
+  //   href: '#faq',
+  //   label: 'FAQ',
+  // },
 ]
 
 function items() {
@@ -38,8 +38,8 @@ function items() {
 
 export default function Header() {
   return (
-    <header className="border-bs fixed inset-x-0 top-0 z-30 bg-cream py-5 md:w-1/2">
-      <section className="flex items-center justify-between px-8 text-dark">
+    <header className="border-bs absolute inset-x-0 top-0 z-30 bg-cream py-5 md:w-1/2">
+      <section className="wrapper flex items-center justify-between text-dark">
         <Image
           src={steadyLogo}
           alt="Steady"
