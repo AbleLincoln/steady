@@ -3,6 +3,7 @@ import Plan from '@/app/_components/plan'
 const PLANS = [
   {
     time: '10 minutes',
+    price: 20,
     bestFor: 'straight-forward dating questions ',
     examples: [
       'What does this text mean?',
@@ -12,6 +13,7 @@ const PLANS = [
   },
   {
     time: '15 minutes',
+    price: 30,
     bestFor: 'situational dating advice with some backstory',
     examples: [
       'How to identify what you are truly looking for in a partner',
@@ -21,6 +23,7 @@ const PLANS = [
   },
   {
     time: '20 minutes',
+    price: 35,
     bestFor: 'more backstory required or profile optimization',
     examples: [
       'Help making my online profile more successful',

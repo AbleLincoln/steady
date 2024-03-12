@@ -6,18 +6,19 @@ import { PopupButton } from 'react-calendly'
 
 interface PlanProps {
   time: string
+  price: number
   bestFor: string
   examples: string[]
 }
 
-export default function Plan({ time, bestFor, examples }: PlanProps) {
+export default function Plan({ time, price, bestFor, examples }: PlanProps) {
   return (
     <div className="my-4 flex flex-col justify-between">
       <div className="py-6 md:px-8">
         <div className="mb-4 flex items-end justify-between">
           <p className="text-2xl font-light uppercase">
             {time} <br />
-            for $20
+            for ${price}
           </p>
           {/* TODO: hydration errors also this is sloppy */}
           {typeof document === 'undefined' ? (

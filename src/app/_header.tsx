@@ -43,7 +43,7 @@ export default function Header() {
         <Image
           src={steadyLogo}
           alt="Steady"
-          style={{ height: '2.5rem', width: 'auto' }}
+          style={{ height: '2rem', width: 'auto' }}
         />
         {/* TODO: component */}
         {/* <button className="rounded-full border px-6 py-2">Get Started</button> */}
