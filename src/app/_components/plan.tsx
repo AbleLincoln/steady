@@ -11,7 +11,12 @@ interface PlanProps {
   examples: string[]
 }
 
-export default function Plan({ time, price, bestFor, examples }: PlanProps) {
+export default function Plan({
+  time,
+  price = 20,
+  bestFor,
+  examples,
+}: PlanProps) {
   return (
     <div className="my-4 flex flex-col justify-between">
       <div className="py-6 md:px-8">

@@ -36,8 +36,14 @@ const PLANS = [
 export default function Plans() {
   return (
     <div className="justify-between pt-8 md:flex">
-      {PLANS.map(({ time, bestFor, examples }) => (
-        <Plan key={time} time={time} bestFor={bestFor} examples={examples} />
+      {PLANS.map(({ time, price, bestFor, examples }) => (
+        <Plan
+          key={time}
+          time={time}
+          price={price}
+          bestFor={bestFor}
+          examples={examples}
+        />
       ))}
     </div>
   )
