@@ -40,7 +40,7 @@ function items() {
 export default function Header() {
   return (
     <header className="border-bs wrapper absolute inset-x-0 top-0 z-30 flex justify-between py-5">
-      <section className="flex items-center justify-between bg-cream pr-12 text-dark md:w-1/2">
+      <section className="flex grow items-center justify-between bg-cream text-dark md:w-1/2 md:grow-0 md:pr-12">
         <Image
           src={steadyLogo}
           alt="Steady"
@@ -54,7 +54,7 @@ export default function Header() {
         <ul className="hidden items-center text-lg sm:flex">{items()}</ul>
       </section>
 
-      <Button href="/book" className="px-12 leading-snug">
+      <Button href="/book" className="hidden px-12 leading-snug md:block">
         Get Started
       </Button>
     </header>

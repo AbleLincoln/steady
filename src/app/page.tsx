@@ -15,6 +15,8 @@ import '@/styles/burger-menu.css'
 import quote from 'public/images/icons/quote.png'
 import flower from 'public/images/icons/flower.png'
 import sun from 'public/images/icons/sun.png'
+import couple3 from 'public/images/3.jpeg'
+import couple5 from 'public/images/5.jpeg'
 import couple6 from 'public/images/6.jpg'
 
 import Header from './_header'
@@ -68,9 +70,17 @@ export default function Home() {
         <Divider icon={flower} />
       </section>
 
-      <div className="row-span-2 hidden md:block">
-        <ImageFader targets={[firstRef, secondRef]} />
-      </div>
+      <section className="h-screen">
+        <Image
+          src={couple5}
+          alt="Couple holding hands"
+          className="h-full"
+          style={{
+            objectFit: 'cover',
+            objectPosition: 'center 60%',
+          }}
+        />
+      </section>
 
       <section
         className="left-col wrapper flex min-h-screen flex-col justify-center bg-steady-pink text-white"
@@ -93,6 +103,18 @@ export default function Home() {
         <Divider icon={sun} color="white" />
       </section>
 
+      <section className="h-screen">
+        <Image
+          src={couple3}
+          alt="Couple holding hands"
+          className="h-full"
+          style={{
+            objectFit: 'cover',
+            objectPosition: 'center 60%',
+          }}
+        />
+      </section>
+
       <section
         className="wrapper relative col-span-2 min-h-screen bg-steady-green py-12 pt-24 text-white"
         id="plans"
@@ -105,9 +127,9 @@ export default function Home() {
 
         <Plans />
 
-        <Button href="/book" theme="green" className="ml-8 mt-8 self-center">
+        {/* <Button href="/book" theme="green" className="ml-8 mt-8 self-center">
           Book a Session
-        </Button>
+        </Button> */}
       </section>
 
       <section className="left-col min-h-screen bg-white py-28">

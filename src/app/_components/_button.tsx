@@ -20,7 +20,7 @@ export default function Button({
   href,
   className = '',
 }: ButtonPropTypes & HTMLAttributes<HTMLButtonElement>) {
-  const _className = `${className} ${THEMES[theme]} rounded-full px-12 py-3 text-lg leading-snug`
+  const _className = `${className} ${THEMES[theme]} rounded-full px-12 py-3 text-lg leading-snug self-center`
 
   if (href)
     return (
