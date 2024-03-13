@@ -4,7 +4,7 @@ import { useRef } from 'react'
 
 // import { unstable_noStore as noStore } from 'next/cache'
 import Image, { type StaticImageData } from 'next/image'
-// import Link from 'next/link'
+import Link from 'next/link'
 
 import '@/styles/burger-menu.css'
 
@@ -15,20 +15,16 @@ import '@/styles/burger-menu.css'
 import quote from 'public/images/icons/quote.png'
 import flower from 'public/images/icons/flower.png'
 import sun from 'public/images/icons/sun.png'
-import hearts from 'public/images/icons/hearts.png'
-import couple1 from 'public/images/1.jpeg'
-import couple2 from 'public/images/2.jpeg'
 import couple6 from 'public/images/6.jpg'
 
 import Header from './_header'
 
 import Divider from '@/app/_components/divider'
-import Plan from '@/app/_components/plan'
 import ImageFader from './_components/image-fader'
 import Coaches from './_coaches'
 import Footer from './_footer'
 import Plans from './_components/plans'
-import Link from 'next/link'
+import Button from '@/app/_components/_button'
 
 export default function Home() {
   // noStore()
@@ -63,13 +59,8 @@ export default function Home() {
         </div>
 
         <div className="mx-auto flex max-w-sm flex-col text-center">
-          <Link
-            className="mb-3 rounded-full bg-steady-pink px-6 py-3 text-lg text-white"
-            href="/book"
-          >
-            Get Started
-          </Link>
-          <p className="text-center opacity-85">
+          <Button href="/book">Get Started</Button>
+          <p className="mt-4 text-center opacity-85">
             Chat with a coach for as little $20
           </p>
         </div>
@@ -90,12 +81,15 @@ export default function Home() {
         <h2 className="relative mb-4 inline-block text-4xl font-light leading-snug  ">
           Everyone has the right to date happy.
         </h2>
-        <p className="text-xl">
+        <p className="mb-12 text-xl">
           We want to empower people of all ages and orientations to have happy,
           healthy, and worthwhile dating experiences. Sometimes that takes
           talking through an issue, getting a new perspective on a situation, or
           simply dialing in a better online dating profile.
         </p>
+        <Button href="/book" theme="pink" className="self-center">
+          Book a Session
+        </Button>
         <Divider icon={sun} color="white" />
       </section>
 
@@ -110,6 +104,10 @@ export default function Home() {
         </h3>
 
         <Plans />
+
+        <Button href="/book" theme="green" className="ml-8 mt-8 self-center">
+          Book a Session
+        </Button>
       </section>
 
       <section className="left-col min-h-screen bg-white py-28">
@@ -148,11 +146,11 @@ export default function Home() {
       >
         <h2 className="text-3xl text-white">Meet some of our coaches</h2>
         <Coaches />
-        <div className="mx-auto mt-16 flex max-w-screen-lg flex-col items-center px-16 md:flex-row">
-          <button className="mr-4 rounded-full bg-white px-6 py-2 text-steady-purple">
-            Book a session
-          </button>
-          <p className="mt-8 text-center text-lg text-white md:mt-0">
+        <div className="mx-auto mt-16 flex max-w-screen-lg flex-col items-center md:flex-row">
+          <Button theme="purple" href="/book">
+            Book a Session
+          </Button>
+          <p className="ml-4 mt-12 text-center text-lg text-white md:mt-0">
             Live phone and video chats coming soon!
           </p>
         </div>
