@@ -8,7 +8,7 @@ import '@/styles/burger-menu.css'
 
 // import steadyLogo from 'public/steady-logo.svg'
 import steadyLogo from 'public/steady-logo-green.png'
-import Button from '@/app/_components/_button'
+import Button from '@/app/_components/button'
 
 const NAV = [
   {
@@ -23,10 +23,10 @@ const NAV = [
     href: '#coaches',
     label: 'Coaches',
   },
-  // {
-  //   href: '#faq',
-  //   label: 'FAQ',
-  // },
+  {
+    href: '/faq',
+    label: 'FAQ',
+  },
 ]
 
 function items() {

@@ -19,6 +19,7 @@ export default {
           purple: 'rgb(143, 148, 239)',
         },
         cream: '#fffcf6',
+        darkcream: '#fffcf6',
         pink: {
           steady: 'rgb(203, 113, 177)',
         },
