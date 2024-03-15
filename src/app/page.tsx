@@ -12,7 +12,6 @@ import '@/styles/burger-menu.css'
 // import { getServerAuthSession } from '@/server/auth'
 // import { api } from '@/trpc/server'
 
-import quote from 'public/images/icons/quote.png'
 import flower from 'public/images/icons/flower.png'
 import sun from 'public/images/icons/sun.png'
 import couple3 from 'public/images/3.jpeg'
@@ -26,6 +25,7 @@ import Coaches from './_coaches'
 import Footer from './_footer'
 import Plans from './_components/plans'
 import Button from '@/app/_components/button'
+import Testimonials from './_testimonials'
 
 export default function Home() {
   // noStore()
@@ -129,18 +129,7 @@ export default function Home() {
         <section className="left-col min-h-screen bg-white py-28">
           <div className="wrapper relative m-auto flex h-full max-w-screen-xl flex-col pt-12">
             <h2 className="mb-12 text-3xl">Testimonials</h2>
-            <Image
-              src={quote}
-              alt=""
-              width={30}
-              className="mb-2 translate-y-4 opacity-80"
-            />
-            <blockquote className="mb-4 px-2 indent-8 text-2xl font-light">
-              I love their approach and how candid they are. They really listen
-              and most importantly pick up on the energy and undercurrent of our
-              conversations.
-            </blockquote>
-            <p className="px-2 opacity-75">- Tara, 36</p>
+            <Testimonials />
           </div>
         </section>
 
