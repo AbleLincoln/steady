@@ -19,7 +19,7 @@ export default function Plan({
 }: PlanProps) {
   return (
     <div className="my-4 flex flex-col justify-between">
-      <div className="px-8 py-6">
+      <div className="py-6 md:px-8">
         <div className="mb-4 flex items-end justify-between">
           <p className="text-2xl font-light uppercase">
             {time} <br />

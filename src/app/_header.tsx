@@ -52,7 +52,9 @@ export default function Header() {
         {/* TODO: need to rewrite as my own bc broken */}
         <div className="sm:hidden">
           <Menu right>
-            <Button className="mb-4 px-6 py-2 text-base">Get Started</Button>
+            <Button className="mb-4 px-6 py-2 text-base" href="/book">
+              Get Started
+            </Button>
             {items('my-4')}
           </Menu>
         </div>
