@@ -4,7 +4,6 @@ import { useRef } from 'react'
 
 // import { unstable_noStore as noStore } from 'next/cache'
 import Image, { type StaticImageData } from 'next/image'
-import Link from 'next/link'
 
 import '@/styles/burger-menu.css'
 

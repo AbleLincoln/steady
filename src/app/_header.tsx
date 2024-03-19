@@ -29,9 +29,9 @@ const NAV = [
   },
 ]
 
-function items() {
+function items(styles = '') {
   return NAV.map(({ href, label }) => (
-    <li key={href} className="mx-3">
+    <li key={href} className={`${styles} mx-3`}>
       <Link href={href}>{label}</Link>
     </li>
   ))
@@ -51,7 +51,10 @@ export default function Header() {
 
         {/* TODO: need to rewrite as my own bc broken */}
         <div className="sm:hidden">
-          <Menu right>{items()}</Menu>
+          <Menu right>
+            <Button className="mb-4 px-6 py-2 text-base">Get Started</Button>
+            {items('my-4')}
+          </Menu>
         </div>
         <ul className="hidden items-center text-lg sm:flex">{items()}</ul>
       </section>
