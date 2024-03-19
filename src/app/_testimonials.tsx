@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import { useSwipeable } from 'react-swipeable'
 
 import quote from 'public/images/icons/quote.png'
 import { useState } from 'react'
@@ -42,10 +43,26 @@ function transform(amount: number) {
 // TODO: swipe https://www.npmjs.com/package/react-swipeable
 export default function Testimonials() {
   const [active, setActive] = useState(0)
+  const [isSwiping, setIsSwiping] = useState(false)
+
+  const handlers = useSwipeable({
+    onSwipedRight: () => setActive((a) => Math.max(a - 1, 0)),
+    onSwipedLeft: () =>
+      setActive((a) => Math.min(a + 1, TESTIMONIALS.length - 1)),
+    onTouchStartOrOnMouseDown: () => setIsSwiping(true),
+    onTouchEndOrOnMouseUp: () => setIsSwiping(false),
+
+    trackMouse: true,
+    preventScrollOnSwipe: true,
+  })
 
   return (
     <>
-      <div className="flex overflow-hidden">
+      <div
+        className="flex select-none overflow-hidden"
+        style={{ cursor: isSwiping ? 'grabbing' : 'grab' }}
+        {...handlers}
+      >
         {TESTIMONIALS.map(({ body, attr }) => (
           <div
             key={attr}
