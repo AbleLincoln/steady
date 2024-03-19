@@ -42,7 +42,7 @@ export default function Coaches() {
       </ul>
       <div className="mt-8 grid min-h-[25rem] grid-rows-2 rounded-r-steady bg-white md:grid-cols-2 md:grid-rows-1">
         <div className="p-8">
-          <h3 className="mb-2 font-sans text-lg font-light text-steady-pink">
+          <h3 className="mb-2 text-lg font-light text-steady-pink">
             {COACHES[activeCoach]?.name}
           </h3>
           <p>{COACHES[activeCoach]?.bio}</p>

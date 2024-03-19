@@ -8,13 +8,33 @@ const styreneA = localFont({
   // TODO: font display: https://nextjs.org/docs/app/api-reference/components/font#display
   src: [
     {
-      path: './fonts/StyreneALC-Bold.otf',
-      weight: '700',
+      path: './fonts/StyreneALC-Thin.otf',
+      weight: '100',
       style: 'normal',
     },
     {
-      path: './fonts/StyreneALC-BoldItalic.otf',
-      weight: '700',
+      path: './fonts/StyreneALC-ThinItalic.otf',
+      weight: '100',
+      style: 'italic',
+    },
+    {
+      path: './fonts/StyreneALC-Light.otf',
+      weight: '300',
+      style: 'normal',
+    },
+    {
+      path: './fonts/StyreneALC-LightItalic.otf',
+      weight: '300',
+      style: 'italic',
+    },
+    {
+      path: './fonts/StyreneALC-Regular.otf',
+      weight: '400',
+      style: 'normal',
+    },
+    {
+      path: './fonts/StyreneALC-RegularItalic.otf',
+      weight: '400',
       style: 'italic',
     },
     {
@@ -25,6 +45,26 @@ const styreneA = localFont({
     {
       path: './fonts/StyreneALC-MediumItalic.otf',
       weight: '500',
+      style: 'italic',
+    },
+    {
+      path: './fonts/StyreneALC-Bold.otf',
+      weight: '700',
+      style: 'normal',
+    },
+    {
+      path: './fonts/StyreneALC-BoldItalic.otf',
+      weight: '700',
+      style: 'italic',
+    },
+    {
+      path: './fonts/StyreneALC-Black.otf',
+      weight: '800',
+      style: 'normal',
+    },
+    {
+      path: './fonts/StyreneALC-BlackItalic.otf',
+      weight: '800',
       style: 'italic',
     },
   ],
