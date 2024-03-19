@@ -39,7 +39,7 @@ export default function Home() {
 
       <main className="grid-cols-2 md:grid md:pt-0">
         <section
-          className="wrapper flex min-h-screen flex-col justify-between pb-12 pt-36"
+          className="wrapper flex min-h-screen flex-col justify-between pb-12 pt-24 md:pt-36"
           data-section="0"
         >
           <div>
@@ -114,12 +114,12 @@ export default function Home() {
           className="wrapper relative col-span-2 min-h-screen bg-steady-green py-12 pt-24 text-white"
           id="plans"
         >
-          <h2 className="mb-5 text-3xl">
+          <h2 className="mb-5 whitespace-nowrap text-3xl">
             How It Works
             <Image
               src={bubble}
               alt=""
-              className="mb-3 ml-10 inline align-bottom"
+              className="mb-3 ml-4 inline align-bottom md:ml-10"
             />
           </h2>
           <h3 className="max-w-screen-sm font-sans text-lg font-light">
