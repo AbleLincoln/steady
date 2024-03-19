@@ -16,6 +16,8 @@ import sun from 'public/images/icons/sun.png'
 import couple3 from 'public/images/3.jpeg'
 import couple5 from 'public/images/5.jpeg'
 import couple6 from 'public/images/6.jpg'
+import couple from 'public/images/couplewithhearts.jpg'
+import bubble from 'public/images/icons/bubbles.png'
 
 import Header from './_header'
 
@@ -66,7 +68,7 @@ export default function Home() {
 
         <section className="h-screen">
           <Image
-            src={couple5}
+            src={couple}
             alt="Couple holding hands"
             className="h-full"
             style={{
@@ -112,7 +114,14 @@ export default function Home() {
           className="wrapper relative col-span-2 min-h-screen bg-steady-green py-12 pt-24 text-white"
           id="plans"
         >
-          <h2 className="mb-3 text-3xl">How it works</h2>
+          <h2 className="mb-5 text-3xl">
+            How It Works
+            <Image
+              src={bubble}
+              alt=""
+              className="mb-3 ml-10 inline align-bottom"
+            />
+          </h2>
           <h3 className="max-w-screen-sm font-sans text-lg font-light">
             Choose the session duration that&apos;s right for you and connect
             with a dating expert right away.

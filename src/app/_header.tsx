@@ -17,7 +17,7 @@ const NAV = [
   },
   {
     href: '#plans',
-    label: 'How it Works',
+    label: 'How It Works',
   },
   {
     href: '#coaches',
