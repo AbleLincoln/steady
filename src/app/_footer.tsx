@@ -10,11 +10,15 @@ export default function Footer() {
     <footer className="col-span-2 flex items-center justify-between bg-steady-green px-12 py-12">
       <Image src={logo} alt="Steady logo" height={30} />
 
-      <div className="flex items-center">
+      <div className="flex items-center text-white">
+        <Link href="/contact" className="mx-6">
+          Contact
+        </Link>
+
         <Link
           href="https://www.instagram.com/steadyfordating/"
           target="_blank"
-          className="mr-6"
+          className="mx-6"
         >
           <FontAwesomeIcon
             icon={faInstagram}
