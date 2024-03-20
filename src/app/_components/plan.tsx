@@ -1,11 +1,10 @@
 'use client'
 
-import Link from 'next/link'
-import { useRef, useEffect } from 'react'
 import { PopupButton } from 'react-calendly'
 
-interface PlanProps {
-  time: string
+export interface PlanProps {
+  url: string
+  time: number
   price: number
   bestFor: string
   examples: string[]
@@ -16,13 +15,14 @@ export default function Plan({
   price = 20,
   bestFor,
   examples,
+  url,
 }: PlanProps) {
   return (
     <div className="my-4 flex flex-col justify-between">
       <div className="py-6 md:px-8">
         <div className="mb-4 flex items-end justify-between">
           <p className="text-2xl font-light uppercase">
-            {time} <br />
+            {time} minutes <br />
             for ${price}
           </p>
           {/* TODO: hydration errors also this is sloppy */}
@@ -30,7 +30,7 @@ export default function Plan({
             <button>Book now</button>
           ) : (
             <PopupButton
-              url="https://calendly.com/d/46s-xhy-xpz/quick-chat"
+              url={url}
               /*
                * react-calendly uses React's Portal feature (https://reactjs.org/docs/portals.html) to render the popup modal. As a result, you'll need to
                * specify the rootElement property to ensure that the modal is inserted into the correct domNode.
@@ -41,6 +41,14 @@ export default function Plan({
                 border: '1px solid white',
                 padding: '4px 12px',
                 borderRadius: '100px',
+              }}
+              pageSettings={{
+                backgroundColor: 'ffffff',
+                hideEventTypeDetails: true,
+                hideLandingPageDetails: false,
+                hideGdprBanner: true,
+                primaryColor: '8f94ef',
+                textColor: '1e293b',
               }}
             />
           )}

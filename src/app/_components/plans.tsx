@@ -1,8 +1,9 @@
-import Plan from '@/app/_components/plan'
+import Plan, { type PlanProps } from '@/app/_components/plan'
 
-const PLANS = [
+const PLANS: PlanProps[] = [
   {
-    time: '10 minutes',
+    url: 'https://calendly.com/steady-coaches/10-mins-messaging',
+    time: 10,
     price: 20,
     bestFor: 'straight-forward dating questions ',
     examples: [
@@ -12,7 +13,8 @@ const PLANS = [
     ],
   },
   {
-    time: '15 minutes',
+    url: 'https://calendly.com/steady-coaches/15-mins-messaging',
+    time: 15,
     price: 30,
     bestFor: 'situational dating advice with some backstory',
     examples: [
@@ -22,7 +24,8 @@ const PLANS = [
     ],
   },
   {
-    time: '20 minutes',
+    url: 'https://calendly.com/steady-coaches/20-mins-messaging',
+    time: 20,
     price: 35,
     bestFor: 'more backstory required or profile optimization',
     examples: [
@@ -36,9 +39,10 @@ const PLANS = [
 export default function Plans() {
   return (
     <div className="justify-between pt-8 md:flex">
-      {PLANS.map(({ time, price, bestFor, examples }) => (
+      {PLANS.map(({ time, price, bestFor, examples, url }) => (
         <Plan
           key={time}
+          url={url}
           time={time}
           price={price}
           bestFor={bestFor}
