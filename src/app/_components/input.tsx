@@ -9,7 +9,7 @@ export default function Input({
   name,
   type = 'text',
   label,
-  className,
+  className = '',
   style,
 }: InputProps) {
   return (

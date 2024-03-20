@@ -38,10 +38,7 @@ export default function Home() {
       <Header />
 
       <main className="grid-cols-2 md:grid md:pt-0">
-        <section
-          className="wrapper flex min-h-screen flex-col justify-between pb-12 pt-24 md:pt-36"
-          data-section="0"
-        >
+        <section className="wrapper flex min-h-screen flex-col justify-between pb-12 pt-24 md:pt-36">
           <div>
             <h2 className="mb-4 text-4xl leading-tight text-steady-green">
               We help you navigate the world of{' '}
@@ -80,7 +77,6 @@ export default function Home() {
 
         <section
           className="left-col wrapper flex min-h-screen flex-col justify-center bg-steady-pink text-white"
-          data-section="1"
           id="mission"
         >
           <h2 className="relative mb-4 inline-block text-4xl leading-snug  ">

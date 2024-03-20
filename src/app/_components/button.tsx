@@ -1,4 +1,4 @@
-import { type HTMLAttributes } from 'react'
+import { type ButtonHTMLAttributes } from 'react'
 
 import Link from 'next/link'
 
@@ -19,7 +19,8 @@ export default function Button({
   children,
   href,
   className = '',
-}: ButtonPropTypes & HTMLAttributes<HTMLButtonElement>) {
+  type = 'button',
+}: ButtonPropTypes & ButtonHTMLAttributes<HTMLButtonElement>) {
   const _className = `${className} ${THEMES[theme]} rounded-full px-12 py-3 text-lg leading-snug self-center`
 
   if (href)
@@ -28,5 +29,10 @@ export default function Button({
         {children}
       </Link>
     )
-  else return <button className={_className}>{children}</button>
+  else
+    return (
+      <button type={type} className={_className}>
+        {children}
+      </button>
+    )
 }
