@@ -14,7 +14,7 @@ export default function Contact() {
       <main className="grid-cols-2 md:grid md:pt-0">
         <section className="wrapper flex min-h-screen flex-col pb-12 pt-24 md:pt-36">
           <h1 className="text-4xl text-steady-green">
-            touch us in strange places
+            We would love to hear from you
           </h1>
 
           <form action="" className="grid gap-6 pt-8">
