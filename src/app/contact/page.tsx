@@ -13,7 +13,9 @@ export default function Contact() {
       <Header />
       <main className="grid-cols-2 md:grid md:pt-0">
         <section className="wrapper flex min-h-screen flex-col pb-12 pt-24 md:pt-36">
-          <h1 className="text-4xl text-steady-green">Get in touch with us</h1>
+          <h1 className="text-4xl text-steady-green">
+            touch us in strange places
+          </h1>
 
           <form action="" className="grid gap-6 pt-8">
             <Input label="Email address" name="email" />

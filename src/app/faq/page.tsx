@@ -6,7 +6,7 @@ import Accordion, { type AccordionItem } from './_accordion'
 const FAQs: AccordionItem[] = [
   {
     title: 'What kind of coaching can I expect to receive?',
-    body: 'Our coaches give practical advice for healthy dating. That can include everything from how to get the dating and relationship experience you desire and setting boundaries to tips for a better online profile, help decoding text messages and navigating the IRL world of speed dating and meetups.',
+    body: 'Our coaches give practical advice to healthy dating.  This can include everything from decoding text messages, best practices for engaging on the apps and handling rejection all the way to getting started dating again after divorce and stopping unhealthy dating patterns.',
   },
   {
     title:
@@ -27,7 +27,7 @@ const FAQs: AccordionItem[] = [
   },
   {
     title: 'Is this like therapy?',
-    body: 'While it may be therapeutic, Steady is coaching. We’re here as a sounding board, to give advice, help interpret situations and brush up on some dating skills. If you feel you need deeper emotional support, you should contact a professional licensed therapist.',
+    body: 'While it may be more helpful to your dating life than therapy, Steady is coaching.  We focus on the present and future circumstances, providing insightful and actionable advice vs. therapy which usually focuses on your past and healing trauma. ',
   },
 ]
 

@@ -41,13 +41,15 @@ export default function Plan({
                 border: '1px solid white',
                 padding: '4px 12px',
                 borderRadius: '100px',
+                backgroundColor: '#fff',
+                color: 'rgb(38, 166, 87)',
               }}
               pageSettings={{
                 backgroundColor: 'ffffff',
-                hideEventTypeDetails: true,
+                hideEventTypeDetails: false,
                 hideLandingPageDetails: false,
                 hideGdprBanner: true,
-                primaryColor: '8f94ef',
+                primaryColor: 'cb71b2',
                 textColor: '1e293b',
               }}
             />

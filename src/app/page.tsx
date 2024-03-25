@@ -54,7 +54,7 @@ export default function Home() {
           </div>
 
           <div className="mx-auto flex max-w-sm flex-col text-center">
-            <Button href="/book">Get Started</Button>
+            <Button href="/#plans">Get Started</Button>
             <p className="mt-4 text-center opacity-85">
               Chat with a coach for as little $20
             </p>
@@ -88,7 +88,7 @@ export default function Home() {
             takes talking through an issue, getting a new perspective on a
             situation, or simply dialing in a better online dating profile.
           </p>
-          <Button href="/book" theme="pink" className="self-center">
+          <Button href="/#plans" theme="pink" className="self-center">
             Book a Session
           </Button>
           <Divider icon={sun} color="white" />
@@ -125,7 +125,7 @@ export default function Home() {
 
           <Plans />
 
-          {/* <Button href="/book" theme="green" className="ml-8 mt-8 self-center">
+          {/* <Button href="/#plans" theme="green" className="ml-8 mt-8 self-center">
           Book a Session
         </Button> */}
         </section>
@@ -156,7 +156,7 @@ export default function Home() {
           <h2 className="text-4xl text-white">Meet some of our coaches</h2>
           <Coaches />
           <div className="mx-auto mt-16 flex max-w-screen-lg flex-col items-center md:flex-row">
-            <Button theme="purple" href="/book">
+            <Button theme="purple" href="/#plans">
               Book a Session
             </Button>
             <p className="ml-4 mt-12 text-center text-lg text-white md:mt-0">

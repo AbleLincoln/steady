@@ -14,7 +14,7 @@ export default {
       },
       colors: {
         steady: {
-          pink: 'rgb(203, 113, 177)',
+          pink: 'rgb(203, 113, 177)', // cb71b2
           green: 'rgb(38, 166, 87)',
           purple: 'rgb(143, 148, 239)',
         },

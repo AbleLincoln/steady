@@ -16,11 +16,11 @@ const PLANS: PlanProps[] = [
     url: 'https://calendly.com/steady-coaches/15-mins-messaging',
     time: 15,
     price: 30,
-    bestFor: 'situational dating advice with some backstory',
+    bestFor: 'situational dating advice with minimal backstory',
     examples: [
-      'How to identify what you are truly looking for in a partner',
-      'How to set boundaries in a current relationship',
       'Is this a red flag?',
+      'How do I know if someone deserves a second date?',
+      'How can I tell if they are interested?',
     ],
   },
   {

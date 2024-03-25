@@ -12,15 +12,15 @@ import Button from '@/app/_components/button'
 
 const NAV = [
   {
-    href: '#mission',
+    href: '/#mission',
     label: 'Mission',
   },
   {
-    href: '#plans',
+    href: '/#plans',
     label: 'How It Works',
   },
   {
-    href: '#coaches',
+    href: '/#coaches',
     label: 'Coaches',
   },
   {
@@ -52,7 +52,7 @@ export default function Header() {
         {/* TODO: need to rewrite as my own bc broken */}
         <div className="sm:hidden">
           <Menu right>
-            <Button className="mb-4 px-6 py-2 text-base" href="/book">
+            <Button className="mb-4 px-6 py-2 text-base" href="/#plans">
               Get Started
             </Button>
             {items('my-4')}
@@ -61,7 +61,7 @@ export default function Header() {
         <ul className="hidden items-center text-lg sm:flex">{items()}</ul>
       </section>
 
-      <Button href="/book" className="hidden px-12 leading-snug md:block">
+      <Button href="/#plans" className="hidden px-12 leading-snug md:block">
         Get Started
       </Button>
     </header>
