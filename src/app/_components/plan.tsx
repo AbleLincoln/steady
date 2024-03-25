@@ -58,7 +58,9 @@ export default function Plan({
 
         <hr className="mb-6 border-2" />
 
-        <p className="text-lg">{time} of instant messaging with a date coach</p>
+        <p className="text-lg">
+          {time} minutes of instant messaging with a Date Coach
+        </p>
 
         <p className="mb-2 mt-8">Best for {bestFor}:</p>
 

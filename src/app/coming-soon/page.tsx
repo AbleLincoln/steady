@@ -36,7 +36,7 @@ export default function ComingSoon() {
         <Image
           src={couple}
           style={{ objectFit: 'cover', objectPosition: 'center 60%' }}
-          alt="Person using phone to chat with dating coach"
+          alt="Person using phone to chat with Dating Coach"
           className="h-screen"
         />
       </section>
