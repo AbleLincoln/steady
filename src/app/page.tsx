@@ -38,7 +38,7 @@ export default function Home() {
       <Header />
 
       <main className="grid-cols-2 md:grid md:pt-0">
-        <section className="wrapper flex min-h-screen flex-col justify-between pb-12 pt-24 md:pt-36">
+        <section className="wrapper flex min-h-screen flex-col justify-between pb-12 pt-24 lg:pt-36">
           <div>
             <h2 className="mb-4 text-4xl leading-tight text-steady-green">
               We help you navigate the world of{' '}
