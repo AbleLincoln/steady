@@ -60,10 +60,6 @@ export default function Header() {
         </div>
         <ul className="hidden items-center text-lg sm:flex">{items()}</ul>
       </section>
-
-      <Button href="/#plans" className="hidden px-12 leading-snug md:block">
-        Get Started
-      </Button>
     </header>
   )
 }
