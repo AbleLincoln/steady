@@ -7,6 +7,7 @@ export default {
     extend: {
       screens: {
         'mobile-only': { max: '768px' },
+        'nav-break': { min: '1170px' },
       },
       fontFamily: {
         display: ['var(--font-styrene-a)'],
