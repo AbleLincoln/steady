@@ -40,33 +40,32 @@ function items(styles = '') {
 
 export default function Header() {
   return (
-    <header className="border-bs wrapper absolute inset-x-0 top-0 z-30 flex justify-between py-5">
-      <section className="flex grow items-center justify-between bg-cream text-dark md:w-1/2 md:grow-0 md:pr-12">
-        <Link href="/" className="shrink-0">
-          <Image
-            src={steadyLogo}
-            alt="Steady"
-            style={{ height: '2rem', width: 'auto' }}
-          />
-        </Link>
+    <>
+      {/* TODO: need to rewrite as my own bc broken */}
+      <div className="nav-break:hidden absolute right-8 top-5">
+        <Menu right>
+          <Button className="mb-4 px-6 py-2 text-base" href="/#plans">
+            Get Started
+          </Button>
+          {items('my-4')}
+        </Menu>
+      </div>
 
-        {/* TODO: need to rewrite as my own bc broken */}
-        {createPortal(
-          <div className="nav-break:hidden absolute right-8 top-5">
-            <Menu right>
-              <Button className="mb-4 px-6 py-2 text-base" href="/#plans">
-                Get Started
-              </Button>
-              {items('my-4')}
-            </Menu>
-          </div>,
-          document.body,
-        )}
+      <header className="border-bs wrapper absolute inset-x-0 top-0 z-30 flex justify-between py-5">
+        <section className="flex grow items-center justify-between bg-cream text-dark md:w-1/2 md:grow-0 md:pr-12">
+          <Link href="/" className="shrink-0">
+            <Image
+              src={steadyLogo}
+              alt="Steady"
+              style={{ height: '2rem', width: 'auto' }}
+            />
+          </Link>
 
-        <ul className="nav-break:flex hidden shrink-0 items-center text-lg">
-          {items()}
-        </ul>
-      </section>
-    </header>
+          <ul className="nav-break:flex hidden shrink-0 items-center text-lg">
+            {items()}
+          </ul>
+        </section>
+      </header>
+    </>
   )
 }

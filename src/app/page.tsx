@@ -1,20 +1,10 @@
-'use client'
-
-import { useRef } from 'react'
-
-// import { unstable_noStore as noStore } from 'next/cache'
-import Image, { type StaticImageData } from 'next/image'
+import Image from 'next/image'
 
 import '@/styles/burger-menu.css'
-
-// import { CreatePost } from '@/app/_components/create-post'
-// import { getServerAuthSession } from '@/server/auth'
-// import { api } from '@/trpc/server'
 
 import flower from 'public/images/icons/flower.png'
 import sun from 'public/images/icons/sun.png'
 import couple3 from 'public/images/3.jpeg'
-import couple5 from 'public/images/5.jpeg'
 import couple6 from 'public/images/6.jpg'
 import couple from 'public/images/couplewithhearts.jpg'
 import bubble from 'public/images/icons/bubbles.png'
@@ -28,11 +18,7 @@ import Plans from './_components/plans'
 import Button from '@/app/_components/button'
 import Testimonials from './_testimonials'
 
-export default function Home() {
-  // noStore()
-  // const hello = await api.post.hello.query({ text: 'from tRPC' })
-  // const session = await getServerAuthSession()
-
+export default async function Home() {
   return (
     <>
       <Header />
@@ -124,10 +110,6 @@ export default function Home() {
           </h3>
 
           <Plans />
-
-          {/* <Button href="/#plans" theme="green" className="ml-8 mt-8 self-center">
-          Book a Session
-        </Button> */}
         </section>
 
         <section className="left-col min-h-screen bg-white py-28">
@@ -166,68 +148,7 @@ export default function Home() {
         </section>
 
         <Footer />
-
-        {/* <div className="flex flex-col items-center justify-center gap-4">
-        <p className="text-center text-2xl text-white">
-          {session && <span>Logged in as {session.user?.name}</span>}
-        </p>
-        <Link
-          href={session ? '/api/auth/signout' : '/api/auth/signin'}
-          className="rounded-full bg-white/10 px-10 py-3 font-semibold no-underline transition hover:bg-white/20"
-        >
-          {session ? 'Sign out' : 'Sign in'}
-        </Link>
-      </div>
-
-      <CrudShowcase /> */}
       </main>
     </>
-  )
-}
-
-// async function CrudShowcase() {
-//   const session = await getServerAuthSession()
-//   if (!session?.user) return null
-
-//   const latestPost = await api.post.getLatest.query()
-
-//   return (
-//     <div className="w-full max-w-xs">
-//       {latestPost ? (
-//         <p className="truncate">Your most recent post: {latestPost.name}</p>
-//       ) : (
-//         <p>You have no posts yet.</p>
-//       )}
-
-//       <CreatePost />
-//     </div>
-//   )
-// }
-
-function Coach({
-  name,
-  pic,
-  bio,
-}: {
-  name: string
-  pic: StaticImageData
-  bio: string
-}) {
-  return (
-    <div className="mb-20 flex flex-col md:flex-row">
-      <div className="relative z-20 m-auto h-60 w-60 shrink-0 md:m-0">
-        <Image
-          src={pic}
-          alt={name}
-          className="rounded-full border border-dark shadow-lg"
-          fill
-          style={{ objectFit: 'cover', objectPosition: 'top' }}
-        />
-      </div>
-      <div className="z-10 -mt-10 rounded-lg border border-dark bg-white p-6 pt-14 shadow-lg md:-ml-10 md:mt-0 md:pl-14 md:pt-6">
-        <h3 className="mb-4 text-lg">{name}</h3>
-        <p>{bio}</p>
-      </div>
-    </div>
   )
 }
