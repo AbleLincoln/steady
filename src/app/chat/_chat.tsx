@@ -18,7 +18,7 @@ import { useChatClient } from '@/app/_hooks/useChatClient'
 
 import { api } from '@/trpc/react'
 
-import Clock from './_clock'
+import Clock, { CalendlyEvent } from './_clock'
 
 import 'stream-chat-react/dist/css/v2/index.css'
 import '@/styles/stream.css'
@@ -51,7 +51,9 @@ export default function DirectMessaging({ session }: { session: Session }) {
 
   return (
     <div className="m-auto max-w-screen-sm">
-      <Clock event={getEventDetails.data?.collection[0]} />
+      <Clock
+        event={(getEventDetails.data?.collection[0] as CalendlyEvent) || {}}
+      />
       <Chat client={chatClient} theme="str-chat__theme-light">
         <Channel channel={channel}>
           <Window>

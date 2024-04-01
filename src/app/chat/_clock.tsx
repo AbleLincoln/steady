@@ -3,7 +3,7 @@
 import { DateTime } from 'luxon'
 import Link from 'next/link'
 
-interface CalendlyEvent {
+export interface CalendlyEvent {
   start_time: string
   end_time: string
 }
