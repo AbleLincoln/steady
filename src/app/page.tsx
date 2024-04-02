@@ -42,7 +42,7 @@ export default async function Home() {
           <div className="mx-auto flex max-w-sm flex-col text-center">
             <Button href="/#plans">Get Started</Button>
             <p className="mt-4 text-center opacity-85">
-              Chat with a coach for as little $20
+              Chat with a coach for as little as $20
             </p>
           </div>
 

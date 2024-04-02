@@ -3,6 +3,9 @@
 import Link from 'next/link'
 import Image from 'next/image'
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faComments } from '@fortawesome/free-solid-svg-icons'
+
 import { slide as Menu } from 'react-burger-menu'
 import '@/styles/burger-menu.css'
 
@@ -64,6 +67,12 @@ export default function Header() {
             {items()}
           </ul>
         </section>
+        <Link
+          href="/chat"
+          className="flex h-14 w-14 items-center justify-center self-center rounded-full bg-dark text-2xl text-white shadow-lg transition-all hover:bg-steady-green hover:shadow-xl"
+        >
+          <FontAwesomeIcon icon={faComments} />
+        </Link>
       </header>
     </>
   )
