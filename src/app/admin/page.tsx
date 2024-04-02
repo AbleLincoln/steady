@@ -56,18 +56,27 @@ export default function Admin() {
   }
 
   return (
-    <div className="flex">
+    <div className="flex max-h-screen bg-steady-purple">
       <Chat client={chatClient} theme="str-chat__theme-light">
         <ChannelList filters={filters} sort={sort} options={options} />
         <Channel>
           <Window>
-            <ChannelHeader />
+            <Header />
             <MessageList />
             <MessageInput />
           </Window>
           <Thread />
         </Channel>
       </Chat>
+    </div>
+  )
+}
+
+function Header() {
+  return (
+    <div>
+      <ChannelHeader />
+      {/* <Clock /> */}
     </div>
   )
 }

@@ -2,13 +2,10 @@
 
 import {
   Channel,
-  ChannelHeader,
   Chat,
   LoadingIndicator,
   MessageInput,
   MessageList,
-  Thread,
-  Window,
 } from 'stream-chat-react'
 import crypto from 'crypto'
 
@@ -18,12 +15,17 @@ import { useChatClient } from '@/app/_hooks/useChatClient'
 
 import { api } from '@/trpc/react'
 
-import Clock, { CalendlyEvent } from './_clock'
+import Clock from '@/app/_components/clock'
 
 import 'stream-chat-react/dist/css/v2/index.css'
 import '@/styles/stream.css'
 
 const apiKey = 'mspwbbwcvzjm'
+
+const eventDetailsInitialData = {
+  start_time: '',
+  end_time: '',
+}
 
 export default function DirectMessaging({ session }: { session: Session }) {
   console.log({ session })
@@ -41,7 +43,6 @@ export default function DirectMessaging({ session }: { session: Session }) {
   })
 
   const getEventDetails = api.calendly.getEventDetails.useQuery(email)
-  console.log(getEventDetails.data)
 
   if (!chatClient) return <LoadingIndicator />
 
@@ -50,18 +51,14 @@ export default function DirectMessaging({ session }: { session: Session }) {
   })
 
   return (
-    <div className="m-auto max-w-screen-sm">
+    <div className="client-only m-auto flex max-h-screen max-w-screen-sm flex-col p-4">
       <Clock
-        event={(getEventDetails.data?.collection[0] as CalendlyEvent) || {}}
+        event={getEventDetails.data?.collection[0] ?? eventDetailsInitialData}
       />
       <Chat client={chatClient} theme="str-chat__theme-light">
         <Channel channel={channel}>
-          <Window>
-            <ChannelHeader />
-            <MessageList />
-            <MessageInput />
-          </Window>
-          <Thread />
+          <MessageList />
+          <MessageInput />
         </Channel>
       </Chat>
     </div>

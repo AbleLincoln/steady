@@ -4,11 +4,7 @@ import { redirect } from 'next/navigation'
 
 import DirectMessaging from './_chat'
 
-export default async function Chat({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default async function Chat() {
   const session = await getServerAuthSession()
 
   if (!session) return redirect('/api/auth/signin')
@@ -18,9 +14,7 @@ export default async function Chat({
   return (
     <main className="min-h-screen bg-purple-steady">
       {session ? (
-        <div className="m-auto max-w-screen-lg p-4">
-          <DirectMessaging session={session} />
-        </div>
+        <DirectMessaging session={session} />
       ) : (
         <div>
           <p>Hello, welcome to the Steady Chat</p>

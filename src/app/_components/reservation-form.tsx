@@ -6,8 +6,6 @@ import { InlineWidget } from 'react-calendly'
 import Input from '@/app/_components/input'
 import Select from '@/app/_components/select'
 
-import submitReservationForm from '@/server/actions/submitReservationForm'
-
 enum Steps {
   Landing,
   Calendly,

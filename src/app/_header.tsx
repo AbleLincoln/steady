@@ -9,7 +9,6 @@ import '@/styles/burger-menu.css'
 // import steadyLogo from 'public/steady-logo.svg'
 import steadyLogo from 'public/steady-logo-green.png'
 import Button from '@/app/_components/button'
-import { createPortal } from 'react-dom'
 
 const NAV = [
   {
