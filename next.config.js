@@ -44,6 +44,12 @@ const config = {
         destination: '/coming-soon',
         permanent: false,
       },
+      {
+        source: '/chat',
+        destination:
+          'https://steady-git-v1-andrew-maneys-projects.vercel.app/chat',
+        permanent: false,
+      },
     ]
   },
 }
