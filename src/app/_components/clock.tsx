@@ -39,7 +39,7 @@ function Content({
   end: DateTime
   now: DateTime
 }) {
-  if (end < now)
+  if (!end || !start || end < now)
     // has ended
     return (
       <p>
