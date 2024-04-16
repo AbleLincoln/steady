@@ -30,18 +30,6 @@ html {
   @apply col-span-1 col-start-2;
 }
 
-.textured {
-  position: relative;
-}
-
-.textured:before {
-  position: absolute;
-  display: block;
-  content: '';
-  background: url(/images/bg-texture.png);
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 0;
+.wide-grid > *:nth-child(2n) {
+  justify-self: end;
 }

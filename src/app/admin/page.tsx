@@ -18,10 +18,13 @@ import {
   Window,
 } from 'stream-chat-react'
 
+import Quill from 'react-quill'
+
 import { useChatClient } from '@/app/_hooks/useChatClient'
 
 import 'stream-chat-react/dist/css/v2/index.css'
 import '@/styles/stream.css'
+import Notes from './_notes'
 
 const apiKey = 'mspwbbwcvzjm'
 const userToken =
@@ -56,7 +59,7 @@ export default function Admin() {
   }
 
   return (
-    <div className="flex max-h-screen bg-steady-purple">
+    <div className="flex grow">
       <Chat client={chatClient} theme="str-chat__theme-light">
         <ChannelList filters={filters} sort={sort} options={options} />
         <Channel>
@@ -68,6 +71,8 @@ export default function Admin() {
           <Thread />
         </Channel>
       </Chat>
+
+      <Notes />
     </div>
   )
 }

@@ -34,6 +34,7 @@
     "react-burger-menu": "^3.0.9",
     "react-calendly": "^4.3.0",
     "react-dom": "18.2.0",
+    "react-quill": "^2.0.0",
     "server-only": "^0.0.1",
     "short-uuid": "^4.2.2",
     "stream-chat": "^8.15.0",

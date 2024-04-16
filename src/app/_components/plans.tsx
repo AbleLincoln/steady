@@ -2,48 +2,52 @@ import Plan, { type PlanProps } from '@/app/_components/plan'
 
 const PLANS: PlanProps[] = [
   {
+    title: 'Quick Fix',
+    subtitle: '10 minutes of messaging',
     url: 'https://calendly.com/steady-coaches/10-mins-messaging',
-    time: 10,
-    price: 20,
-    bestFor: 'straight-forward dating questions ',
+    price: 45,
+    bestFor: 'straight-forward dating questions',
     examples: [
-      'What does this text mean?',
-      'How do I know if we are exclusive?',
-      'I’m getting mixed signals. Are they interested?',
+      'How do I respond to this text?',
+      'Should I go on a second date with this person?',
+      'My dating profile needs a refresh. Can you help?',
     ],
   },
   {
-    url: 'https://calendly.com/steady-coaches/15-mins-messaging',
-    time: 15,
-    price: 30,
+    title: 'Support & Advice',
+    subtitle: '25 minute phone call',
+    url: 'https://calendly.com/steady-coaches/support-and-advice',
+    price: 110,
     bestFor: 'situational dating advice with minimal backstory',
     examples: [
+      'Help, I’m feeling anxious in my relationship',
+      'I’m not getting second dates, what am I doing wrong?',
       'Is this a red flag?',
-      'How do I know if someone deserves a second date?',
-      'How can I tell if they are interested?',
     ],
   },
   {
-    url: 'https://calendly.com/steady-coaches/20-mins-messaging',
-    time: 20,
-    price: 35,
-    bestFor: 'more backstory required or profile optimization',
+    title: 'Level Up',
+    subtitle: '50 minute video call',
+    url: 'https://calendly.com/steady-coaches/level-up',
+    price: 250,
+    bestFor: 'more holistic dating or relationship advice',
     examples: [
-      'Help making my online profile more successful',
-      'How to feel better after a dating rejection',
-      'Help. We had a fight ',
+      'I haven’t dated in 20 years. I need a full plan',
+      'I need help getting through a break-up',
+      'What should I do if the apps aren’t working for me?',
     ],
   },
 ]
 
 export default function Plans() {
   return (
-    <div className="justify-between pt-8 md:flex">
-      {PLANS.map(({ time, price, bestFor, examples, url }) => (
+    <div className="grid-cols-3 gap-x-10 pt-8 md:grid">
+      {PLANS.map(({ title, subtitle, price, bestFor, examples, url }) => (
         <Plan
-          key={time}
+          title={title}
+          subtitle={subtitle}
+          key={title}
           url={url}
-          time={time}
           price={price}
           bestFor={bestFor}
           examples={examples}

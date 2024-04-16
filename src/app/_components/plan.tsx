@@ -3,31 +3,47 @@
 import { PopupButton } from 'react-calendly'
 
 export interface PlanProps {
+  title: string
+  subtitle: string
   url: string
-  time: number
   price: number
   bestFor: string
   examples: string[]
 }
 
+const buttonStyles = {
+  border: '1px solid white',
+  padding: '4px 12px',
+  borderRadius: '100px',
+  backgroundColor: '#fff',
+  color: 'rgb(38, 166, 87)',
+}
+
 export default function Plan({
-  time,
   price = 20,
   bestFor,
   examples,
   url,
+  title,
+  subtitle,
 }: PlanProps) {
   return (
     <div className="my-4 flex flex-col justify-between">
-      <div className="py-6 md:px-8">
-        <div className="mb-4 flex items-end justify-between">
-          <p className="text-2xl font-light uppercase">
-            {time} minutes <br />
-            for ${price}
-          </p>
+      <div className="py-6">
+        <div
+          className="wide-grid mb-4 grid items-center gap-y-4"
+          style={{
+            gridTemplateColumns: '2fr 1fr',
+          }}
+        >
+          <p className="text-2xl">{title}</p>
+          <p className="justify-self-end text-xl">${price}</p>
+
+          <p className="text-lg">{subtitle}</p>
+
           {/* TODO: hydration errors also this is sloppy */}
           {typeof document === 'undefined' ? (
-            <button>Book now</button>
+            <button style={buttonStyles}>Book now</button>
           ) : (
             <PopupButton
               url={url}
@@ -37,13 +53,7 @@ export default function Plan({
                */
               rootElement={document.getElementById('root')!}
               text="Book now"
-              styles={{
-                border: '1px solid white',
-                padding: '4px 12px',
-                borderRadius: '100px',
-                backgroundColor: '#fff',
-                color: 'rgb(38, 166, 87)',
-              }}
+              styles={buttonStyles}
               pageSettings={{
                 backgroundColor: 'ffffff',
                 hideEventTypeDetails: false,
@@ -56,13 +66,11 @@ export default function Plan({
           )}
         </div>
 
-        <hr className="mb-6 border-2" />
+        <div className=""></div>
 
-        <p className="text-lg">
-          {time} minutes of instant messaging with a Date Coach
-        </p>
+        <hr className="mb-8 mt-6 border" />
 
-        <p className="mb-2 mt-8">Best for {bestFor}:</p>
+        <p className="mb-2">Best for {bestFor}:</p>
 
         <ul className="list-inside list-disc">
           {examples.map((example, i) => (
