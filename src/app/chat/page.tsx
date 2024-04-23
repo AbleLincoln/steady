@@ -12,7 +12,7 @@ export default async function Chat() {
   console.log('user', session.user)
 
   return (
-    <main className="min-h-screen bg-purple-steady">
+    <main className="bg-gradient min-h-screen bg-gradient-to-b from-white to-purple-steady">
       {session ? (
         <DirectMessaging session={session} />
       ) : (

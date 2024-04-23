@@ -33,3 +33,24 @@ html {
 .wide-grid > *:nth-child(2n) {
   justify-self: end;
 }
+
+.circular-progress .bar {
+  border: solid 2px hotpink;
+  aspect-ratio: 1;
+  border-radius: 100%;
+  --mask: conic-gradient(red var(--p, 27%), transparent 0%) border-box;
+  -webkit-mask: var(--mask);
+  mask: var(--mask);
+}
+
+.ball:before {
+  content: '';
+  width: 5px;
+  height: 5px;
+  border-radius: 100%;
+  background-color: hotpink;
+  position: absolute;
+  display: block;
+  left: 50%;
+  transform: translate(-50%, -30%);
+}

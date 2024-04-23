@@ -1,7 +1,9 @@
 'use client'
 
+import Image from 'next/image'
 import {
   Channel,
+  ChannelHeader,
   Chat,
   LoadingIndicator,
   MessageInput,
@@ -20,12 +22,10 @@ import Clock from '@/app/_components/clock'
 import 'stream-chat-react/dist/css/v2/index.css'
 import '@/styles/stream.css'
 
-const apiKey = 'mspwbbwcvzjm'
+import logo from 'public/steady-logo-green.png'
+import Header from './_header'
 
-const eventDetailsInitialData = {
-  start_time: '',
-  end_time: '',
-}
+const apiKey = 'mspwbbwcvzjm'
 
 export default function DirectMessaging({ session }: { session: Session }) {
   console.log({ session })
@@ -51,16 +51,18 @@ export default function DirectMessaging({ session }: { session: Session }) {
   })
 
   return (
-    <div className="client-only m-auto flex max-h-screen max-w-screen-sm flex-col p-4">
-      <Clock
-        event={getEventDetails.data?.collection[0] ?? eventDetailsInitialData}
-      />
-      <Chat client={chatClient} theme="str-chat__theme-light">
-        <Channel channel={channel}>
-          <MessageList />
-          <MessageInput />
-        </Channel>
-      </Chat>
+    <div className="client-only m-auto flex max-h-screen max-w-screen-sm flex-col p-4 pt-10">
+      <Image src={logo} alt="Steady" height={30} />
+
+      <div className="mt-4">
+        <Chat client={chatClient} theme="str-chat__theme-light">
+          <Channel channel={channel}>
+            <Header event={getEventDetails.data?.collection[0]} />
+            <MessageList />
+            <MessageInput />
+          </Channel>
+        </Chat>
+      </div>
     </div>
   )
 }

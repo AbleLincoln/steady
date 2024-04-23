@@ -18,6 +18,7 @@ export default function Button({
   theme = 'primary',
   children,
   href,
+  onClick,
   className = '',
   type = 'button',
 }: ButtonPropTypes & ButtonHTMLAttributes<HTMLButtonElement>) {
@@ -31,7 +32,7 @@ export default function Button({
     )
   else
     return (
-      <button type={type} className={_className}>
+      <button type={type} className={_className} onClick={onClick}>
         {children}
       </button>
     )

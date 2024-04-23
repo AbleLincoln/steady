@@ -38,9 +38,9 @@
   --str-chat__primary-surface-color-low-emphasis: #edf7f7;
   --str-chat__border-radius-circle: 6px; */
   --str-chat__channel-border-radius: 20px;
-  --str-chat__channel-box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  --str-chat__channel-header-border-radius: 20px;
-  --str-chat__message-list-border-radius: 20px;
+  /* --str-chat__channel-box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; */
+  --str-chat__channel-header-border-radius: 0px;
+  --str-chat__message-list-border-radius: 0px;
   --str-chat__message-input-border-radius: 100px;
 }
 
