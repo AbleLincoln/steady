@@ -8,11 +8,6 @@ import { type CalendlyEvent } from '@/server/api/routers/calendly'
 
 import logo from 'public/steady-logo-green.png'
 
-const defaultEvent: CalendlyEvent = {
-  start_time: '2024-04-23T17:02:33Z',
-  end_time: '2024-04-23T17:06:33Z',
-}
-
 export default function Header({ event }: { event?: CalendlyEvent }) {
   const [sessionComplete, setSessionComplete] = useState(false)
   const [isModalOpen, setModalOpen] = useState(false)
@@ -25,7 +20,7 @@ export default function Header({ event }: { event?: CalendlyEvent }) {
   return (
     <header className="flex justify-between rounded-t-xl border-b border-black bg-white px-3 py-2">
       <ChannelHeader />
-      {event ? (
+      {true ? (
         <Clock event={event} onTimeout={handleTimeout} />
       ) : (
         <Button href="/#plans" className="text-sm">
@@ -63,8 +58,9 @@ function Modal({ open, onClose }: { open: boolean; onClose: () => void }) {
 
         <Image src={logo} alt="Steady" className="m-auto" height={30} />
         <p className="my-8 text-center text-2xl text-steady-green">
-          That&apos;s all the time we have for now. We&apos;re always here when
-          you&apos;re ready to talk some more.
+          That&apos;s all the time we have for now.
+          <br /> We&apos;re always here when you&apos;re ready to talk some
+          more.
         </p>
 
         <div className="flex justify-around">

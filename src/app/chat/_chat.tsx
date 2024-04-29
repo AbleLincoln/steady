@@ -3,7 +3,6 @@
 import Image from 'next/image'
 import {
   Channel,
-  ChannelHeader,
   Chat,
   LoadingIndicator,
   MessageInput,

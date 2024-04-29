@@ -18,7 +18,7 @@ import {
   Window,
 } from 'stream-chat-react'
 
-import Quill from 'react-quill'
+import Clock from '@/app/_components/clock'
 
 import { useChatClient } from '@/app/_hooks/useChatClient'
 
@@ -79,9 +79,9 @@ export default function Admin() {
 
 function Header() {
   return (
-    <div>
+    <header className="flex justify-between rounded-t-xl border-b border-black bg-white px-3 py-2">
       <ChannelHeader />
-      {/* <Clock /> */}
-    </div>
+      <Clock />
+    </header>
   )
 }

@@ -42,9 +42,9 @@ export default async function AdminLayout({
             src={logo}
             alt="Steady"
             height={30}
-            className="inline-block align-bottom"
+            className="mr-2 inline-block align-bottom"
           />{' '}
-          coaching platform
+          Coaching Platform
         </p>
       </header>
       {children}
