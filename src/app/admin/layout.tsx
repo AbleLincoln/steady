@@ -1,7 +1,8 @@
-import { getServerAuthSession } from '@/server/auth'
 import Link from 'next/link'
 import Image from 'next/image'
 import { redirect } from 'next/navigation'
+
+import { auth } from '@/auth'
 
 import logo from 'public/steady-logo-white.png'
 
@@ -10,7 +11,7 @@ export default async function AdminLayout({
 }: {
   children: React.ReactNode
 }) {
-  const session = await getServerAuthSession()
+  const session = await auth()
 
   if (!session || !session.user.email?.endsWith('steadydatecoaching.com'))
     return (

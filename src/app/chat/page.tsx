@@ -1,13 +1,15 @@
-import { getServerAuthSession } from '@/server/auth'
 import Link from 'next/link'
 import { redirect } from 'next/navigation'
+
+import { auth, signIn } from '@/auth'
 
 import DirectMessaging from './_chat'
 
 export default async function Chat() {
-  const session = await getServerAuthSession()
+  const session = await auth()
 
-  if (!session) return redirect('/api/auth/signin')
+  console.log({ session })
+  if (!session) return signIn()
 
   console.log('user', session.user)
 

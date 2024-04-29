@@ -38,6 +38,7 @@ declare module 'next-auth' {
  * @see https://next-auth.js.org/configuration/options
  */
 export const authOptions: NextAuthOptions = {
+  pages: {},
   callbacks: {
     redirect: () => {
       return '/chat'
@@ -59,7 +60,7 @@ export const authOptions: NextAuthOptions = {
         secure: false, // true for 465, false for other ports
         auth: {
           user: 'andrew@steadydatecoaching.com', // generated ethereal user
-          pass: 'xNqBXfS89UWpjL5t', // generated ethereal password
+          pass: env.EMAIL_PASS, // generated ethereal password
         },
       },
       from: env.EMAIL_FROM,

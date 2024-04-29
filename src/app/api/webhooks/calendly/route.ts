@@ -41,8 +41,9 @@ export async function POST(request: Request) {
 
   // TODO: check type: created, canceled, reschedueld etc
 
-  // 1. get invitee email
-  // 2. hash email --> userId
+  //** Send confirmation email */
+
+  //** Create user in Stream */
   const id = crypto.createHash('md5').update(email).digest('hex')
 
   const res = await streamClient.upsertUser({
