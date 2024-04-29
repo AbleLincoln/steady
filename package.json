@@ -39,6 +39,7 @@
     "react-dom": "18.2.0",
     "react-quill": "^2.0.0",
     "server-only": "^0.0.1",
+    "sharp": "^0.33.3",
     "short-uuid": "^4.2.2",
     "stream-chat": "^8.15.0",
     "stream-chat-react": "^11.4.0",
