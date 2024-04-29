@@ -14,12 +14,13 @@ export default function Notes() {
   return (
     <div className="basis-1/4 px-3 py-3">
       <h2 className="mb-2">Notes</h2>
-      <Quill
+      {/* TODO: Quill SSR https://github.com/zenoamaro/react-quill/issues/897#issuecomment-1638185261 */}
+      {/* <Quill
         theme="snow"
         value={value}
         onChange={setValue}
         modules={{ toolbar }}
-      />
+      /> */}
     </div>
   )
 }
