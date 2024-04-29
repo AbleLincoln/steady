@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
 import { ChannelHeader } from 'stream-chat-react'
 
-import Clock, { EmptyClock } from '@/app/_components/clock'
+import Clock from '@/app/_components/clock'
 import Button from '@/app/_components/button'
 import { type CalendlyEvent } from '@/server/api/routers/calendly'
 
