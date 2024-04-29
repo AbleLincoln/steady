@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from 'react'
 import { DateTime, type Duration } from 'luxon'
-import Link from 'next/link'
 import { type CalendlyEvent } from '@/server/api/routers/calendly'
 
 interface ClockPropTypes {

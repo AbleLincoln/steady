@@ -1,11 +1,9 @@
 import NextAuth, { type DefaultSession } from 'next-auth'
-import Credentials from 'next-auth/providers/credentials'
 import { PrismaAdapter } from '@auth/prisma-adapter'
-import Nodemailer from 'next-auth/providers/nodemailer'
 import Resend from 'next-auth/providers/resend'
 
 import { env } from '@/env'
-import { db, prisma } from '@/server/db'
+import { db } from '@/server/db'
 
 declare module 'next-auth' {
   interface Session extends DefaultSession {
@@ -45,34 +43,10 @@ export const {
     //   return token
     // },
   },
-  adapter: PrismaAdapter(prisma),
+  adapter: PrismaAdapter(db),
   providers: [
-    Credentials({
-      credentials: { password: { label: 'Password', type: 'password' } },
-      async authorize(credentials) {
-        if (credentials.password !== 'password') return null
-        return {
-          id: '1',
-          name: 'Fill Murray',
-          email: 'bill@fillmurray.com',
-          image: 'https://source.boringavatars.com/marble/120',
-        }
-      },
-    }),
     Resend({
       from: env.EMAIL_FROM,
     }),
-    // Nodemailer({
-    //   server: {
-    //     host: 'smtp-relay.brevo.com',
-    //     port: 587,
-    //     secure: false, // true for 465, false for other ports
-    //     auth: {
-    //       user: 'andrew@steadydatecoaching.com', // generated ethereal user
-    //       pass: env.EMAIL_PASS, // generated ethereal password
-    //     },
-    //   },
-    //   from: env.EMAIL_FROM,
-    // }),
   ],
 })

@@ -16,8 +16,6 @@ import { useChatClient } from '@/app/_hooks/useChatClient'
 
 import { api } from '@/trpc/react'
 
-import Clock from '@/app/_components/clock'
-
 import 'stream-chat-react/dist/css/v2/index.css'
 import '@/styles/stream.css'
 
