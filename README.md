@@ -7,7 +7,7 @@
 - Twilio
 - [react-quill](https://github.com/zenoamaro/react-quill)
 - Stream
-  - [React docs](https://getstream.io/chat/docs/react/?language=nodejs)\
+  - [React docs](https://getstream.io/chat/docs/react/?language=nodejs)
   - [UI docs](https://getstream.io/chat/docs/sdk/react/)
   - [Node backend](https://getstream.io/chat/docs/node/?language=javascript)
   - [Plain JS](https://getstream.io/chat/docs/javascript/?language=javascript)

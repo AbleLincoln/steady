@@ -77,3 +77,8 @@ model VerificationToken {
 model PreReg {
     email String @id
 }
+
+model ChatToken {
+    id   String @id @default(cuid())
+    user String
+}

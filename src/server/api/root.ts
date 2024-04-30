@@ -1,6 +1,7 @@
 import { postRouter } from '@/server/api/routers/post'
 import { preregRouter } from '@/server/api/routers/prereg'
 import { calendlyRouter } from '@/server/api/routers/calendly'
+import { chatTokenRouter } from '@/server/api/routers/chatToken'
 import { createTRPCRouter, publicProcedure } from '@/server/api/trpc'
 
 /**
@@ -15,6 +16,7 @@ export const appRouter = createTRPCRouter({
   getTodos: publicProcedure.query(async () => {
     return [10, 20, 30]
   }),
+  chatToken: chatTokenRouter,
 })
 
 // export type definition of API

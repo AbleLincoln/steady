@@ -6,7 +6,6 @@ import { env } from '@/env'
 
 const neon = new Pool({ connectionString: env.DATABASE_URL })
 const adapter = new PrismaNeon(neon)
-export const prisma = new PrismaClient({ adapter })
 
 const globalForPrisma = globalThis as unknown as {
   prisma: PrismaClient | undefined

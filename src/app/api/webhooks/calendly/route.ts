@@ -1,5 +1,7 @@
 import crypto from 'crypto'
-import streamClient from '@/server/stream'
+
+import stream from '@/server/stream'
+import { db } from '@/server/db'
 
 interface CalendlyWebhookRequest {
   event: 'invitee.created' | 'invitee.canceled'
@@ -9,6 +11,7 @@ interface CalendlyWebhookRequest {
 interface InviteePayload {
   email: string
   name: string
+  event: string
 }
 
 // TODO: move
@@ -28,28 +31,43 @@ export async function POST(request: Request) {
   // TODO: webhook singature! https://developer.calendly.com/api-docs/4c305798a61d3-webhook-signatures
   // https://hookdeck.com/webhooks/guides/how-to-implement-sha256-webhook-signature-verification
 
+  const data = (await request.json()) as CalendlyWebhookRequest
+
   const {
-    event,
-    payload: { email, name },
-  } = (await request.json()) as CalendlyWebhookRequest
+    event: webhookEvent,
+    payload: { email, name, event },
+  } = data
 
-  console.log({ event })
-
-  if (event !== 'invitee.created') return new Response()
-
-  console.log({ email, name })
+  if (webhookEvent !== 'invitee.created') return new Response()
 
   // TODO: check type: created, canceled, reschedueld etc
 
   //** Send confirmation email */
+  // TODO:
 
   //** Create user in Stream */
-  const id = crypto.createHash('md5').update(email).digest('hex')
+  const userId = crypto.createHash('md5').update(email).digest('hex')
 
-  const res = await streamClient.upsertUser({
-    id,
+  const res = await stream.upsertUser({
+    id: userId,
     name,
     role: 'user',
+  })
+
+  //** Create channel */
+  const eventId = event.split('/').at(-1)
+  await stream
+    .channel('messaging', eventId, {
+      members: ['steady', userId],
+      created_by_id: 'steady',
+    })
+    .create()
+
+  await db.chatToken.create({
+    data: {
+      id: eventId,
+      user: userId,
+    },
   })
 
   return Response.json(res)

@@ -49,4 +49,7 @@ export const {
       from: env.EMAIL_FROM,
     }),
   ],
+  pages: {
+    verifyRequest: '/magic-link-sent',
+  },
 })
