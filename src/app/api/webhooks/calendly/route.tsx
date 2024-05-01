@@ -116,7 +116,7 @@ export async function POST(request: Request) {
 }
 
 function createMeetingUrl(id: string) {
-  return process.env.NODE_ENV !== 'development'
+  return process.env.NODE_ENV === 'development'
     ? `localhost:3000/chat/${id}`
     : `https://steadydatecoaching.com/chat/${id}`
 }
