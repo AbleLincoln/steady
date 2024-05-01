@@ -50,7 +50,7 @@ export async function POST(request: Request) {
 
   const data = (await request.json()) as CalendlyWebhookRequest
 
-  console.log(data)
+  console.log(JSON.stringify(data))
 
   const {
     event: webhookEvent,
