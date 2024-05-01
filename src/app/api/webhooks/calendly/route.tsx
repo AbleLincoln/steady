@@ -116,6 +116,14 @@ export async function POST(request: Request) {
 }
 
 function createMeetingUrl(id: string) {
+  console.log({
+    NEXT_PUBLIC_VERCEL_ENV: process.env.NEXT_PUBLIC_VERCEL_ENV,
+    NEXT_PUBLIC_VERCEL_URL: process.env.NEXT_PUBLIC_VERCEL_URL,
+    NEXT_PUBLIC_VERCEL_BRANCH_URL: process.env.NEXT_PUBLIC_VERCEL_BRANCH_URL,
+    VERCEL_URL: process.env.VERCEL_URL,
+    VERCEL_BRANCH_URL: process.env.VERCEL_BRANCH_URL,
+  })
+
   return process.env.NODE_ENV === 'development'
     ? `localhost:3000/chat/${id}`
     : `https://steadydatecoaching.com/chat/${id}`
