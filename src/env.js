@@ -43,7 +43,10 @@ export const env = createEnv({
    * `NEXT_PUBLIC_`.
    */
   client: {
-    // NEXT_PUBLIC_CLIENTVAR: z.string(),
+    NEXT_PUBLIC_VERCEL_ENV: z
+      .enum(['production', 'preview', 'development'])
+      .default('development'),
+    NEXT_PUBLIC_VERCEL_BRANCH_URL: z.string(),
   },
 
   /**

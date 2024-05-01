@@ -125,14 +125,9 @@ function createMeetingUrl(id: string) {
     NODE_ENV: process.env.NODE_ENV,
   })
 
-  switch (process.env.NODE_ENV) {
-    case 'development':
-      return `localhost:3000/chat/${id}`
-    case 'preview':
-      return `https://${process.env.NEXT_PUBLIC_VERCEL_BRANCH_URL}/chat/${id}`
-    default:
-      return `https://steadydatecoaching.com/chat/${id}`
-  }
+  return env.NEXT_PUBLIC_VERCEL_ENV === 'preview'
+    ? `https://${env.NEXT_PUBLIC_VERCEL_BRANCH_URL}/chat/${id}`
+    : `https://steadydatecoaching.com/chat/${id}`
 }
 
 function createICS({
