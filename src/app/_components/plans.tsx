@@ -5,7 +5,7 @@ const PLANS: PlanProps[] = [
     title: 'Quick Fix',
     subtitle: '10 minutes of messaging',
     url: 'https://calendly.com/steady-coaches/10-mins-messaging',
-    price: 45,
+    price: 35,
     bestFor: 'straight-forward dating questions',
     examples: [
       'How do I respond to this text?',
@@ -15,9 +15,9 @@ const PLANS: PlanProps[] = [
   },
   {
     title: 'Support & Advice',
-    subtitle: '50 minute video call',
+    subtitle: '60 minute video call',
     url: 'https://calendly.com/steady-coaches/support-and-advice',
-    price: 250,
+    price: 190,
     bestFor: 'situational dating advice with minimal backstory',
     examples: [
       'Help, I’m feeling anxious in my relationship',
@@ -26,9 +26,10 @@ const PLANS: PlanProps[] = [
     ],
   },
   {
-    title: 'Level Up',
-    subtitle: '80 minute video call',
-    url: 'https://calendly.com/steady-coaches/level-up',
+    title: 'Level Up Package',
+    subtitle: '5 sessions to transform your dating life',
+    supertitle: 'Coming soon! ',
+    // url: 'https://calendly.com/steady-coaches/level-up',
     price: 345,
     bestFor: 'more holistic dating or relationship advice',
     examples: [
@@ -42,17 +43,20 @@ const PLANS: PlanProps[] = [
 export default function Plans() {
   return (
     <div className="grid-cols-3 gap-x-10 pt-8 md:grid">
-      {PLANS.map(({ title, subtitle, price, bestFor, examples, url }) => (
-        <Plan
-          title={title}
-          subtitle={subtitle}
-          key={title}
-          url={url}
-          price={price}
-          bestFor={bestFor}
-          examples={examples}
-        />
-      ))}
+      {PLANS.map(
+        ({ title, subtitle, price, bestFor, examples, url, supertitle }) => (
+          <Plan
+            title={title}
+            subtitle={subtitle}
+            key={title}
+            url={url}
+            price={price}
+            bestFor={bestFor}
+            examples={examples}
+            supertitle={supertitle}
+          />
+        ),
+      )}
     </div>
   )
 }

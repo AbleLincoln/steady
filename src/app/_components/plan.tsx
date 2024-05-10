@@ -5,7 +5,8 @@ import { PopupButton } from 'react-calendly'
 export interface PlanProps {
   title: string
   subtitle: string
-  url: string
+  supertitle?: string
+  url?: string
   price: number
   bestFor: string
   examples: string[]
@@ -26,10 +27,14 @@ export default function Plan({
   url,
   title,
   subtitle,
+  supertitle,
 }: PlanProps) {
   return (
     <div className="my-4 flex flex-col justify-between">
-      <div className="py-6">
+      <div className="relative py-6">
+        <p className="absolute top-0 text-xl">
+          <em>{supertitle}</em>
+        </p>
         <div
           className="wide-grid mb-4 grid items-center gap-y-4"
           style={{
@@ -39,30 +44,34 @@ export default function Plan({
           <p className="text-2xl">{title}</p>
           <p className="justify-self-end text-xl">${price}</p>
 
-          <p className="text-lg">{subtitle}</p>
+          <p className={`text-lg ${url ? '' : 'col-span-2'}`}>{subtitle}</p>
 
           {/* TODO: hydration errors also this is sloppy */}
-          {typeof document === 'undefined' ? (
-            <button style={buttonStyles}>Book now</button>
+          {url ? (
+            typeof document === 'undefined' ? (
+              <button style={buttonStyles}>Book now</button>
+            ) : (
+              <PopupButton
+                url={url}
+                /*
+                 * react-calendly uses React's Portal feature (https://reactjs.org/docs/portals.html) to render the popup modal. As a result, you'll need to
+                 * specify the rootElement property to ensure that the modal is inserted into the correct domNode.
+                 */
+                rootElement={document.getElementById('root')!}
+                text="Book now"
+                styles={buttonStyles}
+                pageSettings={{
+                  backgroundColor: 'ffffff',
+                  hideEventTypeDetails: false,
+                  hideLandingPageDetails: false,
+                  hideGdprBanner: true,
+                  primaryColor: 'cb71b2',
+                  textColor: '1e293b',
+                }}
+              />
+            )
           ) : (
-            <PopupButton
-              url={url}
-              /*
-               * react-calendly uses React's Portal feature (https://reactjs.org/docs/portals.html) to render the popup modal. As a result, you'll need to
-               * specify the rootElement property to ensure that the modal is inserted into the correct domNode.
-               */
-              rootElement={document.getElementById('root')!}
-              text="Book now"
-              styles={buttonStyles}
-              pageSettings={{
-                backgroundColor: 'ffffff',
-                hideEventTypeDetails: false,
-                hideLandingPageDetails: false,
-                hideGdprBanner: true,
-                primaryColor: 'cb71b2',
-                textColor: '1e293b',
-              }}
-            />
+            ''
           )}
         </div>
 
