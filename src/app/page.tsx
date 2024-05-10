@@ -141,9 +141,6 @@ export default async function Home() {
             <Button theme="purple" href="/#plans">
               Book a Session
             </Button>
-            <p className="ml-4 mt-12 text-center text-lg text-white md:mt-0">
-              Live phone and video chats coming soon!
-            </p>
           </div>
         </section>
 
