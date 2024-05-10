@@ -50,7 +50,7 @@ interface CalendlyWebhookRequest {
 const resend = new Resend(env.AUTH_RESEND_KEY)
 
 export async function POST(request: Request) {
-  // TODO: webhook singature! https://developer.calendly.com/api-docs/4c305798a61d3-webhook-signatures
+  // TODO: webhook singature ! https://developer.calendly.com/api-docs/4c305798a61d3-webhook-signatures
   // https://hookdeck.com/webhooks/guides/how-to-implement-sha256-webhook-signature-verification
 
   const data = (await request.json()) as CalendlyWebhookRequest
