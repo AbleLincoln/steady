@@ -15,9 +15,9 @@ const PLANS: PlanProps[] = [
   },
   {
     title: 'Support & Advice',
-    subtitle: '25 minute phone call',
+    subtitle: '50 minute video call',
     url: 'https://calendly.com/steady-coaches/support-and-advice',
-    price: 110,
+    price: 250,
     bestFor: 'situational dating advice with minimal backstory',
     examples: [
       'Help, I’m feeling anxious in my relationship',
@@ -27,9 +27,9 @@ const PLANS: PlanProps[] = [
   },
   {
     title: 'Level Up',
-    subtitle: '50 minute video call',
+    subtitle: '80 minute video call',
     url: 'https://calendly.com/steady-coaches/level-up',
-    price: 250,
+    price: 345,
     bestFor: 'more holistic dating or relationship advice',
     examples: [
       'I haven’t dated in 20 years. I need a full plan',
