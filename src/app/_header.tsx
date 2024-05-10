@@ -3,9 +3,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faComments } from '@fortawesome/free-solid-svg-icons'
-
 import { slide as Menu } from 'react-burger-menu'
 import '@/styles/burger-menu.css'
 
@@ -44,7 +41,7 @@ export default function Header() {
   return (
     <>
       {/* TODO: need to rewrite as my own bc broken */}
-      <div className="nav-break:hidden absolute right-8 top-5">
+      <div className="absolute right-8 top-5 nav-break:hidden">
         <Menu right>
           <Button className="mb-4 px-6 py-2 text-base" href="/#plans">
             Get Started
@@ -63,16 +60,10 @@ export default function Header() {
             />
           </Link>
 
-          <ul className="nav-break:flex hidden shrink-0 items-center text-lg">
+          <ul className="hidden shrink-0 items-center text-lg nav-break:flex">
             {items()}
           </ul>
         </section>
-        <Link
-          href="/chat"
-          className="flex h-14 w-14 items-center justify-center self-center rounded-full bg-dark text-2xl text-white shadow-lg transition-all hover:bg-steady-green hover:shadow-xl"
-        >
-          <FontAwesomeIcon icon={faComments} />
-        </Link>
       </header>
     </>
   )
