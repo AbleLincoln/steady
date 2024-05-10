@@ -1,8 +1,7 @@
 import NextAuth, { type DefaultSession } from 'next-auth'
 import { PrismaAdapter } from '@auth/prisma-adapter'
-import Resend from 'next-auth/providers/resend'
+import Google from 'next-auth/providers/google'
 
-import { env } from '@/env'
 import { db } from '@/server/db'
 
 declare module 'next-auth' {
@@ -28,9 +27,6 @@ export const {
   unstable_update: update,
 } = NextAuth({
   callbacks: {
-    redirect: () => {
-      return '/chat'
-    },
     session: ({ session, user }) => ({
       ...session,
       user: {
@@ -44,11 +40,7 @@ export const {
     // },
   },
   adapter: PrismaAdapter(db),
-  providers: [
-    Resend({
-      from: env.EMAIL_FROM,
-    }),
-  ],
+  providers: [Google],
   pages: {
     verifyRequest: '/magic-link-sent',
   },

@@ -2,7 +2,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { redirect } from 'next/navigation'
 
-import { auth } from '@/auth'
+import { auth, signIn, signOut } from '@/auth'
 
 import logo from 'public/steady-logo-white.png'
 
@@ -23,21 +23,28 @@ export default async function AdminLayout({
             home
           </Link>
         </p>
-        <p className="mt-4">
-          If you are a Steady coach,{' '}
-          <Link href="/api/auth/signin" className="text-blue-500 underline">
-            click here to login
-          </Link>
-        </p>
+        <form
+          action={async () => {
+            'use server'
+            await signIn('google')
+          }}
+        >
+          <p className="mt-4">
+            If you are a Steady coach,{' '}
+            <button type="submit" className="text-blue-500 underline">
+              click here to login
+            </button>
+          </p>
+        </form>
       </div>
     )
-  //return redirect('/api/auth/signin')
+
   if (!session.user.email?.endsWith('steadydatecoaching.com'))
     return redirect('/')
 
   return (
     <div className="flex h-screen flex-col">
-      <header className="bg-steady-green px-3 py-3">
+      <header className="flex items-center justify-between bg-steady-green px-3 py-3">
         <p className="text-white">
           <Image
             src={logo}
@@ -47,6 +54,16 @@ export default async function AdminLayout({
           />{' '}
           Coaching Platform
         </p>
+        <form
+          action={async () => {
+            'use server'
+            await signOut({ redirectTo: '/' })
+          }}
+        >
+          <button type="submit" className="text-white">
+            Sign Out
+          </button>
+        </form>
       </header>
       {children}
     </div>

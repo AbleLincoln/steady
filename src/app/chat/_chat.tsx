@@ -17,7 +17,7 @@ import 'stream-chat-react/dist/css/v2/index.css'
 import '@/styles/stream.css'
 
 import logo from 'public/steady-logo-green.png'
-import Header from './_header'
+import Header from './header'
 
 const apiKey = 'mspwbbwcvzjm'
 
