@@ -22,8 +22,8 @@ const FAQs: AccordionItem[] = [
     body: 'Pricing varies depending on the length of the session and mode of communication. Please click the session you are interested in to view pricing info.',
   },
   {
-    title: 'Will you be offering video and phone options?',
-    body: 'Yes! Right now, everything is chat based. But soon we will be introducing video-based meetings and live phone calls.',
+    title: 'Do you offer additional services?',
+    body: 'Yes, depending on your needs, Steady can customize a plan. We have new options for working with us coming soon but in the meantime, please reach out via our Contact page for other ways you might need support.',
   },
   {
     title: 'Is this like therapy?',
