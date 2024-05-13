@@ -30,7 +30,7 @@ const PLANS: PlanProps[] = [
     subtitle: '5 sessions to transform your dating life',
     supertitle: 'Coming soon! ',
     // url: 'https://calendly.com/steady-coaches/level-up',
-    price: 345,
+    // price: 345,
     bestFor: 'more holistic dating or relationship advice',
     examples: [
       'I haven’t dated in 20 years. I need a full plan',

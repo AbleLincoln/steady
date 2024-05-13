@@ -26,7 +26,7 @@ export default async function AdminLayout({
         <form
           action={async () => {
             'use server'
-            await signIn('google')
+            await signIn()
           }}
         >
           <p className="mt-4">

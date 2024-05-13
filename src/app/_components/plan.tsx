@@ -7,7 +7,7 @@ export interface PlanProps {
   subtitle: string
   supertitle?: string
   url?: string
-  price: number
+  price?: number
   bestFor: string
   examples: string[]
 }
@@ -21,7 +21,7 @@ const buttonStyles = {
 }
 
 export default function Plan({
-  price = 20,
+  price,
   bestFor,
   examples,
   url,
@@ -42,7 +42,7 @@ export default function Plan({
           }}
         >
           <p className="text-2xl">{title}</p>
-          <p className="justify-self-end text-xl">${price}</p>
+          <p className="justify-self-end text-xl">{price ? `$${price}` : ''}</p>
 
           <p className={`text-lg ${url ? '' : 'col-span-2'}`}>{subtitle}</p>
 
