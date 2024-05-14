@@ -40,17 +40,7 @@ export const {
     // },
   },
   adapter: PrismaAdapter(db),
-  providers: [
-    Google({
-      clientId: process.env.AUTH_GOOGLE_ID,
-      clientSecret: process.env.AUTH_GOOGLE_SECRET,
-      authorization: {
-        params: {
-          prompt: 'consent',
-        },
-      },
-    }),
-  ],
+  providers: [Google],
   pages: {
     verifyRequest: '/magic-link-sent',
   },
