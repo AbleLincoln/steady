@@ -2,8 +2,8 @@ import crypto from 'crypto'
 import { Resend } from 'resend'
 import * as ics from 'ics'
 import { DateTime } from 'luxon'
-import CalendlyConfirmationEmail from 'emails/calendly-confirmation'
-import { google, outlook, office365, yahoo } from 'calendar-link'
+import SecretLinkEmail from 'emails/secret-link'
+import { google, office365 } from 'calendar-link'
 
 import stream from '@/server/stream'
 import { db } from '@/server/db'
@@ -133,17 +133,7 @@ export async function POST(request: Request) {
     from: env.EMAIL_FROM,
     to: email,
     subject: 'Steady Date Coaching Invitation',
-    react: (
-      <CalendlyConfirmationEmail
-        meetingUrl={meetingUrl}
-        name={name}
-        starts={startsAt}
-        addToCalGmail={google(event)}
-        addToCalOutlook={office365(event)}
-        cancelUrl={cancel_url}
-        rescheduleUrl={reschedule_url}
-      />
-    ),
+    react: <SecretLinkEmail meetingUrl={meetingUrl} name={name} />,
     attachments: [
       {
         filename: 'invite.ics',
