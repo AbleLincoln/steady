@@ -132,14 +132,14 @@ export async function POST(request: Request) {
   await resend.emails.send({
     from: env.EMAIL_FROM,
     to: email,
-    subject: 'Steady Date Coaching Invitation',
+    subject: 'Steady Date Coaching Secret Link',
     react: <SecretLinkEmail meetingUrl={meetingUrl} name={name} />,
-    attachments: [
-      {
-        filename: 'invite.ics',
-        content: ics.createEvent(event).value,
-      },
-    ],
+    // attachments: [
+    //   {
+    //     filename: 'invite.ics',
+    //     content: ics.createEvent(event).value,
+    //   },
+    // ],
   })
 
   return Response.json(res)
