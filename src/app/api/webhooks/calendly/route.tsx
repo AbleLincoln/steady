@@ -20,6 +20,7 @@ interface CalendlyWebhookRequest {
     cancel_url: string
     reschedule_url: string
     scheduled_event: {
+      name: 'Instant Messaging' | 'Support & Advice'
       /** ISO string */
       start_time: string
       /** ISO string */
@@ -66,11 +67,17 @@ export async function POST(request: Request) {
       cancel_url,
       reschedule_url,
       timezone,
-      scheduled_event: { start_time, end_time, event_memberships },
+      scheduled_event: {
+        name: eventName,
+        start_time,
+        end_time,
+        event_memberships,
+      },
     },
   } = data
 
   if (webhookEvent !== 'invitee.created') return new Response()
+  if (!['Instant Messaging'].includes(eventName)) return new Response()
 
   // TODO: check type: created, canceled, reschedueld etc
 
