@@ -139,7 +139,7 @@ export async function POST(request: Request) {
   await resend.emails.send({
     from: env.EMAIL_FROM,
     to: email,
-    subject: 'Steady Date Coaching Secret Link',
+    subject: 'Steady Date Coaching Secure Link',
     react: <SecretLinkEmail meetingUrl={meetingUrl} name={name} />,
     // attachments: [
     //   {

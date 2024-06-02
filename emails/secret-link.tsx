@@ -65,7 +65,7 @@ export default function Email({
                 Thanks for scheduling some time with Steady.
               </Text>
               <Text className="text-xl font-light">
-                Here is the secret link to your chat session.
+                Here is the secure link to your chat session.
               </Text>
             </Section>
             <Section className="text-center">
@@ -73,7 +73,7 @@ export default function Email({
                 href={meetingUrl}
                 className="m-auto mt-1 w-3/4 rounded-full bg-steady-pink px-6 py-2 text-center text-white"
               >
-                Secret Link
+                Secure Link
               </Button>
             </Section>
           </Container>
