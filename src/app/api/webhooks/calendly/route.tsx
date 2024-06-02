@@ -77,7 +77,10 @@ export async function POST(request: Request) {
   } = data
 
   if (webhookEvent !== 'invitee.created') return new Response()
-  if (!['Instant Messaging'].includes(eventName)) return new Response()
+  if (
+    !['Instant Messaging', 'Instant Messaging (dev only!)'].includes(eventName)
+  )
+    return new Response()
 
   // TODO: check type: created, canceled, reschedueld etc
 
