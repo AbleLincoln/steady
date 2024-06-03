@@ -12,6 +12,8 @@ interface ClockPropTypes {
 const defaultEvent: CalendlyEvent = {
   start_time: '2024-04-25T18:22:20Z',
   end_time: '2024-04-25T19:20:20Z',
+  name: 'hello',
+  uri: '',
 }
 
 function calculatePercent(start: DateTime, end: DateTime, remaining: Duration) {
@@ -29,15 +31,25 @@ export default function Clock({
     end.diff(DateTime.now(), 'seconds'),
   )
 
+  const [hasStarted, setHasStarted] = useState(start <= DateTime.now())
+
   useEffect(() => {
     const intervalId = setInterval(() => {
+      if (hasStarted) {
+      } else if (start <= DateTime.now()) {
+        console.log(start, DateTime.now())
+        setHasStarted(true)
+      }
+
       if (end.diff(DateTime.now()).as('seconds') <= 0) {
         if (onTimeout) onTimeout()
       } else setRemaining(end.diff(DateTime.now(), 'seconds'))
     }, 1000)
 
     return () => clearInterval(intervalId)
-  }, [end, onTimeout])
+  }, [end, onTimeout, start, hasStarted])
+
+  if (!hasStarted) return <NotYet remaining={remaining} />
 
   if (remaining.as('seconds') <= 0) return <div></div>
 
@@ -60,6 +72,21 @@ export default function Clock({
         }}
       ></div>
       <p>{remaining.toFormat('m:ss')}</p>
+    </div>
+  )
+}
+
+function NotYet({ remaining }: { remaining: Duration }) {
+  const time =
+    remaining.as('hours') > 1
+      ? `${remaining.toFormat('h')} hours`
+      : remaining.as('minutes') > 1
+        ? `${remaining.toFormat('m')} minutes`
+        : `${remaining.toFormat('s')} seconds`
+
+  return (
+    <div className="flex items-center justify-center">
+      <p>Your session starts in {time}</p>
     </div>
   )
 }

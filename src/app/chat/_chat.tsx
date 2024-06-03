@@ -22,8 +22,8 @@ import Header from './header'
 const apiKey = 'mspwbbwcvzjm'
 
 export default function DirectMessaging({
-  user: user,
-  event: event,
+  user,
+  event,
 }: {
   user: string
   event: string
@@ -37,8 +37,7 @@ export default function DirectMessaging({
     },
   })
 
-  // TODO:
-  // const getEventDetails = api.calendly.getEventDetails.useQuery(email)
+  const getEventDetails = api.calendly.getEventDetails.useQuery(event)
 
   if (!chatClient) return <LoadingIndicator />
 
@@ -51,7 +50,7 @@ export default function DirectMessaging({
       <div className="mt-4">
         <Chat client={chatClient} theme="str-chat__theme-light">
           <Channel channel={channel}>
-            {/* <Header event={getEventDetails.data?.collection[0]} /> */}
+            <Header event={getEventDetails.data?.resource} />
             <MessageList />
             <MessageInput />
           </Channel>
