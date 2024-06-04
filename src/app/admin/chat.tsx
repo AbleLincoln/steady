@@ -38,11 +38,12 @@ const apiKey = 'mspwbbwcvzjm'
 const userToken =
   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoic3RlYWR5In0.f0SOafAIFs9T8XDEYrlrHxEMLEceTFtFxEDKiH5CK2Y'
 
+// TODO: make it custom to whoever is signed in
 const userId = 'steady'
 const userName = 'steady'
 const user: User = {
   id: userId,
-  name: userName,
+  name: 'Steady',
   image: `https://getstream.io/random_png/?id=${userId}&name=${userName}`,
 }
 
@@ -79,6 +80,8 @@ export default function Component() {
         options={options}
         Preview={ChannelPreview}
         renderChannels={renderChannels}
+        // eslint-disable-next-line @typescript-eslint/no-empty-function
+        onMessageNewHandler={() => {}}
       />
 
       <Channel>
