@@ -99,6 +99,7 @@ export async function POST(request: Request) {
     .channel('messaging', eventId, {
       members: ['steady', userId],
       created_by_id: 'steady',
+      start_time,
     })
     .create()
 
