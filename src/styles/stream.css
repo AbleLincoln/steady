@@ -14,7 +14,7 @@
 }
 
 .str-chat-channel-list {
-  min-width: 250px;
+  min-width: 300px;
 }
 
 .str-chat-channel {
@@ -28,6 +28,10 @@
 .str-chat__header-livestream-left--members.str-chat__channel-header-info {
   display: none;
 }
+
+/* .str-chat__channel-list-messenger-react__main {
+  max-height: 50%;
+} */
 
 .client-only .str-chat {
   /* --str-chat__primary-color: #009688;
