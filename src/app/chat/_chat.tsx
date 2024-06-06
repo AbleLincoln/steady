@@ -44,7 +44,7 @@ export default function DirectMessaging({
   const channel = chatClient.getChannelById('messaging', event, {})
 
   return (
-    <div className="client-only m-auto flex max-h-screen max-w-screen-sm flex-col p-4 pt-10">
+    <div className="client-only m-auto flex max-h-screen max-w-screen-sm flex-col p-4">
       <Image src={logo} alt="Steady" height={30} />
 
       <div className="mt-4">

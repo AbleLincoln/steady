@@ -15,6 +15,7 @@
 
 html {
   scroll-behavior: smooth !important;
+  padding-bottom: env(safe-area-inset-bottom);
 }
 
 /* Custom classes */

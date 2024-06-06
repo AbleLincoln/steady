@@ -21,7 +21,7 @@ export default function Header({ event }: { event?: CalendlyEvent }) {
     <header className="flex justify-between rounded-t-xl border-b border-black bg-white px-3 py-2">
       <ChannelHeader />
       {sessionComplete ? (
-        <Button href="/#plans" className="text-sm">
+        <Button href="/#plans" className="m whitespace-nowrap px-4">
           New Session
         </Button>
       ) : (
@@ -63,9 +63,13 @@ function Modal({ open, onClose }: { open: boolean; onClose: () => void }) {
           more.
         </p>
 
-        <div className="flex justify-around">
-          <Button href="/#plans">Book Again</Button>
-          <Button onClick={onClose}>Good for Now</Button>
+        <div className="flex flex-wrap justify-around">
+          <Button href="/#plans" className="mb-2">
+            Book Again
+          </Button>
+          <Button onClick={onClose} className="mb-2 whitespace-nowrap">
+            Good for Now
+          </Button>
         </div>
       </div>
     </dialog>
