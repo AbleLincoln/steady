@@ -31,6 +31,10 @@ html {
   @apply col-span-1 col-start-2;
 }
 
+.fill-safari {
+  min-height: -webkit-fill-available;
+}
+
 .wide-grid > *:nth-child(2n) {
   justify-self: end;
 }

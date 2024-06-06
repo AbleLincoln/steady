@@ -8,7 +8,7 @@ export default async function Chat({ params }: { params: { id: string } }) {
   if (!token) return null
 
   return (
-    <main className="bg-gradient min-h-screen bg-gradient-to-b from-white to-purple-steady">
+    <main className="bg-gradient fill-safari min-h-screen bg-gradient-to-b from-white to-purple-steady">
       <DirectMessaging user={token.user} event={token.id} />
     </main>
   )
