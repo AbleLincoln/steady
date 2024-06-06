@@ -10,7 +10,7 @@
 
 .client-only .str-chat__channel .str-chat__container {
   flex-direction: column;
-  max-height: calc(100vh - 76px - env(safe-area-inset-bottom));
+  max-height: calc(100vh - 150px);
 }
 
 .str-chat-channel-list {
