@@ -64,7 +64,7 @@ export default function AdminChat({ user, token }: AdminChatPropTypes) {
   const filters: ChannelFilters = {
     type: 'messaging',
     members: { $in: [userId] },
-    start_time: { $gt: '' },
+    start_time: { $gt: DateTime.now().startOf('day').toISO() },
   }
 
   if (!chatClient) return <Loading />
