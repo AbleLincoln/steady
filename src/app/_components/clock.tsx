@@ -1,8 +1,8 @@
 'use client'
 
-import { useEffect, useState } from 'react'
-import { DateTime, type Duration } from 'luxon'
 import { type CalendlyEvent } from '@/server/api/routers/calendly'
+import { DateTime, type Duration } from 'luxon'
+import { useEffect, useState } from 'react'
 
 interface ClockPropTypes {
   event?: CalendlyEvent
@@ -27,23 +27,24 @@ export default function Clock({
   const start = DateTime.fromISO(event.start_time)
   const end = DateTime.fromISO(event.end_time)
 
-  const [remaining, setRemaining] = useState(
-    end.diff(DateTime.now(), 'seconds'),
-  )
+  const [hasStarted, setHasStarted] = useState(start <= DateTime.local())
 
-  const [hasStarted, setHasStarted] = useState(start <= DateTime.now())
+  const [remaining, setRemaining] = useState(
+    hasStarted ? end.diffNow('seconds') : start.diffNow('seconds'),
+  )
 
   useEffect(() => {
     const intervalId = setInterval(() => {
-      if (hasStarted) {
-      } else if (start <= DateTime.now()) {
-        console.log(start, DateTime.now())
+      if (!hasStarted && start <= DateTime.local()) {
         setHasStarted(true)
       }
 
-      if (end.diff(DateTime.now()).as('seconds') <= 0) {
+      if (end.diff(DateTime.local()).as('seconds') <= 0) {
         if (onTimeout) onTimeout()
-      } else setRemaining(end.diff(DateTime.now(), 'seconds'))
+      } else
+        setRemaining(
+          hasStarted ? end.diffNow('seconds') : start.diffNow('seconds'),
+        )
     }, 1000)
 
     return () => clearInterval(intervalId)
