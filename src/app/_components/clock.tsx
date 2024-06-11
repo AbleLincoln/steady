@@ -27,7 +27,7 @@ export default function Clock({
   const start = DateTime.fromISO(event.start_time)
   const end = DateTime.fromISO(event.end_time)
 
-  const [hasStarted, setHasStarted] = useState(start <= DateTime.local())
+  const [hasStarted, setHasStarted] = useState(false)
 
   const [remaining, setRemaining] = useState(
     hasStarted ? end.diffNow('seconds') : start.diffNow('seconds'),
