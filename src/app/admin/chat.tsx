@@ -4,73 +4,70 @@ import {
   type ChannelFilters,
   type ChannelOptions,
   type ChannelSort,
-  type User,
 } from 'stream-chat'
 import {
   Channel,
   ChannelHeader,
   ChannelList,
   Chat,
-  type DefaultStreamChatGenerics,
   LoadingIndicator,
   MessageInput,
   MessageList,
   Thread,
   Window,
   type ChannelPreviewUIComponentProps,
+  type DefaultStreamChatGenerics,
 } from 'stream-chat-react'
 
 import { type Channel as ChannelType } from 'stream-chat'
 
 import { DateTime } from 'luxon'
+import { type Session } from 'next-auth'
 import { type ReactNode } from 'react'
 
 import Clock from '@/app/_components/clock'
 
 import { useChatClient } from '@/app/_hooks/useChatClient'
 
-import 'stream-chat-react/dist/css/v2/index.css'
 import '@/styles/stream.css'
+import 'stream-chat-react/dist/css/v2/index.css'
 
 const FALLBACK_DATE = '2024-06-03T13:20:00.000000Z'
 
+// TODO: env vars
 const apiKey = 'mspwbbwcvzjm'
-const userToken =
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoic3RlYWR5In0.f0SOafAIFs9T8XDEYrlrHxEMLEceTFtFxEDKiH5CK2Y'
-
-// TODO: make it custom to whoever is signed in
-const userId = 'steady'
-const userName = 'steady'
-const user: User = {
-  id: userId,
-  name: 'Steady',
-  image: `https://getstream.io/random_png/?id=${userId}&name=${userName}`,
-}
+// const userToken =
+//   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoic3RlYWR5In0.f0SOafAIFs9T8XDEYrlrHxEMLEceTFtFxEDKiH5CK2Y'
 
 const sort: ChannelSort = { start_time: 1 }
-const filters: ChannelFilters = {
-  type: 'messaging',
-  members: { $in: [userId] },
-  start_time: { $gt: '' },
-}
 const options: ChannelOptions = {
   limit: 10,
 }
 
-export default function Component() {
+interface AdminChatPropTypes {
+  user: Session['user']
+  token: string
+}
+
+export default function AdminChat({ user, token }: AdminChatPropTypes) {
+  const userId = getUserId(user)
+
   const chatClient = useChatClient({
     apiKey,
-    user,
-    tokenOrProvider: userToken,
+    user: {
+      id: userId,
+      image: user.image,
+    },
+    tokenOrProvider: token,
   })
 
-  if (!chatClient) {
-    return (
-      <div className="flex grow items-center justify-center">
-        <LoadingIndicator size={80} color="rgb(143, 148, 239)" />
-      </div>
-    )
+  const filters: ChannelFilters = {
+    type: 'messaging',
+    members: { $in: [userId] },
+    start_time: { $gt: '' },
   }
+
+  if (!chatClient) return <Loading />
 
   return (
     <Chat client={chatClient} theme="str-chat__theme-light">
@@ -82,6 +79,7 @@ export default function Component() {
         renderChannels={renderChannels}
         // eslint-disable-next-line @typescript-eslint/no-empty-function
         onMessageNewHandler={() => {}}
+        EmptyStateIndicator={EmptyStateIndicator}
       />
 
       <Channel>
@@ -93,6 +91,27 @@ export default function Component() {
         <Thread />
       </Channel>
     </Chat>
+  )
+}
+
+function EmptyStateIndicator() {
+  return (
+    <div className="flex justify-center items-center">
+      <p>You have no upcoming meetings</p>
+    </div>
+  )
+}
+
+function getUserId(user: Session['user']) {
+  // maybe throw an error if it doesnt work but for now do fallback
+  return user.email?.split('@')[0] ?? 'steady'
+}
+
+function Loading() {
+  return (
+    <div className="flex grow items-center justify-center">
+      <LoadingIndicator size={80} color="rgb(143, 148, 239)" />
+    </div>
   )
 }
 
@@ -131,8 +150,6 @@ function renderChannels(
 
     days.at(-1)?.push(curr)
   }
-
-  console.log(days)
 
   return days.map((events) => {
     const date = DateTime.fromISO(

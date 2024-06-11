@@ -1,12 +1,10 @@
 import crypto from 'crypto'
-import { Resend } from 'resend'
-import * as ics from 'ics'
-import { DateTime } from 'luxon'
 import SecretLinkEmail from 'emails/secret-link'
-import { google, office365 } from 'calendar-link'
+import { DateTime } from 'luxon'
+import { Resend } from 'resend'
 
-import stream from '@/server/stream'
 import { db } from '@/server/db'
+import stream from '@/server/stream'
 
 import { env } from '@/env'
 
@@ -56,7 +54,7 @@ export async function POST(request: Request) {
 
   const data = (await request.json()) as CalendlyWebhookRequest
 
-  console.log(JSON.stringify(data))
+  // console.log(JSON.stringify(data))
 
   const {
     event: webhookEvent,
@@ -95,10 +93,14 @@ export async function POST(request: Request) {
 
   //** Create channel */
   const eventId = eventUrl.split('/').at(-1) ?? ''
+  const coachId = event_memberships[0]?.user_email.split('@')[0] ?? 'steady'
+
+  console.log({ coachId })
+
   await stream
     .channel('messaging', eventId, {
-      members: ['steady', userId],
-      created_by_id: 'steady',
+      members: [coachId, userId],
+      created_by_id: coachId,
       start_time,
     })
     .create()
@@ -157,14 +159,14 @@ export async function POST(request: Request) {
 }
 
 function createMeetingUrl(id: string) {
-  console.log({
-    NEXT_PUBLIC_VERCEL_ENV: process.env.NEXT_PUBLIC_VERCEL_ENV,
-    NEXT_PUBLIC_VERCEL_URL: process.env.NEXT_PUBLIC_VERCEL_URL,
-    NEXT_PUBLIC_VERCEL_BRANCH_URL: process.env.NEXT_PUBLIC_VERCEL_BRANCH_URL,
-    VERCEL_URL: process.env.VERCEL_URL,
-    VERCEL_BRANCH_URL: process.env.VERCEL_BRANCH_URL,
-    NODE_ENV: process.env.NODE_ENV,
-  })
+  // console.log({
+  //   NEXT_PUBLIC_VERCEL_ENV: process.env.NEXT_PUBLIC_VERCEL_ENV,
+  //   NEXT_PUBLIC_VERCEL_URL: process.env.NEXT_PUBLIC_VERCEL_URL,
+  //   NEXT_PUBLIC_VERCEL_BRANCH_URL: process.env.NEXT_PUBLIC_VERCEL_BRANCH_URL,
+  //   VERCEL_URL: process.env.VERCEL_URL,
+  //   VERCEL_BRANCH_URL: process.env.VERCEL_BRANCH_URL,
+  //   NODE_ENV: process.env.NODE_ENV,
+  // })
 
   return env.NEXT_PUBLIC_VERCEL_ENV === 'preview'
     ? `https://${env.NEXT_PUBLIC_VERCEL_BRANCH_URL}/chat/${id}`
