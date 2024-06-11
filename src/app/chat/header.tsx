@@ -1,9 +1,9 @@
-import { useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
+import { useEffect, useRef, useState } from 'react'
 import { ChannelHeader } from 'stream-chat-react'
 
-import Clock from '@/app/_components/clock'
 import Button from '@/app/_components/button'
+import Clock from '@/app/_components/clock'
 import { type CalendlyEvent } from '@/server/api/routers/calendly'
 
 import logo from 'public/steady-logo-green.png'
@@ -24,8 +24,10 @@ export default function Header({ event }: { event?: CalendlyEvent }) {
         <Button href="/#plans" className="m whitespace-nowrap px-4">
           New Session
         </Button>
-      ) : (
+      ) : event ? (
         <Clock event={event} onTimeout={handleTimeout} />
+      ) : (
+        <p>Your session starts soon</p>
       )}
 
       <Modal open={isModalOpen} onClose={() => setModalOpen(false)} />

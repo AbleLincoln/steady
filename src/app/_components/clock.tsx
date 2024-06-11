@@ -5,29 +5,19 @@ import { DateTime, type Duration } from 'luxon'
 import { useEffect, useState } from 'react'
 
 interface ClockPropTypes {
-  event?: CalendlyEvent
+  event: CalendlyEvent
   onTimeout?: () => void
-}
-
-const defaultEvent: CalendlyEvent = {
-  start_time: '2024-04-25T18:22:20Z',
-  end_time: '2024-04-25T19:20:20Z',
-  name: 'hello',
-  uri: '',
 }
 
 function calculatePercent(start: DateTime, end: DateTime, remaining: Duration) {
   return remaining.as('seconds') / end.diff(start).as('seconds')
 }
 
-export default function Clock({
-  event = defaultEvent,
-  onTimeout,
-}: ClockPropTypes) {
+export default function Clock({ event, onTimeout }: ClockPropTypes) {
   const start = DateTime.fromISO(event.start_time)
   const end = DateTime.fromISO(event.end_time)
 
-  const [hasStarted, setHasStarted] = useState(false)
+  const [hasStarted, setHasStarted] = useState(start <= DateTime.local())
 
   const [remaining, setRemaining] = useState(
     hasStarted ? end.diffNow('seconds') : start.diffNow('seconds'),
