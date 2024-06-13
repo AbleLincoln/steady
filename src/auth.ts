@@ -1,8 +1,9 @@
-import NextAuth, { type DefaultSession } from 'next-auth'
 import { PrismaAdapter } from '@auth/prisma-adapter'
+import NextAuth, { type DefaultSession } from 'next-auth'
 import Google from 'next-auth/providers/google'
 
 import { db } from '@/server/db'
+import { env } from './env'
 
 declare module 'next-auth' {
   interface Session extends DefaultSession {
@@ -31,6 +32,10 @@ export const {
       ...session,
       user: {
         ...session.user,
+        email:
+          env.NODE_ENV === 'development'
+            ? 'lindsay@steadydatecoaching.com'
+            : user.email,
         id: user.id,
       },
     }),
