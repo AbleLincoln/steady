@@ -13,6 +13,10 @@
   max-height: calc(100vh - 150px);
 }
 
+.admin-only .str-chat__channel .str-chat__container {
+  height: calc(100vh - 58px);
+}
+
 .str-chat-channel-list {
   min-width: 300px;
 }
@@ -50,4 +54,24 @@
 
 .str-chat__empty-channel {
   border-radius: 0;
+}
+
+.str-chat__message .str-chat__message-metadata,
+.str-chat__message .str-chat__custom-message-metadata {
+  display: none !important;
+}
+
+/* str-chat__list.typing {
+  padding-bottom: 20px;
+} */
+
+.str-chat__typing-indicator {
+  position: relative !important;
+  margin-left: 40px !important;
+  background: none !important;
+  width: 50px !important;
+  padding: 12px 15px !important;
+  background: #e9eaed !important;
+  border-radius: 5px 20px 20px 20px !important;
+  margin-top: -6px !important;
 }

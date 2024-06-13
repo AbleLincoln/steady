@@ -9,12 +9,14 @@ import {
   MessageList,
 } from 'stream-chat-react'
 
+import CustomTypingIndicator from '@/app/_components/TypingIndicator'
+
 import { useChatClient } from '@/app/_hooks/useChatClient'
 
 import { api } from '@/trpc/react'
 
-import 'stream-chat-react/dist/css/v2/index.css'
 import '@/styles/stream.css'
+import 'stream-chat-react/dist/css/v2/index.css'
 
 import logo from 'public/steady-logo-green.png'
 import Header from './header'
@@ -49,9 +51,9 @@ export default function DirectMessaging({
 
       <div className="mt-4">
         <Chat client={chatClient} theme="str-chat__theme-light">
-          <Channel channel={channel}>
+          <Channel channel={channel} TypingIndicator={CustomTypingIndicator}>
             <Header event={getEventDetails.data?.resource} />
-            <MessageList />
+            <MessageList disableDateSeparator />
             <MessageInput />
           </Channel>
         </Chat>

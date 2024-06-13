@@ -19,7 +19,7 @@ export default async function Admin() {
   console.log({ session, token })
 
   return (
-    <div className="flex grow">
+    <div className="flex admin-only">
       <Chat user={session.user} token={token} />
 
       <Notes />

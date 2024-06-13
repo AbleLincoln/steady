@@ -45,7 +45,7 @@ export default async function AdminLayout({
     return redirect('/')
 
   return (
-    <div className="flex h-screen flex-col">
+    <div className="flex h-screen flex-col overflow-hidden">
       <header className="flex items-center justify-between bg-steady-green px-3 py-3">
         <p className="text-white">
           <Image

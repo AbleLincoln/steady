@@ -27,6 +27,8 @@ import { type ReactNode } from 'react'
 
 import Clock from '@/app/_components/clock'
 
+import TypingIndicator from '@/app/_components/TypingIndicator'
+
 import { useChatClient } from '@/app/_hooks/useChatClient'
 
 import '@/styles/stream.css'
@@ -82,7 +84,7 @@ export default function AdminChat({ user, token }: AdminChatPropTypes) {
         EmptyStateIndicator={EmptyStateIndicator}
       />
 
-      <Channel>
+      <Channel TypingIndicator={TypingIndicator}>
         <Window>
           <Header />
           <MessageList />
