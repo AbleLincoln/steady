@@ -141,10 +141,10 @@ export async function POST(request: Request) {
 
   await mergent.tasks.create({
     request: {
-      url: `${
+      url: `https://${
         env.NODE_ENV === 'production'
           ? env.NEXT_PUBLIC_VERCEL_BRANCH_URL
-          : 'https://kind-awaited-sheepdog.ngrok-free.app'
+          : 'kind-awaited-sheepdog.ngrok-free.app'
       }/api/tasks/send-email`,
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
