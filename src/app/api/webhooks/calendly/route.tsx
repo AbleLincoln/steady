@@ -1,12 +1,9 @@
-import crypto from 'crypto'
-import SecretLinkEmail from 'emails/secret-link'
-import { DateTime } from 'luxon'
-import { Resend } from 'resend'
-
+import { env } from '@/env'
 import { db } from '@/server/db'
 import stream from '@/server/stream'
-
-import { env } from '@/env'
+import crypto from 'crypto'
+import { DateTime } from 'luxon'
+import Mergent from 'mergent'
 
 interface CalendlyWebhookRequest {
   event: 'invitee.created' | 'invitee.canceled'
@@ -46,7 +43,7 @@ interface CalendlyWebhookRequest {
 //   return Response.json(str)
 // }
 
-const resend = new Resend(env.AUTH_RESEND_KEY)
+const mergent = new Mergent(env.MERGENT_API_KEY)
 
 export async function POST(request: Request) {
   // TODO: webhook singature ! https://developer.calendly.com/api-docs/4c305798a61d3-webhook-signatures
@@ -142,18 +139,37 @@ export async function POST(request: Request) {
     },
   }
 
-  await resend.emails.send({
-    from: env.EMAIL_FROM,
-    to: email,
-    subject: 'Steady Date Coaching Secure Link',
-    react: <SecretLinkEmail meetingUrl={meetingUrl} name={name} />,
-    // attachments: [
-    //   {
-    //     filename: 'invite.ics',
-    //     content: ics.createEvent(event).value,
-    //   },
-    // ],
+  await mergent.tasks.create({
+    request: {
+      url: `${
+        env.NODE_ENV === 'production'
+          ? env.NEXT_PUBLIC_VERCEL_BRANCH_URL
+          : 'https://kind-awaited-sheepdog.ngrok-free.app'
+      }/api/tasks/send-email`,
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        from: env.EMAIL_FROM,
+        to: email,
+        subject: 'Steady Date Coaching Secure Link',
+        meetingUrl,
+        name,
+      }),
+    },
+    scheduledFor: startsAt.minus({ hour: 1 }).toJSDate(),
   })
+
+  // await resend.emails.send({
+  //   from: env.EMAIL_FROM,
+  //   to: email,
+  //   subject: 'Steady Date Coaching Secure Link',
+  //   react: <SecretLinkEmail meetingUrl={meetingUrl} name={name} />,
+  //   // attachments: [
+  //   //   {
+  //   //     filename: 'invite.ics',
+  //   //     content: ics.createEvent(event).value,
+  //   //   },
+  //   // ],
+  // })
 
   return Response.json(res)
 }

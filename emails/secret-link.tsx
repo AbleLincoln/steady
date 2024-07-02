@@ -1,15 +1,14 @@
+import config from '@/../tailwind.config'
 import {
-  Html,
   Body,
-  Section,
-  Img,
-  Text,
-  Tailwind,
   Button,
   Container,
+  Html,
+  Img,
+  Section,
+  Tailwind,
+  Text,
 } from '@react-email/components'
-
-import config from '@/../tailwind.config'
 
 const baseUrl = process.env.VERCEL_URL
   ? `https://${process.env.VERCEL_URL}`

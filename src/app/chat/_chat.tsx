@@ -30,8 +30,6 @@ export default function DirectMessaging({
   user: string
   event: string
 }) {
-  console.log({ user, event })
-
   const chatClient = useChatClient({
     apiKey,
     user: {

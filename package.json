@@ -11,7 +11,8 @@
     "emails": "email dev",
     "postinstall": "prisma generate",
     "lint": "next lint",
-    "start": "next start"
+    "start": "next start",
+    "ngrok": "ngrok http --domain=kind-awaited-sheepdog.ngrok-free.app 3000"
   },
   "dependencies": {
     "@auth/prisma-adapter": "^2.0.0",
@@ -33,6 +34,7 @@
     "calendar-link": "^2.6.0",
     "ics": "^3.7.2",
     "luxon": "^3.4.4",
+    "mergent": "^1.7.0",
     "next": "^14.0.4",
     "next-auth": "^5.0.0-beta.16",
     "prisma": "^5.13.0",
