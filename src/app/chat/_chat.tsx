@@ -1,6 +1,13 @@
 'use client'
 
+import CustomTypingIndicator from '@/app/_components/TypingIndicator'
+import { useChatClient } from '@/app/_hooks/useChatClient'
+import '@/styles/stream.css'
+import { api } from '@/trpc/react'
+import { DateTime } from 'luxon'
 import Image from 'next/image'
+import logo from 'public/steady-logo-green.png'
+import { useEffect, useState } from 'react'
 import {
   Channel,
   Chat,
@@ -8,17 +15,7 @@ import {
   MessageInput,
   MessageList,
 } from 'stream-chat-react'
-
-import CustomTypingIndicator from '@/app/_components/TypingIndicator'
-
-import { useChatClient } from '@/app/_hooks/useChatClient'
-
-import { api } from '@/trpc/react'
-
-import '@/styles/stream.css'
 import 'stream-chat-react/dist/css/v2/index.css'
-
-import logo from 'public/steady-logo-green.png'
 import Header from './header'
 
 const apiKey = 'mspwbbwcvzjm'
@@ -39,6 +36,23 @@ export default function DirectMessaging({
 
   const getEventDetails = api.calendly.getEventDetails.useQuery(event)
 
+  const [disabled, setDisabled] = useState(false)
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      if (!getEventDetails.data) return
+
+      const end = DateTime.fromISO(getEventDetails.data?.resource.end_time)
+
+      if (DateTime.local().diff(end).as('minutes') > 2) {
+        clearInterval(intervalId)
+        setDisabled(true)
+      }
+    }, 1000 * 10)
+
+    return () => clearInterval(intervalId)
+  }, [getEventDetails.data])
+
   if (!chatClient) return <LoadingIndicator />
 
   const channel = chatClient.getChannelById('messaging', event, {})
@@ -52,7 +66,7 @@ export default function DirectMessaging({
           <Channel channel={channel} TypingIndicator={CustomTypingIndicator}>
             <Header event={getEventDetails.data?.resource} />
             <MessageList disableDateSeparator />
-            <MessageInput />
+            <MessageInput disabled={disabled} />
           </Channel>
         </Chat>
       </div>
