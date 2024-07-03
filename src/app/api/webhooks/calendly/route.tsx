@@ -155,7 +155,22 @@ export async function POST(request: Request) {
         name,
       }),
     },
-    scheduledFor: startsAt.minus({ hour: 1 }).toJSDate(),
+    scheduledFor: startsAt.minus({ minutes: 10 }).toJSDate(),
+  })
+
+  await mergent.tasks.create({
+    request: {
+      url: `https://${
+        env.NODE_ENV === 'production'
+          ? env.NEXT_PUBLIC_VERCEL_BRANCH_URL
+          : 'kind-awaited-sheepdog.ngrok-free.app'
+      }/api/tasks/send-system-message`,
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        id: eventId,
+      }),
+    },
+    scheduledFor: endsAt.minus({ seconds: 35 }).toJSDate(),
   })
 
   // await resend.emails.send({

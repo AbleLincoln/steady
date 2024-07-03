@@ -72,7 +72,7 @@ function NotYet({ remaining }: { remaining: Duration }) {
     remaining.as('hours') > 1
       ? `${remaining.toFormat('h')} hours`
       : remaining.as('minutes') > 1
-        ? `${remaining.toFormat('m')} minutes`
+        ? `${remaining.plus({ minute: 1 }).toFormat('m')} minutes`
         : `${remaining.toFormat('s')} seconds`
 
   return (
