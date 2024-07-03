@@ -1,9 +1,18 @@
 'use client'
 
+import TypingIndicator from '@/app/_components/TypingIndicator'
+import Clock from '@/app/_components/clock'
+import { useChatClient } from '@/app/_hooks/useChatClient'
+import { env } from '@/env'
+import '@/styles/stream.css'
+import { DateTime } from 'luxon'
+import { type Session } from 'next-auth'
+import { type ReactNode } from 'react'
 import {
   type ChannelFilters,
   type ChannelOptions,
   type ChannelSort,
+  type Channel as ChannelType,
 } from 'stream-chat'
 import {
   Channel,
@@ -18,26 +27,11 @@ import {
   type ChannelPreviewUIComponentProps,
   type DefaultStreamChatGenerics,
 } from 'stream-chat-react'
-
-import { type Channel as ChannelType } from 'stream-chat'
-
-import { DateTime } from 'luxon'
-import { type Session } from 'next-auth'
-import { type ReactNode } from 'react'
-
-import Clock from '@/app/_components/clock'
-
-import TypingIndicator from '@/app/_components/TypingIndicator'
-
-import { useChatClient } from '@/app/_hooks/useChatClient'
-
-import '@/styles/stream.css'
 import 'stream-chat-react/dist/css/v2/index.css'
 
 const FALLBACK_DATE = '2024-06-03T13:20:00.000000Z'
 
-// TODO: env vars
-const apiKey = 'mspwbbwcvzjm'
+const apiKey = env.NEXT_PUBLIC_STREAM_KEY
 // const userToken =
 //   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoic3RlYWR5In0.f0SOafAIFs9T8XDEYrlrHxEMLEceTFtFxEDKiH5CK2Y'
 
