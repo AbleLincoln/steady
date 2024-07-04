@@ -65,6 +65,10 @@
   padding-top: 1rem;
 }
 
+.str-chat__message--system__date {
+  display: none;
+}
+
 .str-chat__typing-indicator {
   position: relative !important;
   margin-left: 40px !important;

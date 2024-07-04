@@ -13,6 +13,7 @@ export async function POST(request: Request) {
       text: 'You have 30 seconds remaining',
       type: 'system',
       user_id: 'steady',
+      silent: true,
     })
 
     return new Response('', { status: 200 })
