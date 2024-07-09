@@ -2,20 +2,20 @@ import Image from 'next/image'
 
 import '@/styles/burger-menu.css'
 
-import flower from 'public/images/icons/flower.png'
-import sun from 'public/images/icons/sun.png'
 import couple3 from 'public/images/3.jpeg'
 import couple6 from 'public/images/6.jpg'
 import couple from 'public/images/couplewithhearts.jpg'
 import bubble from 'public/images/icons/bubbles.png'
+import flower from 'public/images/icons/flower.png'
+import sun from 'public/images/icons/sun.png'
 
 import Header from './_header'
 
+import Button from '@/app/_components/button'
 import Divider from '@/app/_components/divider'
 import Coaches from './_coaches'
-import Footer from './_footer'
 import Plans from './_components/plans'
-import Button from '@/app/_components/button'
+import Footer from './_footer'
 import Testimonials from './_testimonials'
 
 export default async function Home() {
@@ -52,8 +52,8 @@ export default async function Home() {
         <section className="h-screen">
           <Image
             src={couple}
-            alt="Couple holding hands"
-            className="h-full"
+            alt="Happy couple on the beach in loooove"
+            className="h-full w-full"
             style={{
               objectFit: 'cover',
               objectPosition: 'center 60%',
@@ -83,8 +83,8 @@ export default async function Home() {
         <section className="h-screen">
           <Image
             src={couple3}
-            alt="Couple holding hands"
-            className="h-full"
+            alt="Couple cuddling on the beach"
+            className="h-full w-full"
             style={{
               objectFit: 'cover',
               objectPosition: 'center 60%',
@@ -123,7 +123,7 @@ export default async function Home() {
           <Image
             src={couple6}
             alt="Couple holding hands"
-            className="h-full"
+            className="h-full w-full"
             style={{
               objectFit: 'cover',
               objectPosition: 'center 60%',
