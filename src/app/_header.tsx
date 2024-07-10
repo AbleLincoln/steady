@@ -1,14 +1,14 @@
 'use client'
 
-import Link from 'next/link'
 import Image from 'next/image'
+import Link from 'next/link'
 
-import { slide as Menu } from 'react-burger-menu'
 import '@/styles/burger-menu.css'
+import { slide as Menu } from 'react-burger-menu'
 
 // import steadyLogo from 'public/steady-logo.svg'
-import steadyLogo from 'public/steady-logo-green.png'
 import Button from '@/app/_components/button'
+import steadyLogo from 'public/steady-logo-green.png'
 
 const NAV = [
   {
@@ -41,7 +41,7 @@ export default function Header() {
   return (
     <>
       {/* TODO: need to rewrite as my own bc broken */}
-      <div className="absolute right-8 top-5 nav-break:hidden">
+      <div className="absolute right-8 top-5">
         <Menu right>
           <Button className="mb-4 px-6 py-2 text-base" href="/#plans">
             Get Started
@@ -59,10 +59,6 @@ export default function Header() {
               style={{ height: '2rem', width: 'auto' }}
             />
           </Link>
-
-          <ul className="hidden shrink-0 items-center text-lg nav-break:flex">
-            {items()}
-          </ul>
         </section>
       </header>
     </>
