@@ -61,16 +61,16 @@ export default function Email({
                 {formatName(name)},
               </Text>
               <Text className="text-3xl font-light">
-                Thanks for scheduling some time with Steady.
+                Your date coaching starts in 10 minutes!
               </Text>
               <Text className="text-xl font-light">
-                Here is the secure link to your chat session.
+                Use this secure link to get access your chat session.
               </Text>
             </Section>
             <Section className="text-center">
               <Button
                 href={meetingUrl}
-                className="m-auto mt-1 w-3/4 rounded-full bg-steady-pink px-6 py-2 text-center text-white"
+                className="m-auto mt-4 w-3/4 rounded-full bg-steady-pink px-6 py-4 text-center text-xl text-white"
               >
                 Secure Link
               </Button>
