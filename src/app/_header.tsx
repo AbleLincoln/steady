@@ -1,14 +1,11 @@
 'use client'
 
+import Button from '@/app/_components/button'
+import '@/styles/burger-menu.css'
 import Image from 'next/image'
 import Link from 'next/link'
-
-import '@/styles/burger-menu.css'
-import { slide as Menu } from 'react-burger-menu'
-
-// import steadyLogo from 'public/steady-logo.svg'
-import Button from '@/app/_components/button'
 import steadyLogo from 'public/steady-logo-green.png'
+import { slide as Menu } from 'react-burger-menu'
 
 const NAV = [
   {
@@ -29,9 +26,9 @@ const NAV = [
   },
 ]
 
-function items(styles = '') {
+function items() {
   return NAV.map(({ href, label }) => (
-    <li key={href} className={`${styles} ml-3`}>
+    <li key={href} className="my-4 ml-3 transition-colors hover:text-white">
       <Link href={href}>{label}</Link>
     </li>
   ))
@@ -46,7 +43,7 @@ export default function Header() {
           <Button className="mb-4 px-6 py-2 text-base" href="/#plans">
             Get Started
           </Button>
-          {items('my-4')}
+          {items()}
         </Menu>
       </div>
 
