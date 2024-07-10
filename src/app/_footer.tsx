@@ -1,7 +1,7 @@
+import { faInstagram, faTiktok } from '@fortawesome/free-brands-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Image from 'next/image'
 import Link from 'next/link'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faInstagram, faTiktok } from '@fortawesome/free-brands-svg-icons'
 
 import logo from 'public/steady-logo-white.png'
 
@@ -20,14 +20,10 @@ export default function Footer() {
           target="_blank"
           className="mx-6"
         >
-          <FontAwesomeIcon
-            icon={faInstagram}
-            className="text-3xl"
-            color="white"
-          />
+          <FontAwesomeIcon icon={faInstagram} className="h-8" color="white" />
         </Link>
         <Link href="https://www.tiktok.com/@steadyfordating" target="_blank">
-          <FontAwesomeIcon icon={faTiktok} className="text-2xl" color="white" />
+          <FontAwesomeIcon icon={faTiktok} className="h-6" color="white" />
         </Link>
       </div>
     </footer>
