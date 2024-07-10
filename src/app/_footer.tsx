@@ -11,8 +11,8 @@ export default function Footer() {
       <Image src={logo} alt="Steady logo" height={30} />
 
       <div className="flex items-center text-white">
-        <Link href="/contact" className="mx-6">
-          Contact
+        <Link href="/contact" className="hover:text-steady-dark-green mx-6">
+          Contact Us
         </Link>
 
         <Link
@@ -20,10 +20,18 @@ export default function Footer() {
           target="_blank"
           className="mx-6"
         >
-          <FontAwesomeIcon icon={faInstagram} className="h-8" color="white" />
+          <FontAwesomeIcon
+            icon={faInstagram}
+            className="hover:text-steady-dark-green h-8"
+            color="white"
+          />
         </Link>
         <Link href="https://www.tiktok.com/@steadyfordating" target="_blank">
-          <FontAwesomeIcon icon={faTiktok} className="h-6" color="white" />
+          <FontAwesomeIcon
+            icon={faTiktok}
+            className="hover:text-steady-dark-green h-6"
+            color="white"
+          />
         </Link>
       </div>
     </footer>

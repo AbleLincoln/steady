@@ -1,10 +1,10 @@
 'use client'
 
-import { useState } from 'react'
 import Image from 'next/image'
+import { useState } from 'react'
 
-import lindsay from 'public/images/coaches/lindsay.jpg'
 import claire from 'public/images/coaches/claire.jpg'
+import lindsay from 'public/images/coaches/lindsay.jpg'
 import skylar from 'public/images/coaches/skylar.jpg'
 
 const COACHES = [
@@ -34,11 +34,14 @@ export default function Coaches() {
         {COACHES.map((coach, i) => (
           <li
             key={coach.name}
-            className={`mr-8 cursor-pointer border-white text-lg text-white ${activeCoach === i ? 'border-b-2' : ''}`}
+            className="group relative mr-8 cursor-pointer pb-1 text-lg text-white"
             onClick={() => setActiveCoach(i)}
           >
             <span>{coach.name.split(' ')[0]}</span>{' '}
             <span className="hidden md:inline">{coach.name.split(' ')[1]}</span>
+            <span
+              className={`absolute -bottom-[2px] h-[2px] bg-white transition-all ${activeCoach === i ? 'left-0 w-full' : 'left-1/2 w-0 group-hover:left-1/3 group-hover:w-1/3'}`}
+            ></span>
           </li>
         ))}
       </ul>
