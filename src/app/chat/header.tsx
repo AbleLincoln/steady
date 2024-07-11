@@ -22,7 +22,7 @@ export default function Header({ event }: { event?: CalendlyEvent }) {
       <ChannelHeader />
       {sessionComplete ? (
         <Button href="/#plans" className="m whitespace-nowrap px-4">
-          New Session
+          Book Again
         </Button>
       ) : event ? (
         <Clock event={event} onTimeout={handleTimeout} />
@@ -60,8 +60,8 @@ function Modal({ open, onClose }: { open: boolean; onClose: () => void }) {
 
         <Image src={logo} alt="Steady" className="m-auto" height={30} />
         <p className="my-8 text-center text-2xl text-steady-green">
-          That&apos;s all the time we have for now.
-          <br /> We&apos;re always here when you&apos;re ready to talk some
+          Oh snap. It looks like your session has come to an end. Thanks so much
+          for spending time with us today. Let us know if you want to talk some
           more.
         </p>
 
