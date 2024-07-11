@@ -54,7 +54,7 @@ export default function Plan({
           {/* TODO: hydration errors also this is sloppy */}
           {url ? (
             typeof document === 'undefined' ? (
-              <button style={buttonStyles}>Book now</button>
+              <button style={buttonStyles}>Book Now</button>
             ) : (
               <PopupButton
                 url={url}
@@ -100,9 +100,6 @@ export default function Plan({
           ))}
         </ul>
       </div>
-      {/* <p className="bg-steady-pink px-8 py-2 text-center text-white">
-        Book now
-      </p> */}
     </div>
   )
 }

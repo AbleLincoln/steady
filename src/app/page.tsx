@@ -101,7 +101,7 @@ export default async function Home() {
             <Image
               src={bubble}
               alt=""
-              className="mb-3 ml-4 inline align-bottom md:ml-10"
+              className="mb-3 ml-4 inline align-bottom md:ml-10 mobile-only:hidden"
             />
           </h2>
           <h3 className="max-w-screen-sm font-sans text-lg font-light">

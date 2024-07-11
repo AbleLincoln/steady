@@ -38,6 +38,7 @@ const PLANS: PlanProps[] = [
       'Uncover limiting beliefs',
       'Break negative patterns',
       'Rewrite your dating story',
+      'Create a new dating plan',
     ],
   },
 ]

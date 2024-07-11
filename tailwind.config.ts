@@ -7,6 +7,7 @@ export default {
   theme: {
     extend: {
       screens: {
+        xs: { max: '550px' },
         'mobile-only': { max: '768px' },
         'nav-break': { min: '1170px' },
       },
