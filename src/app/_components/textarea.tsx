@@ -10,6 +10,7 @@ export default function TextArea({
   label,
   className = '',
   style,
+  required,
 }: InputProps) {
   return (
     <label
@@ -22,6 +23,7 @@ export default function TextArea({
         name={name}
         id={name}
         className="w-full flex-grow rounded-md border border-dark p-2 text-lg text-dark"
+        required={required}
       />
     </label>
   )

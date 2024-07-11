@@ -24,6 +24,10 @@ const NAV = [
     href: '/faq',
     label: 'FAQ',
   },
+  {
+    href: '/contact',
+    label: 'Contact Us',
+  },
 ]
 
 function items() {

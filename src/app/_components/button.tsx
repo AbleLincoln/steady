@@ -11,7 +11,7 @@ const THEMES = {
     'bg-white text-steady-purple hover:bg-steady-light-purple hover:text-steady-dark-purple',
 }
 
-interface ButtonPropTypes {
+export interface ButtonPropTypes {
   href?: string
   theme?: keyof typeof THEMES
 }
@@ -23,8 +23,9 @@ export default function Button({
   onClick,
   className = '',
   type = 'button',
+  disabled = false,
 }: ButtonPropTypes & ButtonHTMLAttributes<HTMLButtonElement>) {
-  const _className = `${className} ${THEMES[theme]} rounded-full px-12 py-3 text-lg leading-snug self-center hover:shadow transition-all hover:scale-105`
+  const _className = `${className} ${THEMES[theme]} rounded-full px-12 py-3 text-lg leading-snug self-center hover:shadow transition-all ${disabled ? 'opacity-50' : ''}`
 
   if (href)
     return (
@@ -34,7 +35,12 @@ export default function Button({
     )
   else
     return (
-      <button type={type} className={_className} onClick={onClick}>
+      <button
+        type={type}
+        className={_className}
+        onClick={onClick}
+        disabled={disabled}
+      >
         {children}
       </button>
     )

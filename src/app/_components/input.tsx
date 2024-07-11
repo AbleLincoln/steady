@@ -11,6 +11,7 @@ export default function Input({
   label,
   className = '',
   style,
+  required = false,
 }: InputProps) {
   return (
     <label
@@ -24,6 +25,7 @@ export default function Input({
         name={name}
         id={name}
         className="w-full rounded-md border border-dark p-2 text-lg text-dark"
+        required={required}
       />
     </label>
   )
