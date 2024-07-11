@@ -6,57 +6,48 @@ const PLANS: PlanProps[] = [
     subtitle: '10 minutes of messaging',
     url: 'https://calendly.com/steady-coaches/10-mins-messaging',
     price: 35,
-    bestFor: 'straight-forward dating questions',
+    bestFor: 'Best for straight-forward questions',
     examples: [
-      'How do I respond to this text?',
-      'Should I go on a second date with this person?',
-      'My dating profile needs a refresh. Can you help?',
+      'How to respond to that text',
+      'Flagging red flags',
+      'Yes / no on a second date',
+      'Online profile optimization',
     ],
   },
   {
     title: 'Support & Advice',
-    subtitle: '60 minute video call',
+    subtitle: '60 minute video session',
     url: 'https://calendly.com/steady-coaches/support-and-advice',
     price: 190,
-    bestFor: 'situational dating advice with minimal backstory',
+    bestFor: 'For more in-depth help like',
     examples: [
-      'Help, I’m feeling anxious in my relationship',
-      'I’m not getting second dates, what am I doing wrong?',
-      'Is this a red flag?',
+      'Defining your ideal partner',
+      'Tips for using the apps',
+      'Dating anxiety help',
+      'Break-up support',
     ],
   },
   {
     title: 'Level Up Package',
-    subtitle: '5 sessions to transform your dating life',
+    subtitle: 'Five 60 minute sessions to transform your dating life ',
     supertitle: 'Coming soon! ',
     // url: 'https://calendly.com/steady-coaches/level-up',
     // price: 345,
-    bestFor: 'more holistic dating or relationship advice',
+    bestFor: 'For a holistic dating reset',
     examples: [
-      'I haven’t dated in 20 years. I need a full plan',
-      'I need help getting through a break-up',
-      'What should I do if the apps aren’t working for me?',
+      'Uncover limiting beliefs',
+      'Break negative patterns',
+      'Rewrite your dating story',
     ],
   },
 ]
 
 export default function Plans() {
   return (
-    <div className="grid-cols-3 gap-x-10 pt-8 md:grid">
-      {PLANS.map(
-        ({ title, subtitle, price, bestFor, examples, url, supertitle }) => (
-          <Plan
-            title={title}
-            subtitle={subtitle}
-            key={title}
-            url={url}
-            price={price}
-            bestFor={bestFor}
-            examples={examples}
-            supertitle={supertitle}
-          />
-        ),
-      )}
+    <div className="mx-auto max-w-[1280px] grid-cols-3 gap-x-10 pt-8 md:grid">
+      {PLANS.map((props) => (
+        <Plan key={props.title} {...props} />
+      ))}
     </div>
   )
 }

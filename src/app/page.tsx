@@ -105,7 +105,7 @@ export default async function Home() {
             />
           </h2>
           <h3 className="max-w-screen-sm font-sans text-lg font-light">
-            Choose the session duration that&apos;s right for you and connect
+            Choose the type of session that&apos;s right for you and connect
             with a dating expert right away.
           </h3>
 

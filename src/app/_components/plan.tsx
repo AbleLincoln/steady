@@ -14,10 +14,11 @@ export interface PlanProps {
 
 const buttonStyles = {
   border: '1px solid white',
-  padding: '4px 12px',
+  padding: '8px 18px',
   borderRadius: '100px',
   backgroundColor: '#fff',
   color: 'rgb(38, 166, 87)',
+  minWidth: '100%',
 }
 
 export default function Plan({
@@ -30,22 +31,26 @@ export default function Plan({
   supertitle,
 }: PlanProps) {
   return (
-    <div className="my-4 flex flex-col justify-between">
-      <div className="relative py-6">
-        <p className="absolute top-0 text-xl">
-          <em>{supertitle}</em>
-        </p>
+    <div className="relative my-4 flex flex-col justify-between rounded-lg border border-white/50 px-6">
+      <div className="py-6 pt-5">
         <div
-          className="wide-grid mb-4 grid items-center gap-y-4"
+          className="wide-grid mb-6 flex flex-col items-start gap-y-4"
           style={{
-            gridTemplateColumns: '2fr 1fr',
+            gridTemplateColumns: '1fr 1fr',
           }}
         >
-          <p className="text-2xl">{title}</p>
-          <p className="justify-self-end text-xl">{price ? `$${price}` : ''}</p>
+          <p className="text-2xl font-bold">{title}</p>
 
-          <p className={`text-lg ${url ? '' : 'col-span-2'}`}>{subtitle}</p>
+          <p className="font-display text-4xl">{price ? `$${price}` : ''}</p>
 
+          <p
+            className={`font-display text-lg font-light leading-tight ${url ? '' : ''}`}
+          >
+            {subtitle}
+          </p>
+        </div>
+
+        <div className="text-center">
           {/* TODO: hydration errors also this is sloppy */}
           {url ? (
             typeof document === 'undefined' ? (
@@ -71,17 +76,23 @@ export default function Plan({
               />
             )
           ) : (
-            ''
+            <p
+              style={{
+                padding: '26px 1px 10px',
+                borderRadius: '100px',
+                minWidth: '100%',
+              }}
+            >
+              <em>{supertitle}</em>
+            </p>
           )}
         </div>
 
-        <div className=""></div>
-
         <hr className="mb-8 mt-6 border" />
 
-        <p className="mb-2">Best for {bestFor}:</p>
+        <p className="mb-2">{bestFor}:</p>
 
-        <ul className="list-inside list-disc">
+        <ul className="ml-6 list-outside list-disc">
           {examples.map((example, i) => (
             <li key={i} className="py-1">
               {example}

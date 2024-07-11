@@ -20,6 +20,7 @@ export default {
           pink: 'rgb(203, 113, 177)', // cb71b2
           'dark-pink': darken('rgb(203, 113, 177)', 7),
 
+          'light-green': lighten('rgb(38, 166, 87)', 55),
           green: 'rgb(38, 166, 87)',
           'dark-green': darken('rgb(38, 166, 87)', 25),
 
