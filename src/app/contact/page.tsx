@@ -29,7 +29,7 @@ export default function Contact() {
       await resend.emails.send({
         from: env.EMAIL_FROM,
         reply_to: email,
-        to: 'maneyandrew@gmail.com', //'lindsay@steadydatecoaching.com',
+        to: 'lindsay@steadydatecoaching.com',
         subject: 'Contact Form Submission',
         text,
       })
