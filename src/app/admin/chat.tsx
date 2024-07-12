@@ -32,8 +32,6 @@ import 'stream-chat-react/dist/css/v2/index.css'
 const FALLBACK_DATE = '2024-06-03T13:20:00.000000Z'
 
 const apiKey = env.NEXT_PUBLIC_STREAM_KEY
-// const userToken =
-//   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoic3RlYWR5In0.f0SOafAIFs9T8XDEYrlrHxEMLEceTFtFxEDKiH5CK2Y'
 
 const sort: ChannelSort = { start_time: 1 }
 const options: ChannelOptions = {
@@ -92,7 +90,7 @@ export default function AdminChat({ user, token }: AdminChatPropTypes) {
 
 function EmptyStateIndicator() {
   return (
-    <div className="flex justify-center items-center">
+    <div className="flex items-center justify-center">
       <p>You have no upcoming meetings</p>
     </div>
   )
