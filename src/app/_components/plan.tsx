@@ -1,34 +1,105 @@
-import Link from 'next/link'
-import Image from 'next/image'
+'use client'
 
-import woman from 'public/images/woman_with_phone.jpg'
+import { PopupButton } from 'react-calendly'
 
-export default function Plan() {
+export interface PlanProps {
+  title: string
+  subtitle: string
+  supertitle?: string
+  url?: string
+  price?: number
+  bestFor: string
+  examples: string[]
+}
+
+const buttonStyles = {
+  border: '1px solid white',
+  padding: '8px 18px',
+  borderRadius: '100px',
+  backgroundColor: '#fff',
+  color: 'rgb(38, 166, 87)',
+  minWidth: '100%',
+}
+
+export default function Plan({
+  price,
+  bestFor,
+  examples,
+  url,
+  title,
+  subtitle,
+  supertitle,
+}: PlanProps) {
   return (
-    <Link
-      className="mx-4 flex grow cursor-pointer flex-col justify-between rounded-3xl bg-white text-dark shadow-lg hover:shadow-xl"
-      href="/reserve?plan=quickfix"
-    >
-      <div className="relative rounded-t-3xl bg-dark p-8 py-4">
-        <h3 className="bottom-0 left-6 text-2xl text-white drop-shadow-lg">
-          10 minutes for $25
-        </h3>
-      </div>
-      <div className="px-8 py-4">
-        {/* <h3 className="text-steady-pink mb-4 text-lg">
-          25 minute of messaging
-        </h3> */}
+    <div className="relative my-4 flex flex-col justify-between rounded-lg border border-white/50 px-6">
+      <div className="py-6 pt-5">
+        <div
+          className="wide-grid mb-6 flex flex-col items-start gap-y-4"
+          style={{
+            gridTemplateColumns: '1fr 1fr',
+          }}
+        >
+          <p className="text-2xl font-bold">{title}</p>
 
-        <p className="mb-2">Best for straight-forward dating questions like:</p>
+          <p className="font-display text-4xl">{price ? `$${price}` : ''}</p>
 
-        <ul className="list-disc pl-4">
-          <li>Who should pay on the first date?</li>
-          <li>What are some good questions to ask on a first date?</li>
-          <li>How do I know if they are interested?</li>
+          <p
+            className={`font-display text-lg font-light leading-tight ${url ? '' : ''}`}
+          >
+            {subtitle}
+          </p>
+        </div>
+
+        <div className="text-center">
+          {/* TODO: hydration errors also this is sloppy */}
+          {url ? (
+            typeof document === 'undefined' ? (
+              <button style={buttonStyles}>Book Now</button>
+            ) : (
+              <PopupButton
+                url={url}
+                /*
+                 * react-calendly uses React's Portal feature (https://reactjs.org/docs/portals.html) to render the popup modal. As a result, you'll need to
+                 * specify the rootElement property to ensure that the modal is inserted into the correct domNode.
+                 */
+                rootElement={document.getElementById('root')!}
+                text="Book now"
+                styles={buttonStyles}
+                pageSettings={{
+                  backgroundColor: 'ffffff',
+                  hideEventTypeDetails: false,
+                  hideLandingPageDetails: false,
+                  hideGdprBanner: true,
+                  primaryColor: 'cb71b2',
+                  textColor: '1e293b',
+                }}
+              />
+            )
+          ) : (
+            <p
+              style={{
+                padding: '26px 1px 10px',
+                borderRadius: '100px',
+                minWidth: '100%',
+              }}
+            >
+              <em>{supertitle}</em>
+            </p>
+          )}
+        </div>
+
+        <hr className="mb-8 mt-6 border" />
+
+        <p className="mb-2">{bestFor}:</p>
+
+        <ul className="ml-6 list-outside list-disc">
+          {examples.map((example, i) => (
+            <li key={i} className="py-1">
+              {example}
+            </li>
+          ))}
         </ul>
-
-        <p className="text-steady-pink float-right mt-4">Book now &rarr;</p>
       </div>
-    </Link>
+    </div>
   )
 }

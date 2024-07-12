@@ -1,12 +1,19 @@
 import { useEffect, useState } from 'react'
-import { StreamChat, type TokenOrProvider, type User } from 'stream-chat'
 import uuid from 'short-uuid'
+import { StreamChat, type TokenOrProvider, type User } from 'stream-chat'
 
 export type UseClientOptions = {
   apiKey: string
   user?: User
   tokenOrProvider?: TokenOrProvider
 }
+
+// function TokenProvider(userId: string) {
+//   'use server'
+
+//   // Create User Token
+//   return stream.createToken(userId)
+// }
 
 export const useChatClient = ({
   apiKey,

@@ -1,36 +1,38 @@
 'use client'
 
-import Link from 'next/link'
-import Image from 'next/image'
-
-import { slide as Menu } from 'react-burger-menu'
+import Button from '@/app/_components/button'
 import '@/styles/burger-menu.css'
-
-// import steadyLogo from 'public/steady-logo.svg'
-import steadyLogo from 'public/steady-logo-white.png'
+import Image from 'next/image'
+import Link from 'next/link'
+import steadyLogo from 'public/steady-logo-green.png'
+import { slide as Menu } from 'react-burger-menu'
 
 const NAV = [
   {
-    href: '#mission',
+    href: '/#mission',
     label: 'Mission',
   },
   {
-    href: '#plans',
-    label: 'How it Works',
+    href: '/#plans',
+    label: 'How It Works',
   },
   {
-    href: '#plans',
+    href: '/#coaches',
     label: 'Coaches',
   },
   {
-    href: '#faq',
+    href: '/faq',
     label: 'FAQ',
+  },
+  {
+    href: '/contact',
+    label: 'Contact Us',
   },
 ]
 
 function items() {
   return NAV.map(({ href, label }) => (
-    <li key={href} className="mx-3">
+    <li key={href} className="my-4 ml-3 transition-colors hover:text-white">
       <Link href={href}>{label}</Link>
     </li>
   ))
@@ -38,21 +40,28 @@ function items() {
 
 export default function Header() {
   return (
-    <header className="border-bs mb-4 py-5">
-      <section className="wrapper flex items-center justify-between text-white">
-        <Image
-          src={steadyLogo}
-          alt="Steady"
-          style={{ height: '2.5rem', width: 'auto' }}
-        />
-        {/* TODO: component */}
-        {/* <button className="rounded-full border px-6 py-2">Get Started</button> */}
-        {/* TODO: need to rewrite as my own bc broken */}
-        <div className="sm:hidden">
-          <Menu right>{items()}</Menu>
-        </div>
-        <ul className="hidden items-center text-lg sm:flex">{items()}</ul>
-      </section>
-    </header>
+    <>
+      {/* TODO: need to rewrite as my own bc broken */}
+      <div className="absolute right-8 top-5">
+        <Menu right>
+          <Button className="mb-4 px-6 py-2 text-base" href="/#plans">
+            Get Started
+          </Button>
+          {items()}
+        </Menu>
+      </div>
+
+      <header className="border-bs wrapper absolute inset-x-0 top-0 z-30 flex justify-between py-5">
+        <section className="flex grow items-center justify-between bg-cream text-dark md:w-1/2 md:grow-0 md:pr-12">
+          <Link href="/" className="shrink-0">
+            <Image
+              src={steadyLogo}
+              alt="Steady"
+              style={{ height: '2rem', width: 'auto' }}
+            />
+          </Link>
+        </section>
+      </header>
+    </>
   )
 }

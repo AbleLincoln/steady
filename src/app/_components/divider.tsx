@@ -3,13 +3,14 @@ import Image from 'next/image'
 
 interface PropTypes {
   icon: string | StaticImport
+  color?: string
 }
 
-export default function Divider({ icon }: PropTypes) {
+export default function Divider({ icon, color = 'dark' }: PropTypes) {
   return (
-    <div className="wrapper flex items-center p-6">
-      <hr className="mr-6 grow border-dark" />
-      <Image src={icon} alt="" className="" width={50} />
+    <div className="flex items-center px-6 py-6">
+      <hr className={`mr-6 grow border-${color}`} />
+      <Image src={icon} alt="" className="" width={60} />
     </div>
   )
 }

@@ -18,7 +18,7 @@ export default function ComingSoon() {
             className="mb-10 inline"
             style={{ height: '2.5rem', width: 'auto' }}
           />
-          <h1 className="mb-4 font-sans text-3xl font-light text-steady-green">
+          <h1 className="mb-4 text-3xl text-steady-green">
             We help you navigate the world of modern dating.
           </h1>
           <p className="max-w-screen-sm text-xl">
@@ -36,7 +36,7 @@ export default function ComingSoon() {
         <Image
           src={couple}
           style={{ objectFit: 'cover', objectPosition: 'center 60%' }}
-          alt="Person using phone to chat with dating coach"
+          alt="Person using phone to chat with Dating Coach"
           className="h-screen"
         />
       </section>

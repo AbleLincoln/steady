@@ -8,20 +8,22 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
 export default function TextArea({
   name,
   label,
-  className,
+  className = '',
   style,
+  required,
 }: InputProps) {
   return (
     <label
       htmlFor={name}
-      className={`md:col-span- col-span-full row-span-2 flex flex-col ${className}}`}
+      className={`col-span-full row-span-2 flex flex-col md:col-span-1 ${className}`}
       style={style}
     >
       <span className="mb-1 block text-sm">{label}</span>
       <textarea
         name={name}
         id={name}
-        className="w-full flex-grow rounded-md p-2 text-lg text-dark"
+        className="w-full flex-grow rounded-md border border-dark p-2 text-lg text-dark"
+        required={required}
       />
     </label>
   )
