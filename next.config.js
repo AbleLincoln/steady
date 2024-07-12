@@ -37,15 +37,6 @@ const config = {
       },
     ]
   },
-  async redirects() {
-    return [
-      // {
-      //   source: '/',
-      //   destination: '/coming-soon',
-      //   permanent: false,
-      // },
-    ]
-  },
 }
 
 export default config
