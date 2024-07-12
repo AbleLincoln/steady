@@ -34,7 +34,7 @@ export default async function Home() {
               So many people. So many options. So many things that can go
               weirdly wrong. That&apos;s why there&apos;s{' '}
               <span className="text-steady-pink">
-                Steady online date coaching
+                Steady Online Date Coaching
               </span>
               . Practical dating advice from real human coaches to help you
               navigate the unpredictable world of falling in love.
