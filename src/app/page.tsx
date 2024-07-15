@@ -33,11 +33,9 @@ export default async function Home() {
             <p className="text-xl">
               So many people. So many options. So many things that can go
               weirdly wrong. That&apos;s why there&apos;s{' '}
-              <span className="text-steady-pink">
-                Steady Online Date Coaching
-              </span>
-              . Practical dating advice from real human coaches to help you
-              navigate the unpredictable world of falling in love.
+              <span className="text-steady-pink">Steady</span> online date
+              coaching. Practical dating advice from real human coaches to help
+              you navigate the unpredictable world of falling in love.
             </p>
           </div>
 

@@ -1,11 +1,11 @@
 'use client'
 
 import Image from 'next/image'
-import { useState } from 'react'
-
 import claire from 'public/images/coaches/claire.jpg'
 import lindsay from 'public/images/coaches/lindsay.jpg'
+import melissa from 'public/images/coaches/melissa.jpg'
 import skylar from 'public/images/coaches/skylar.jpg'
+import { useState } from 'react'
 
 const COACHES = [
   {
@@ -22,6 +22,11 @@ const COACHES = [
     name: 'Skylar Eagleson',
     pic: skylar,
     bio: 'A former professional matchmaker, private concierge, and luxury home care consultant, Skylar knows a thing or two about finding the right fit. She thinks "settling" is a bad word and encourages her clients to maintain their standards while remaining open to new and exciting prospects. Dating advice is not hard to come by, but an attentive, compassionate, and trusted confidante is rare, and Skylar aims to embolden her clients in a multitude of ways to find greater confidence in themselves and their love lives.',
+  },
+  {
+    name: 'Melissa Klein',
+    pic: melissa,
+    bio: 'Melissa’s experience as a Date Coach and Licensed Marriage and Family Therapist spans over 10 years. She has been instrumental in helping individuals identify what may be holding them back, unlock their full potential and begin to attract the partners and relationships they desire.  Melissa has found that communication and respect are key components to any relationship, and learning healthy communication is beneficial even beyond intimate relationships. Because of this, she often refers to the idea of "Communication Karma.” Her clients share that when they implement this into their daily life, they are overall more confident in themselves and their dating life begins to thrive.',
   },
 ]
 
