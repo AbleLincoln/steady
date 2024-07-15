@@ -2,7 +2,7 @@ import Plan, { type PlanProps } from '@/app/_components/plan'
 
 const PLANS: PlanProps[] = [
   {
-    title: 'Quick Fix (dev)',
+    title: 'Quick Fix',
     subtitle: '10 minutes of messaging',
     url: 'https://calendly.com/steady-coaches/instant-messaging-clone',
     price: 35,
