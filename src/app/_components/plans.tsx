@@ -4,7 +4,7 @@ const PLANS: PlanProps[] = [
   {
     title: 'Quick Fix',
     subtitle: '10 minutes of messaging',
-    url: 'https://calendly.com/steady-coaches/10-mins-messaging',
+    url: 'https://calendly.com/steady-coaches/instant-messaging-clone',
     price: 35,
     bestFor: 'Best for straight-forward questions',
     examples: [
@@ -17,7 +17,7 @@ const PLANS: PlanProps[] = [
   {
     title: 'Support & Advice',
     subtitle: '60 minute video session',
-    url: 'https://calendly.com/steady-coaches/support-and-advice',
+    url: 'https://calendly.com/steady-coaches/support-advice-clone',
     price: 190,
     bestFor: 'For more in-depth help like',
     examples: [
