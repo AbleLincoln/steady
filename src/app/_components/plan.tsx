@@ -54,7 +54,9 @@ export default function Plan({
           {/* TODO: hydration errors also this is sloppy */}
           {url ? (
             typeof document === 'undefined' ? (
-              <button style={buttonStyles}>Book Now</button>
+              <button style={buttonStyles} className="">
+                Book Now
+              </button>
             ) : (
               <PopupButton
                 url={url}
@@ -63,7 +65,8 @@ export default function Plan({
                  * specify the rootElement property to ensure that the modal is inserted into the correct domNode.
                  */
                 rootElement={document.getElementById('root')!}
-                text="Book now"
+                text="Book Now"
+                className=""
                 styles={buttonStyles}
                 pageSettings={{
                   backgroundColor: 'ffffff',
