@@ -31,7 +31,7 @@ const PLANS: PlanProps[] = [
     title: 'Level Up Package',
     subtitle: 'Five 60-minute sessions to transform your dating life ',
     supertitle: 'Coming Soon! ',
-    url: 'https://book.stripe.com/test_bIY00Nd1bcljcow144',
+    url: 'https://book.stripe.com/7sIbMaeP4fiz7U49AB',
     stripe: true,
     price: 900,
     bestFor: 'For a holistic dating reset',
