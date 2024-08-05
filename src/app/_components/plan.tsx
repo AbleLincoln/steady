@@ -58,10 +58,7 @@ export default function Plan({
           {/* TODO: hydration errors also this is sloppy */}
           {url ? (
             stripe ? (
-              <a
-                style={buttonStyles}
-                href="https://book.stripe.com/test_bIY00Nd1bcljcow144"
-              >
+              <a style={buttonStyles} href={url}>
                 Book Now
               </a>
             ) : typeof document === 'undefined' ? (
