@@ -1,8 +1,7 @@
 import '@/styles/globals.css'
-
-import localFont from 'next/font/local'
-
 import { TRPCReactProvider } from '@/trpc/react'
+import { GoogleAnalytics } from '@next/third-parties/google'
+import localFont from 'next/font/local'
 
 const styreneA = localFont({
   // TODO: font display: https://nextjs.org/docs/app/api-reference/components/font#display
@@ -117,6 +116,8 @@ export default function RootLayout({
       >
         <TRPCReactProvider>{children}</TRPCReactProvider>
       </body>
+
+      <GoogleAnalytics gaId="G-RY1RZYDFQR" />
     </html>
   )
 }

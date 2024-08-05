@@ -19,7 +19,7 @@ await import('./src/env.js')
 // `
 
 const cspHeader = `
-  script-src 'self' 'unsafe-eval' 'unsafe-inline';
+  script-src: 'self' 'unsafe-eval' 'unsafe-inline' https://www.googletagmanager.com;
 `
 
 /** @type {import("next").NextConfig} */

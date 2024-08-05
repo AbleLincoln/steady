@@ -52,7 +52,7 @@ export default async function Home() {
         <section className="h-screen">
           <Image
             src={couple}
-            alt="Happy couple on the beach in loooove"
+            alt="A couple in their forties walk together happily after learning how to successfully date through the support of a date coach"
             className="h-full w-full"
             style={{
               objectFit: 'cover',
@@ -83,7 +83,7 @@ export default async function Home() {
         <section className="h-screen">
           <Image
             src={couple3}
-            alt="Couple cuddling on the beach"
+            alt="After years of unsuccessful online dating and several break-ups, a couple in their thirties happily sits on the beach together after finding love through the help of a date coaching"
             className="h-full w-full"
             style={{
               objectFit: 'cover',
@@ -122,7 +122,7 @@ export default async function Home() {
         <section className="h-screen">
           <Image
             src={couple6}
-            alt="Couple holding hands"
+            alt="A couple hold hands after healing their anxious attachment with the help of a date coach"
             className="h-full w-full"
             style={{
               objectFit: 'cover',

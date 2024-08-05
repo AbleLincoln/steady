@@ -74,7 +74,8 @@ export default function Plan({
                  * specify the rootElement property to ensure that the modal is inserted into the correct domNode.
                  */
                 rootElement={document.getElementById('root')!}
-                text="Book now"
+                text="Book Now"
+                className=""
                 styles={buttonStyles}
                 pageSettings={{
                   backgroundColor: 'ffffff',
