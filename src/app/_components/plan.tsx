@@ -1,7 +1,6 @@
 'use client'
 
 import { PopupButton } from 'react-calendly'
-import Button from './button'
 
 export interface PlanProps {
   title: string
