@@ -1,6 +1,7 @@
 'use client'
 
 import { PopupButton } from 'react-calendly'
+import Button from './button'
 
 export interface PlanProps {
   title: string
@@ -10,9 +11,11 @@ export interface PlanProps {
   price?: number
   bestFor: string
   examples: string[]
+  stripe?: boolean
 }
 
 const buttonStyles = {
+  display: 'block',
   border: '1px solid white',
   padding: '8px 18px',
   borderRadius: '100px',
@@ -29,6 +32,7 @@ export default function Plan({
   title,
   subtitle,
   supertitle,
+  stripe,
 }: PlanProps) {
   return (
     <div className="relative my-4 flex flex-col justify-between rounded-lg border border-white/50 px-6">
@@ -44,7 +48,7 @@ export default function Plan({
           <p className="font-display text-4xl">{price ? `$${price}` : ''}</p>
 
           <p
-            className={`font-display text-lg font-light leading-tight ${url ? '' : ''}`}
+            className={`min-h-[45px] font-display text-lg font-light leading-tight`}
           >
             {subtitle}
           </p>
@@ -53,10 +57,15 @@ export default function Plan({
         <div className="text-center">
           {/* TODO: hydration errors also this is sloppy */}
           {url ? (
-            typeof document === 'undefined' ? (
-              <button style={buttonStyles} className="">
+            stripe ? (
+              <a
+                style={buttonStyles}
+                href="https://book.stripe.com/test_bIY00Nd1bcljcow144"
+              >
                 Book Now
-              </button>
+              </a>
+            ) : typeof document === 'undefined' ? (
+              <button style={buttonStyles}>Book Now</button>
             ) : (
               <PopupButton
                 url={url}

@@ -29,10 +29,11 @@ const PLANS: PlanProps[] = [
   },
   {
     title: 'Level Up Package',
-    subtitle: 'Five 60 minute sessions to transform your dating life ',
+    subtitle: 'Five 60-minute sessions to transform your dating life ',
     supertitle: 'Coming Soon! ',
-    // url: 'https://calendly.com/steady-coaches/level-up',
-    // price: 345,
+    url: 'https://book.stripe.com/test_bIY00Nd1bcljcow144',
+    stripe: true,
+    price: 900,
     bestFor: 'For a holistic dating reset',
     examples: [
       'Uncover limiting beliefs',
