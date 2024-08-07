@@ -1,0 +1,12 @@
+p {
+  @apply mb-8;
+  text-align: justify;
+}
+
+ul {
+  @apply list-outside list-disc;
+}
+
+li {
+  @apply mb-2 ml-4;
+}
