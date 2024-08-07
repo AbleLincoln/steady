@@ -58,7 +58,7 @@ export const postType = defineType({
       media: 'mainImage',
     },
     prepare(selection) {
-      const { author } = selection
+      const author = selection.author as string
       return { ...selection, subtitle: author && `by ${author}` }
     },
   },
