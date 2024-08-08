@@ -17,13 +17,13 @@ export default async function Blog() {
           href={`/blog/${slug?.current}`}
           className="mb-8 flex rounded-lg border border-steady-purple/0 bg-steady-purple/15 transition-colors hover:border-steady-purple/50 hover:shadow-sm"
         >
-          <div className="flex w-full flex-col px-4 py-4 sm:w-2/3 sm:px-6">
+          <div className="flex w-full flex-col p-4 sm:w-2/3 sm:p-6">
             {publishedAt ? (
               <span className="opacity-75">
                 {DateTime.fromISO(publishedAt).toFormat('DD')}
               </span>
             ) : null}
-            <h2 className="text-steady-dark-dark-purple text-3xl leading-normal md:text-4xl">
+            <h2 className="text-steady-dark-dark-purple mt-2 text-3xl leading-normal md:text-4xl">
               {title}
             </h2>
           </div>
