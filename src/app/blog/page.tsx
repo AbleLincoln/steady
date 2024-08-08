@@ -15,7 +15,7 @@ export default async function Blog() {
         <Link
           key={_id}
           href={`/blog/${slug?.current}`}
-          className="flex rounded-lg border border-steady-purple/0 bg-steady-purple/15 transition-colors hover:border-steady-purple/50 hover:shadow-sm"
+          className="mb-8 flex rounded-lg border border-steady-purple/0 bg-steady-purple/15 transition-colors hover:border-steady-purple/50 hover:shadow-sm"
         >
           <div className="flex w-full flex-col px-4 py-4 sm:w-2/3 sm:px-6">
             {publishedAt ? (
