@@ -7,7 +7,7 @@ import melissa from 'public/images/coaches/melissa.jpg'
 import skylar from 'public/images/coaches/skylar.jpg'
 import { useState } from 'react'
 
-const COACHES = [
+export const COACHES = [
   {
     name: 'Lindsay Rowe',
     pic: lindsay,

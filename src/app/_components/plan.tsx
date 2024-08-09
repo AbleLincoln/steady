@@ -1,6 +1,9 @@
 'use client'
 
-import { PopupButton } from 'react-calendly'
+import Image from 'next/image'
+import { useEffect, useRef, useState } from 'react'
+import { PopupModal } from 'react-calendly'
+import { COACHES } from '../_coaches'
 
 export interface PlanProps {
   title: string
@@ -23,6 +26,94 @@ const buttonStyles = {
   minWidth: '100%',
 }
 
+function Modal({
+  title,
+  url,
+  open,
+  onClose,
+}: {
+  title: string
+  url: string
+  open: boolean
+  onClose: () => void
+}) {
+  const ref = useRef<HTMLDialogElement>(null)
+
+  useEffect(() => {
+    if (open) {
+      ref.current?.showModal()
+    } else {
+      ref.current?.close()
+    }
+  }, [open])
+
+  const [bookingUrl, setBookingUrl] = useState('')
+
+  return (
+    <dialog ref={ref} className="rounded-xl bg-white p-8 backdrop:bg-black/30">
+      <button
+        className="absolute right-4 top-1 text-xl font-thin"
+        onClick={onClose}
+      >
+        x
+      </button>
+
+      <h3 className="mb-6 text-lg">Choose a coach for your {title} Session</h3>
+      <div className="grid grid-cols-2 gap-4">
+        {COACHES.filter((coach) => coach.name !== 'Claire Wexler').map(
+          ({ name, pic }) => (
+            <button
+              key={name}
+              className="flex cursor-pointer items-center rounded-lg border border-transparent p-2 transition-colors hover:border-gray-200 hover:bg-gray-200/20"
+              onClick={() => setBookingUrl(`${url}-${name.split(' ')[0]}`)}
+            >
+              <div className="relative mr-3 h-14 w-14">
+                <Image
+                  className="rounded-full"
+                  src={pic}
+                  alt={name}
+                  fill
+                  style={{
+                    objectFit: 'cover',
+                    objectPosition: 'center 20%',
+                  }}
+                />
+              </div>
+              {name}
+            </button>
+          ),
+        )}
+
+        <button
+          className="col-span-1 cursor-pointer rounded-lg border border-transparent p-2 transition-colors hover:border-gray-200 hover:bg-gray-200/20"
+          onClick={() => setBookingUrl(url)}
+        >
+          First available
+        </button>
+      </div>
+
+      {ref.current ? (
+        <PopupModal
+          url={bookingUrl}
+          pageSettings={{
+            backgroundColor: 'ffffff',
+            hideEventTypeDetails: false,
+            hideLandingPageDetails: false,
+            hideGdprBanner: true,
+            primaryColor: 'cb71b2',
+            textColor: '1e293b',
+          }}
+          onModalClose={() => {
+            setBookingUrl('')
+          }}
+          open={!!bookingUrl}
+          rootElement={ref.current}
+        />
+      ) : null}
+    </dialog>
+  )
+}
+
 export default function Plan({
   price,
   bestFor,
@@ -33,8 +124,19 @@ export default function Plan({
   supertitle,
   stripe,
 }: PlanProps) {
+  const [isModalOpen, setIsModalOpen] = useState(false)
+
   return (
-    <div className="relative my-4 flex flex-col justify-between rounded-lg border border-white/50 px-6">
+    <div className="my-4 flex flex-col justify-between rounded-lg border border-white/50 px-6">
+      {url && !stripe ? (
+        <Modal
+          title={title}
+          url={url}
+          open={isModalOpen}
+          onClose={() => setIsModalOpen(false)}
+        />
+      ) : null}
+
       <div className="py-6 pt-5">
         <div
           className="wide-grid mb-6 flex flex-col items-start gap-y-4"
@@ -54,34 +156,15 @@ export default function Plan({
         </div>
 
         <div className="text-center">
-          {/* TODO: hydration errors also this is sloppy */}
           {url ? (
             stripe ? (
               <a style={buttonStyles} href={url}>
                 Book Now
               </a>
-            ) : typeof document === 'undefined' ? (
-              <button style={buttonStyles}>Book Now</button>
             ) : (
-              <PopupButton
-                url={url}
-                /*
-                 * react-calendly uses React's Portal feature (https://reactjs.org/docs/portals.html) to render the popup modal. As a result, you'll need to
-                 * specify the rootElement property to ensure that the modal is inserted into the correct domNode.
-                 */
-                rootElement={document.getElementById('root')!}
-                text="Book Now"
-                className=""
-                styles={buttonStyles}
-                pageSettings={{
-                  backgroundColor: 'ffffff',
-                  hideEventTypeDetails: false,
-                  hideLandingPageDetails: false,
-                  hideGdprBanner: true,
-                  primaryColor: 'cb71b2',
-                  textColor: '1e293b',
-                }}
-              />
+              <button style={buttonStyles} onClick={() => setIsModalOpen(true)}>
+                Book Now
+              </button>
             )
           ) : (
             <p

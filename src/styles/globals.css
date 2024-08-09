@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+body:has(dialog[open]) {
+  overflow: hidden;
+}
+
 @layer base {
   h1,
   h2,
