@@ -12,15 +12,18 @@ export default function Footer() {
         src={logo}
         alt="Steady logo"
         height={30}
-        className="xs:mb-6 mr-8"
+        className="mr-8 xs:mb-6"
       />
 
-      <div className="xs:justify-between flex grow items-center justify-end text-white">
+      <div className="flex grow items-center justify-end text-white xs:justify-between">
         <div>
-          <Link href="/contact" className="hover:text-steady-dark-green">
+          <Link href="/blog" className="mr-6 hover:text-steady-dark-green">
+            Blog
+          </Link>
+          <Link href="/contact" className="mr-6 hover:text-steady-dark-green">
             Contact Us
           </Link>
-          <Link href="/terms" className="mx-6 hover:text-steady-dark-green">
+          <Link href="/terms" className="mr-6 hover:text-steady-dark-green">
             Terms
           </Link>
         </div>

@@ -28,6 +28,7 @@ export default {
           'light-purple': lighten('rgb(143, 148, 239)', 23),
           purple: 'rgb(143, 148, 239)',
           'dark-purple': darken('rgb(143, 148, 239)', 10),
+          'dark-dark-purple': darken('rgb(143, 148, 239)', 50),
         },
         cream: '#fffcf6',
         pink: {
