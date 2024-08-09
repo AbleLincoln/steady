@@ -4,7 +4,7 @@ const PLANS: PlanProps[] = [
   {
     title: 'Quick Fix',
     subtitle: '10 minutes of messaging',
-    url: 'https://calendly.com/steady-coaches/10-mins-messaging',
+    url: 'https://calendly.com/steady-coaches/instant-messaging',
     price: 35,
     bestFor: 'Best for straight-forward questions',
     examples: [
