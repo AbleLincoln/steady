@@ -23,7 +23,7 @@ export default async function Blog() {
                 {DateTime.fromISO(publishedAt).toFormat('DD')}
               </span>
             ) : null}
-            <h2 className="text-steady-dark-dark-purple mt-2 text-3xl leading-normal md:text-4xl">
+            <h2 className="mt-2 text-3xl leading-normal md:text-4xl">
               {title}
             </h2>
           </div>

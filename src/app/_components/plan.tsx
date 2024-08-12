@@ -88,7 +88,7 @@ function Modal({
           className="col-span-1 cursor-pointer rounded-lg border border-transparent p-2 transition-colors hover:border-gray-200 hover:bg-gray-200/20"
           onClick={() => setBookingUrl(url)}
         >
-          First available
+          First Available
         </button>
       </div>
 

@@ -93,7 +93,7 @@ export default async function Home() {
         </section>
 
         <section
-          className="wrapper relative col-span-2 min-h-screen bg-steady-green py-12 pt-24 text-white"
+          className="wrapper relative col-span-2 min-h-screen bg-steady-green py-12 pt-16 text-white"
           id="plans"
         >
           <h2 className="mb-5 whitespace-nowrap text-4xl">
