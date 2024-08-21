@@ -1,9 +1,7 @@
+import { auth, signIn, signOut } from '@/auth'
 import Image from 'next/image'
 import Link from 'next/link'
 import { redirect } from 'next/navigation'
-
-import { auth, signIn, signOut } from '@/auth'
-
 import logo from 'public/steady-logo-white.png'
 
 export default async function AdminLayout({
@@ -56,16 +54,24 @@ export default async function AdminLayout({
           />{' '}
           Coaching Platform
         </p>
-        <form
-          action={async () => {
-            'use server'
-            await signOut({ redirectTo: '/' })
-          }}
-        >
-          <button type="submit" className="text-white">
-            Sign Out
-          </button>
-        </form>
+        <div className="flex">
+          <Link
+            href="/studio"
+            className="mr-4 border-r border-white pr-4 text-white hover:underline"
+          >
+            Blog Editor
+          </Link>
+          <form
+            action={async () => {
+              'use server'
+              await signOut({ redirectTo: '/' })
+            }}
+          >
+            <button type="submit" className="text-white hover:underline">
+              Sign Out
+            </button>
+          </form>
+        </div>
       </header>
       {children}
     </div>

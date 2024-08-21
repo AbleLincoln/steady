@@ -16,10 +16,8 @@ export default async function Admin() {
 
   const token = stream.createToken(session.user.email.split('@')[0] ?? '')
 
-  console.log({ session, token })
-
   return (
-    <div className="flex admin-only">
+    <div className="admin-only flex">
       <Chat user={session.user} token={token} />
 
       <Notes />
