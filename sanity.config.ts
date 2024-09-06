@@ -41,7 +41,7 @@ export default defineConfig({
           ? `https://${process.env.VERCEL_URL}`
           : 'https://steadydatecoaching.com'
 
-        return `${baseURL}/${slug}?${params.toString()}`
+        return `${baseURL}/blog/${slug}?${params.toString()}`
       }
 
       return prev
