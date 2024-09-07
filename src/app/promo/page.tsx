@@ -19,7 +19,7 @@ export default function Promo({
 
   if (code && CODES[code]) {
     if (CODES && CODES[code]?.includes('book.stripe.com'))
-      return redirect(CODES[code])
+      return redirect(CODES[code]!)
 
     return (
       <InlineWidget
