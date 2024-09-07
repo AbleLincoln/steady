@@ -18,7 +18,7 @@ export default function Promo({
   const code = ((searchParams.code as string) ?? '').toLowerCase()
 
   if (code && CODES?.[code]) {
-    if (CODES[code].includes('book.stripe.com')) return redirect(CODES[code])
+    if (CODES?.[code].includes('book.stripe.com')) return redirect(CODES[code])
 
     return (
       <InlineWidget
