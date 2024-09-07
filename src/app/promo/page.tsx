@@ -23,7 +23,7 @@ export default function Promo({
 
     return (
       <InlineWidget
-        url={CODES[code]}
+        url={CODES[code]!}
         styles={{
           height: '100%',
         }}
