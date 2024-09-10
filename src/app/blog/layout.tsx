@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import Footer from '../_footer'
 import Header from '../_header'
 

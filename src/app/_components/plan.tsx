@@ -26,7 +26,7 @@ const buttonStyles = {
   minWidth: '100%',
 }
 
-function Modal({
+export function Modal({
   title,
   url,
   open,
