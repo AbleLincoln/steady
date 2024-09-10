@@ -16,7 +16,10 @@ export default function Footer() {
       />
 
       <div className="flex grow items-center justify-end text-white xs:justify-between">
-        <div>
+        <div className="flex flex-wrap">
+          <Link href="/promo" className="mr-6 hover:text-steady-dark-green">
+            Promo
+          </Link>
           <Link href="/blog" className="mr-6 hover:text-steady-dark-green">
             Blog
           </Link>
