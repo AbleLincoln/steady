@@ -1,6 +1,6 @@
 'use client'
 
-import { redirect } from 'next/navigation'
+import { redirect, usePathname, useRouter } from 'next/navigation'
 import { useCallback, useState } from 'react'
 import { PopupModal } from 'react-calendly'
 import { Modal } from '../_components/plan'
@@ -10,6 +10,7 @@ function CodeEval({ code }: { code: string }) {
   const [isOpen, setIsOpen] = useState(true)
   const [rootElement, setRootElement] = useState<HTMLDivElement>()
   const ref = useCallback((node: HTMLDivElement) => {
+    setIsOpen(true)
     if (node) setRootElement(node)
   }, [])
 
@@ -66,14 +67,26 @@ export default function Promo({
 }: {
   searchParams: Record<string, string | string[] | undefined>
 }) {
+  const router = useRouter()
+  const pathname = usePathname()
+
   const code = ((searchParams.code as string) ?? '').toLowerCase()
+
+  const enterCode = useCallback(
+    async (formData: FormData) => {
+      const code = formData.get('code') as string
+
+      if (code) return router.push(`${pathname}?code=${code}`)
+    },
+    [pathname, router],
+  )
 
   return (
     <div className="pt-28">
       <h1 className="text-4xl text-white">Got a promo code?</h1>
-      <form action="" className="m-auto flex max-w-96 py-10">
+      <form action={enterCode} className="m-auto flex max-w-96 py-10">
         <input
-          className="mx-2 w-full rounded p-2"
+          className="mx-2 w-full rounded p-2 uppercase"
           placeholder="Code"
           name="code"
         />
