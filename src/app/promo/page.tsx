@@ -89,6 +89,7 @@ export default function Promo({
           className="mx-2 w-full rounded p-2 uppercase"
           placeholder="Code"
           name="code"
+          defaultValue={code}
         />
         <button
           type="submit"
