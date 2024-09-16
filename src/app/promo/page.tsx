@@ -53,6 +53,9 @@ function CodeEval({ code }: { code: string }) {
         />
       )
 
+    case 'melissarenewal':
+      return redirect('https://book.stripe.com/4gweYmayO7Q78Y8eUX')
+
     default:
       return (
         <span className="text-white opacity-90">
