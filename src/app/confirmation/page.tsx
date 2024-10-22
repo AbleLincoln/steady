@@ -21,12 +21,6 @@ export default function ConfirmationPage() {
             lindsay@steadydatecoaching.com
           </a>
         </p>
-
-        <p className="mt-8 text-left opacity-50">
-          (this won&apos;t appear on the live site)
-          <br /> Lindsay: this would be a great place to put link to content
-          such as How To Prepare For Your Date Coach Session or something...
-        </p>
       </main>
     </>
   )
