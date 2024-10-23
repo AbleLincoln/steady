@@ -41,6 +41,7 @@ export const env = createEnv({
     STREAM_SECRET: z.string(),
 
     MERGENT_API_KEY: z.string(),
+    STRIPE_API_KEY: z.string(),
   },
 
   /**
@@ -80,6 +81,7 @@ export const env = createEnv({
     NEXT_PUBLIC_STREAM_KEY: process.env.NEXT_PUBLIC_STREAM_KEY,
     STREAM_SECRET: process.env.STREAM_SECRET,
     MERGENT_API_KEY: process.env.MERGENT_API_KEY,
+    STRIPE_API_KEY: process.env.STRIPE_API_KEY,
   },
   /**
    * Run `build` or `dev` with `SKIP_ENV_VALIDATION` to skip env validation. This is especially
