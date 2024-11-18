@@ -18,7 +18,7 @@ export default function Contact() {
     const name = formData.get('name') as string
     const message = formData.get('message') as string
 
-    const text = `${name} sent you a message:\n\n${message}`
+    const text = message
 
     try {
       // validate
@@ -30,7 +30,7 @@ export default function Contact() {
         from: env.EMAIL_FROM,
         reply_to: email,
         to: 'lindsay@steadydatecoaching.com',
-        subject: 'Contact Form Submission',
+        subject: `${name} sent you a message`,
         text,
       })
 
